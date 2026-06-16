@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_charge_master_cashier,charge.master.cashier,model_mediflow_charge_master,mediflow.group_mediflow_cashier,1,0,0,0
+access_charge_master_doctor,charge.master.doctor,model_mediflow_charge_master,mediflow.group_mediflow_doctor,1,0,0,0
+access_charge_master_manager,charge.master.manager,model_mediflow_charge_master,mediflow.group_mediflow_clinic_manager,1,1,1,0
+access_charge_master_admin,charge.master.admin,model_mediflow_charge_master,mediflow.group_mediflow_admin,1,1,1,1
+access_charge_item_cashier,charge.item.cashier,model_mediflow_charge_item,mediflow.group_mediflow_cashier,1,1,1,0
+access_charge_item_doctor,charge.item.doctor,model_mediflow_charge_item,mediflow.group_mediflow_doctor,1,1,1,0
+access_charge_item_nurse,charge.item.nurse,model_mediflow_charge_item,mediflow.group_mediflow_nurse,1,1,1,0
+access_charge_item_pharmacist,charge.item.pharmacist,model_mediflow_charge_item,mediflow.group_mediflow_pharmacist,1,1,1,0
+access_charge_item_labtech,charge.item.labtech,model_mediflow_charge_item,mediflow.group_mediflow_lab_tech,1,1,1,0
+access_charge_item_manager,charge.item.manager,model_mediflow_charge_item,mediflow.group_mediflow_clinic_manager,1,1,1,0
+access_charge_item_admin,charge.item.admin,model_mediflow_charge_item,mediflow.group_mediflow_admin,1,1,1,1

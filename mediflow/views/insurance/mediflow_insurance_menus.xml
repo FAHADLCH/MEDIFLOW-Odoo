@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_mediflow_insurance_root"
+              name="Insurance"
+              parent="mediflow.menu_mediflow_root"
+              sequence="80"
+              groups="mediflow.group_mediflow_insurance"/>
+
+    <menuitem id="menu_mediflow_claims"
+              name="Claims"
+              parent="menu_mediflow_insurance_root"
+              action="action_mediflow_claim"
+              sequence="10"/>
+
+    <menuitem id="menu_mediflow_preauth"
+              name="Pre-Authorizations"
+              parent="menu_mediflow_insurance_root"
+              action="action_mediflow_preauth"
+              sequence="20"/>
+
+    <menuitem id="menu_mediflow_coverages"
+              name="Coverages"
+              parent="menu_mediflow_insurance_root"
+              action="action_mediflow_coverage"
+              sequence="30"/>
+
+    <menuitem id="menu_mediflow_payers"
+              name="Payers"
+              parent="menu_mediflow_insurance_root"
+              action="action_mediflow_payer"
+              sequence="40"/>
+
+</odoo>

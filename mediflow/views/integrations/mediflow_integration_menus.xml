@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_mediflow_integration_root"
+              name="Integrations"
+              parent="mediflow.menu_mediflow_config"
+              sequence="100"
+              groups="mediflow.group_mediflow_admin,mediflow.group_mediflow_clinic_manager"/>
+
+    <menuitem id="menu_mediflow_integration"
+              name="Connectors"
+              parent="menu_mediflow_integration_root"
+              action="action_mediflow_integration"
+              sequence="10"/>
+
+    <menuitem id="menu_mediflow_integration_message"
+              name="Inbound Messages"
+              parent="menu_mediflow_integration_root"
+              action="action_mediflow_integration_message"
+              sequence="20"/>
+
+    <menuitem id="menu_mediflow_integration_log"
+              name="Integration Log"
+              parent="menu_mediflow_integration_root"
+              action="action_mediflow_integration_log"
+              sequence="30"/>
+
+</odoo>

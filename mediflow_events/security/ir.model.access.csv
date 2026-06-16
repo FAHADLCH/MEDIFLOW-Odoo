@@ -1,5 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_mediflow_event_manager,mediflow.event.manager,model_mediflow_event,mediflow_base.group_mediflow_clinic_manager,1,0,0,0
-access_mediflow_event_compliance,mediflow.event.compliance,model_mediflow_event,mediflow_base.group_mediflow_compliance,1,0,0,0
-access_mediflow_event_admin,mediflow.event.admin,model_mediflow_event,mediflow_base.group_mediflow_admin,1,1,1,1
-access_mediflow_webhook_admin,mediflow.webhook.admin,model_mediflow_webhook,mediflow_base.group_mediflow_admin,1,1,1,1

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_mediflow_pharmacy_root"
+              name="Pharmacy"
+              parent="mediflow.menu_mediflow_root"
+              sequence="50"
+              groups="mediflow.group_mediflow_pharmacist,mediflow.group_mediflow_doctor"/>
+
+    <menuitem id="menu_mediflow_prescriptions"
+              name="Prescriptions"
+              parent="menu_mediflow_pharmacy_root"
+              action="action_mediflow_prescription"
+              sequence="10"/>
+
+    <menuitem id="menu_mediflow_dispenses"
+              name="Dispenses"
+              parent="menu_mediflow_pharmacy_root"
+              action="action_mediflow_dispense"
+              sequence="20"
+              groups="mediflow.group_mediflow_pharmacist"/>
+
+</odoo>

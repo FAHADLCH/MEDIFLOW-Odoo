@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        Defense-in-depth record rules. The portal controllers already run under
+        sudo() and constrain every query to the resolved patient, but these rules
+        guarantee that even a direct (non-sudo) ORM access from a portal user is
+        limited to their own records. Internal users keep full access.
+    -->
+
+    <record id="rule_portal_patient_own" model="ir.rule">
+        <field name="name">Portal: own patient only</field>
+        <field name="model_id" ref="mediflow.model_mediflow_patient"/>
+        <field name="domain_force">[
+            '|',
+                ('portal_user_id', '=', user.id),
+                ('partner_id', '=', user.partner_id.id),
+        ]</field>
+        <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <record id="rule_portal_appointment_own" model="ir.rule">
+        <field name="name">Portal: own appointments only</field>
+        <field name="model_id" ref="mediflow.model_mediflow_appointment"/>
+        <field name="domain_force">[
+            '|',
+                ('patient_id.portal_user_id', '=', user.id),
+                ('patient_id.partner_id', '=', user.partner_id.id),
+        ]</field>
+        <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <record id="rule_portal_lab_result_own" model="ir.rule">
+        <field name="name">Portal: own released lab results only</field>
+        <field name="model_id" ref="mediflow.model_mediflow_lab_result"/>
+        <field name="domain_force">[
+            '&amp;',
+                ('state', '=', 'released'),
+                '|',
+                    ('patient_id.portal_user_id', '=', user.id),
+                    ('patient_id.partner_id', '=', user.partner_id.id),
+        ]</field>
+        <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <record id="rule_portal_consent_own" model="ir.rule">
+        <field name="name">Portal: own consents only</field>
+        <field name="model_id" ref="mediflow.model_mediflow_consent"/>
+        <field name="domain_force">[
+            '|',
+                ('patient_id.portal_user_id', '=', user.id),
+                ('patient_id.partner_id', '=', user.partner_id.id),
+        ]</field>
+        <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+</odoo>

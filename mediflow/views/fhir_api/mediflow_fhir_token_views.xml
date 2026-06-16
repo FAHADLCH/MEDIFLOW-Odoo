@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mediflow_fhir_token_list" model="ir.ui.view">
+        <field name="name">mediflow.fhir.token.list</field>
+        <field name="model">mediflow.fhir.token</field>
+        <field name="arch" type="xml">
+            <list string="FHIR Tokens">
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="scope"/>
+                <field name="expires_at"/>
+                <field name="last_used_at"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mediflow_fhir_token_form" model="ir.ui.view">
+        <field name="name">mediflow.fhir.token.form</field>
+        <field name="model">mediflow.fhir.token</field>
+        <field name="arch" type="xml">
+            <form string="FHIR Token">
+                <header>
+                    <button name="action_generate" type="object"
+                            string="Regenerate Token" class="btn-primary"
+                            confirm="Regenerating invalidates the previous token. Continue?"/>
+                    <button name="action_revoke" type="object" string="Revoke"
+                            invisible="not active"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="e.g. Lab Integration"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="scope"/>
+                            <field name="expires_at"/>
+                        </group>
+                        <group>
+                            <field name="active"/>
+                            <field name="last_used_at"/>
+                        </group>
+                    </group>
+                    <div class="alert alert-warning" role="alert"
+                         invisible="not token_plain">
+                        <strong>Copy this token now — it will not be shown again:</strong>
+                        <div><field name="token_plain" readonly="1"/></div>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_mediflow_fhir_token" model="ir.actions.act_window">
+        <field name="name">FHIR API Tokens</field>
+        <field name="res_model">mediflow.fhir.token</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_mediflow_fhir_token"
+              name="FHIR API Tokens"
+              parent="mediflow.menu_mediflow_config"
+              action="action_mediflow_fhir_token"
+              sequence="60"
+              groups="mediflow.group_mediflow_admin"/>
+
+</odoo>

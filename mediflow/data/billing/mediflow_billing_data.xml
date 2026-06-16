@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- Multi-currency is a first-class standard in MEDIFLOW: clinics bill,
+         insure and report across currencies out of the box. Granting the core
+         multi-currency group to billing roles surfaces the currency fields on
+         invoices, charges and claims without any manual setup. -->
+    <record id="mediflow.group_mediflow_cashier" model="res.groups">
+        <field name="implied_ids" eval="[(4, ref('base.group_multi_currency'))]"/>
+    </record>
+
+    <record id="mediflow.group_mediflow_clinic_manager" model="res.groups">
+        <field name="implied_ids" eval="[(4, ref('base.group_multi_currency'))]"/>
+    </record>
+
+    <!-- Default global service catalog entries (company_id unset = shared) -->
+    <record id="charge_master_consultation" model="mediflow.charge.master">
+        <field name="name">General Consultation</field>
+        <field name="code">CONS-GEN</field>
+        <field name="category">consultation</field>
+        <field name="price">50.0</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="charge_master_followup" model="mediflow.charge.master">
+        <field name="name">Follow-up Consultation</field>
+        <field name="code">CONS-FU</field>
+        <field name="category">consultation</field>
+        <field name="price">30.0</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+</odoo>

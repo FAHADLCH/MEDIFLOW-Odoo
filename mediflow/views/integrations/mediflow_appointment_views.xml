@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mediflow_appointment_form_integrations" model="ir.ui.view">
+        <field name="name">mediflow.appointment.form.integrations</field>
+        <field name="model">mediflow.appointment</field>
+        <field name="inherit_id" ref="mediflow.view_mediflow_appointment_form"/>
+        <field name="arch" type="xml">
+            <button name="action_no_show" position="after">
+                <button name="action_mf_generate_video" type="object"
+                        string="Telehealth Link" class="btn-secondary"
+                        invisible="state in ('completed','cancelled','no_show')"/>
+                <button name="action_mf_send_reminder" type="object"
+                        string="Send Reminder" class="btn-secondary"
+                        invisible="state in ('completed','cancelled','no_show')"/>
+            </button>
+            <field name="encounter_id" position="after">
+                <field name="mf_video_url" widget="url" invisible="not mf_video_url"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_queue_reception,queue.reception,model_mediflow_queue,mediflow.group_mediflow_reception,1,1,1,0
+access_queue_doctor,queue.doctor,model_mediflow_queue,mediflow.group_mediflow_doctor,1,0,0,0
+access_queue_labtech,queue.labtech,model_mediflow_queue,mediflow.group_mediflow_lab_tech,1,0,0,0
+access_queue_pharmacist,queue.pharmacist,model_mediflow_queue,mediflow.group_mediflow_pharmacist,1,0,0,0
+access_queue_admin,queue.admin,model_mediflow_queue,mediflow.group_mediflow_admin,1,1,1,1
+access_queue_entry_reception,queue.entry.reception,model_mediflow_queue_entry,mediflow.group_mediflow_reception,1,1,1,0
+access_queue_entry_nurse,queue.entry.nurse,model_mediflow_queue_entry,mediflow.group_mediflow_nurse,1,1,1,0
+access_queue_entry_doctor,queue.entry.doctor,model_mediflow_queue_entry,mediflow.group_mediflow_doctor,1,1,0,0
+access_queue_entry_labtech,queue.entry.labtech,model_mediflow_queue_entry,mediflow.group_mediflow_lab_tech,1,1,1,0
+access_queue_entry_pharmacist,queue.entry.pharmacist,model_mediflow_queue_entry,mediflow.group_mediflow_pharmacist,1,1,1,0
+access_queue_entry_admin,queue.entry.admin,model_mediflow_queue_entry,mediflow.group_mediflow_admin,1,1,1,1

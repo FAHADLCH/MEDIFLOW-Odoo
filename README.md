@@ -10,7 +10,8 @@ One platform — front desk to lab bench to revenue cycle. Multi-currency and
 global-ready, on a secure, audited, FHIR-ready foundation.
 
 ![Odoo](https://img.shields.io/badge/Odoo-18.0%20%26%2019.0-714B67)
-![License](https://img.shields.io/badge/License-LGPL--3-blue)
+![License](https://img.shields.io/badge/License-OPL--1-E5232A)
+![Price](https://img.shields.io/badge/Price-%2420-21C7A8)
 ![Multi-currency](https://img.shields.io/badge/Multi--currency-standard-1B5E7E)
 ![Status](https://img.shields.io/badge/status-production%20ready-21C7A8)
 
@@ -48,31 +49,30 @@ full revenue cycle — without bolting together a dozen disconnected apps.
 | 📊 **Analytics** | Operational, clinical and revenue dashboards computed in PostgreSQL views, isolated per company. |
 | ⚡ **Integrations** | HMAC-signed webhooks, durable domain events, Stripe payment links, Twilio SMS/WhatsApp reminders, telehealth rooms and an authenticated HL7 inbound endpoint. |
 
-## Modules
+## One application
 
-MEDIFLOW ships as one **`mediflow`** umbrella application that installs the full
-suite. The functional modules can also be installed individually.
+MEDIFLOW ships as a **single `mediflow` application**. One install delivers the
+complete suite below — no add-on hunting, no inter-module version juggling. The
+capabilities are organized internally as cohesive domains:
 
-| Module | Purpose |
-|--------|---------|
-| `mediflow` | Umbrella application — installs the complete suite. |
-| `mediflow_base` | Core patient/practitioner master data, security groups, audit. |
-| `mediflow_events` | Durable domain events backbone. |
-| `mediflow_emr` | Encounters, problems, allergies, vitals, immunizations, consent. |
-| `mediflow_appointment` | Resource-based scheduling with double-booking guard. |
-| `mediflow_lab` | LOINC catalog, orders, specimens, verified results. |
-| `mediflow_inventory_ext` | Healthcare extensions to Odoo Inventory (lots, expiry). |
-| `mediflow_pharmacy` | Prescriptions, dispensing, allergy/interaction checks. |
-| `mediflow_billing` | Charge master &amp; capture into Odoo Accounting. |
-| `mediflow_insurance` | Payers, coverage, pre-auth, claim lifecycle. |
-| `mediflow_queue` | Token queue with live waiting board. |
-| `mediflow_portal` | Patient self-service portal. |
-| `mediflow_fhir_api` | FHIR R4 read API, consent-gated. |
-| `mediflow_analytics` | Operational, clinical &amp; revenue dashboards. |
-| `mediflow_localization` | Region profiles + multi-currency enablement. |
-| `mediflow_integrations` | Webhooks, Stripe, Twilio, telehealth, HL7 inbound. |
-| `mediflow_ai` | Safety-first predictive &amp; narrative assistance. |
-| `mediflow_theme` | Branded login &amp; backend chrome. |
+| Domain | Coverage |
+|--------|----------|
+| Core &amp; security | Patient/practitioner master data, security groups, PHI audit. |
+| Domain events | Durable event backbone powering automation &amp; integrations. |
+| EMR | Encounters, problems, allergies, vitals, immunizations, consent. |
+| Scheduling | Resource-based booking with a double-booking guard. |
+| Laboratory | LOINC catalog, orders, specimens, verified results. |
+| Pharmacy &amp; inventory | Prescriptions, dispensing, FEFO, expiry-aware stock. |
+| Billing | Charge master &amp; capture into Odoo Accounting. |
+| Insurance | Payers, coverage, pre-auth, claim lifecycle. |
+| Queue | Token queue with live waiting board. |
+| Portal | Patient self-service portal. |
+| FHIR R4 API | Consent-gated read API. |
+| Analytics | Operational, clinical &amp; revenue dashboards. |
+| Localization | Region profiles + multi-currency enablement. |
+| Integrations | Webhooks, Stripe, Twilio, telehealth, HL7 inbound. |
+| AI Assist | Safety-first predictive &amp; narrative assistance. |
+| Theme | Branded login &amp; backend chrome. |
 
 ## Security &amp; compliance
 
@@ -90,7 +90,7 @@ Requires [Docker Desktop](https://docs.docker.com/get-docker/).
 # 1. Boot Odoo 18 + PostgreSQL (project: mediflow, web on :8090)
 ./start-test.sh up
 
-# 2. Install the MEDIFLOW umbrella (pulls in every module)
+# 2. Install the MEDIFLOW application
 ./start-test.sh install
 
 # 3. Open the app
@@ -113,7 +113,7 @@ Other handy subcommands:
 
 ## Manual install
 
-1. Copy this repository's `mediflow*` module folders onto your Odoo `addons_path`.
+1. Copy the `mediflow` module folder onto your Odoo `addons_path`.
 2. Copy `config/odoo.conf.example` to `config/odoo.conf` and set a real
    `admin_passwd` and `db_password`.
 3. Update the apps list and install the **MEDIFLOW** application from
@@ -134,9 +134,11 @@ series-agnostic codebase. Built on pure Odoo core (`base`, `mail`, `contacts`,
 external Python dependencies** — deploys on Odoo.sh and on-premise alike.
 Optional Stripe and Twilio connectors activate only when configured.
 
-## License
+## License &amp; pricing
 
-Licensed under the [GNU LGPL-3](LICENSE).
+Commercial software licensed under the [Odoo Proprietary License v1.0 (OPL-1)](LICENSE).
+Available on the Odoo App Store for **$20**. A valid purchased license is
+required to run the Software.
 
 ---
 
