@@ -147,6 +147,32 @@ def _placed_mark(target_w: float, x: float, y: float, **kw) -> tuple[str, float]
     return svg, MARK_H * sc
 
 
+def _hex_field(x0: float, y0: float, x1: float, y1: float, r: float,
+               color: str, sw: float, opacity: float) -> str:
+    """Faint honeycomb tessellation (derived from the logo motif) over a region."""
+    w = r * math.sqrt(3) / 2.0
+    vstep = 1.5 * r
+    hstep = 2 * w
+    out = [f'  <g fill="none" stroke="{color}" stroke-width="{sw}" '
+           f'opacity="{opacity}" stroke-linejoin="round">\n']
+    row = 0
+    y = y0
+    while y < y1 + r:
+        off = w if (row % 2) else 0.0
+        x = x0
+        while x < x1 + w:
+            cx, cy = x + off, y
+            pts = [(cx, cy - r), (cx + w, cy - r / 2), (cx + w, cy + r / 2),
+                   (cx, cy + r), (cx - w, cy + r / 2), (cx - w, cy - r / 2)]
+            d = "M" + " L".join(f"{px:.1f},{py:.1f}" for px, py in pts) + " Z"
+            out.append(f'    <path d="{d}"/>\n')
+            x += hstep
+        y += vstep
+        row += 1
+    out.append("  </g>\n")
+    return "".join(out)
+
+
 def gen_logo_light(dark: bool = False) -> str:
     """Primary logo: mark + lowercase wordmark."""
     mark_w = 360.0
@@ -181,94 +207,125 @@ def gen_mark_square(dark: bool = False) -> str:
 
 
 def gen_icon() -> str:
-    """512x512 rounded app icon: mark + MEDIFLOW wordmark on a light card."""
+    """512x512 rounded app icon: the logo mark + MEDIFLOW wordmark on a light card."""
     s = header(512, 512, 512, 512, "MEDIFLOW app icon")
     s += (
         '  <defs>\n'
-        '    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">\n'
+        '    <linearGradient id="card" x1="0" y1="0" x2="0.35" y2="1">\n'
         '      <stop offset="0" stop-color="#FFFFFF"/>\n'
-        '      <stop offset="1" stop-color="#F5F8FA"/>\n'
+        '      <stop offset="1" stop-color="#EEF3F7"/>\n'
         '    </linearGradient>\n'
         '    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">\n'
         '      <stop offset="0" stop-color="#E5232A"/>\n'
+        '      <stop offset="0.55" stop-color="#E5232A"/>\n'
         '      <stop offset="1" stop-color="#1B5E7E"/>\n'
         '    </linearGradient>\n'
+        '    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.55">\n'
+        '      <stop offset="0" stop-color="#E5232A" stop-opacity="0.10"/>\n'
+        '      <stop offset="1" stop-color="#E5232A" stop-opacity="0"/>\n'
+        '    </radialGradient>\n'
+        '    <clipPath id="cardclip">\n'
+        '      <rect x="16" y="16" width="480" height="480" rx="108"/>\n'
+        '    </clipPath>\n'
         '  </defs>\n'
-        '  <rect x="16" y="16" width="480" height="480" rx="104" fill="url(#card)"/>\n'
-        '  <rect x="16" y="16" width="480" height="480" rx="104" fill="none" '
-        'stroke="#E6ECF1" stroke-width="2"/>\n'
+        '  <rect x="16" y="16" width="480" height="480" rx="108" fill="url(#card)"/>\n'
     )
-    mark_w = 372.0
-    sc = mark_w / MARK_W
-    mh = MARK_H * sc
-    mark_svg, _ = _placed_mark(mark_w, (512 - mark_w) / 2, 132, grey=GREY)
+    # honeycomb texture (clipped to the card) + warm glow behind the mark
+    s += '  <g clip-path="url(#cardclip)">\n'
+    s += _hex_field(40, 40, 472, 472, 46, "#E5232A", 2.2, 0.05)
+    s += '    <rect x="16" y="16" width="480" height="480" fill="url(#glow)"/>\n'
+    s += '  </g>\n'
+    # the logo mark, centred in the upper area
+    mark_w = 380.0
+    mark_svg, _ = _placed_mark(mark_w, (512 - mark_w) / 2, 128, grey=GREY)
     s += mark_svg
-    s += ('  <rect x="120" y="372" width="272" height="6" rx="3" '
-          'fill="url(#accent)" opacity="0.85"/>\n')
+    # elegant centred underline
+    s += ('  <rect x="196" y="372" width="120" height="6" rx="3" '
+          'fill="url(#accent)"/>\n')
     s += (
         '  <g text-anchor="middle">\n'
-        f'    <text x="256" y="444" font-family="{WORDMARK_FONT}" font-size="62" '
+        f'    <text x="256" y="446" font-family="{WORDMARK_FONT}" font-size="64" '
         'font-weight="800" fill="#0B1F2A" letter-spacing="1">MEDI'
         '<tspan fill="#1B5E7E" font-weight="600">FLOW</tspan></text>\n'
-        f'    <text x="256" y="478" font-family="{WORDMARK_FONT}" font-size="19" '
-        'font-weight="700" fill="#5B7282" letter-spacing="4">BY SA SYSTEMS</text>\n'
+        f'    <text x="256" y="480" font-family="{WORDMARK_FONT}" font-size="19" '
+        'font-weight="700" fill="#5B7282" letter-spacing="4.5">BY SA SYSTEMS</text>\n'
         '  </g>\n'
+        '  <rect x="16" y="16" width="480" height="480" rx="108" fill="none" '
+        'stroke="#E2E8EE" stroke-width="2"/>\n'
     )
     s += "</svg>\n"
     return s
 
 
 def gen_banner() -> str:
-    """1200x1200 square store banner."""
+    """1200x1200 square store banner, derived from the logo."""
     s = header(1200, 1200, 1200, 1200, "MEDIFLOW store banner")
     s += (
         '  <defs>\n'
         '    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">\n'
-        '      <stop offset="0" stop-color="#0B1F2A"/>\n'
-        '      <stop offset="0.55" stop-color="#123747"/>\n'
+        '      <stop offset="0" stop-color="#08171F"/>\n'
+        '      <stop offset="0.52" stop-color="#123747"/>\n'
         '      <stop offset="1" stop-color="#1B5E7E"/>\n'
         '    </linearGradient>\n'
         '    <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">\n'
         '      <stop offset="0" stop-color="#E5232A"/>\n'
         '      <stop offset="1" stop-color="#21C7A8"/>\n'
         '    </linearGradient>\n'
+        '    <radialGradient id="warm" cx="0.5" cy="0.5" r="0.5">\n'
+        '      <stop offset="0" stop-color="#E5232A" stop-opacity="0.30"/>\n'
+        '      <stop offset="1" stop-color="#E5232A" stop-opacity="0"/>\n'
+        '    </radialGradient>\n'
+        '    <linearGradient id="chip" x1="0" y1="0" x2="0" y2="1">\n'
+        '      <stop offset="0" stop-color="#FFFFFF"/>\n'
+        '      <stop offset="1" stop-color="#EDF2F6"/>\n'
+        '    </linearGradient>\n'
         '  </defs>\n'
         '  <rect width="1200" height="1200" fill="url(#sky)"/>\n'
     )
-    # faint watermark mark, lower-right
-    wm, _ = _placed_mark(820, 470, 560, red="#FFFFFF", grey="#FFFFFF")
+    # full-bleed honeycomb texture derived from the logo
+    s += _hex_field(-60, -60, 1260, 1260, 86, "#FFFFFF", 2.4, 0.04)
+    # warm glow behind the brand chip
+    s += '  <circle cx="266" cy="348" r="360" fill="url(#warm)"/>\n'
+    # faint oversized watermark mark, lower-right
+    wm, _ = _placed_mark(900, 470, 560, red="#FFFFFF", grey="#FFFFFF")
     s += f'  <g opacity="0.05">\n{wm}  </g>\n'
     # white brand chip holding the mark
-    s += '  <rect x="150" y="232" width="232" height="232" rx="46" fill="#FFFFFF"/>\n'
-    chip, _ = _placed_mark(176, 178, 320, grey=GREY)
+    s += ('  <rect x="150" y="232" width="232" height="232" rx="50" '
+          'fill="url(#chip)" stroke="#FFFFFF" stroke-opacity="0.6" stroke-width="2"/>\n')
+    chip, _ = _placed_mark(178, 177, 322, grey=GREY)
     s += chip
     # product wordmark
     s += (
         '  <g font-family="' + WORDMARK_FONT + '">\n'
-        '    <text x="430" y="330" font-size="120" font-weight="800" fill="#FFFFFF" '
+        '    <text x="430" y="330" font-size="124" font-weight="800" fill="#FFFFFF" '
         'letter-spacing="1">MEDI<tspan fill="#7FD4EC" font-weight="600">FLOW</tspan></text>\n'
-        '    <text x="434" y="386" font-size="34" font-weight="700" fill="#9FB4C2" '
+        '    <text x="434" y="388" font-size="34" font-weight="700" fill="#9FB4C2" '
         'letter-spacing="6">BY SA SYSTEMS</text>\n'
         '  </g>\n'
-        '  <rect x="152" y="512" width="300" height="8" rx="4" fill="url(#rule)"/>\n'
-        '  <text x="152" y="602" font-family="' + WORDMARK_FONT + '" font-size="52" '
+        '  <rect x="152" y="514" width="320" height="8" rx="4" fill="url(#rule)"/>\n'
+        '  <text x="152" y="606" font-family="' + WORDMARK_FONT + '" font-size="54" '
         'font-weight="700" fill="#EAF2F6">Clinic &amp; Diagnostics ERP</text>\n'
-        '  <text x="152" y="670" font-family="' + WORDMARK_FONT + '" font-size="34" '
+        '  <text x="152" y="672" font-family="' + WORDMARK_FONT + '" font-size="34" '
         'font-weight="400" fill="#C2D2DC">Front desk · Lab bench · Revenue cycle — one Odoo install</text>\n'
     )
     chips = ["Multi-currency", "FHIR R4", "10 region profiles", "Odoo 18 &amp; 19"]
-    x, y = 152, 742
+    x, y = 152, 748
     for c in chips:
         label_len = len(c.replace("&amp;", "&"))
         w = 38 + label_len * 19
-        s += (f'  <rect x="{x}" y="{y}" width="{w}" height="62" rx="31" '
-              'fill="none" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="2"/>\n'
-              f'  <text x="{x + w/2:.0f}" y="{y + 40}" text-anchor="middle" '
+        s += (f'  <rect x="{x}" y="{y}" width="{w}" height="64" rx="32" '
+              'fill="#FFFFFF" fill-opacity="0.06" stroke="#FFFFFF" '
+              'stroke-opacity="0.38" stroke-width="2"/>\n'
+              f'  <text x="{x + w/2:.0f}" y="{y + 41}" text-anchor="middle" '
               'font-family="' + WORDMARK_FONT + '" font-size="26" font-weight="600" '
               f'fill="#EAF2F6">{c}</text>\n')
         x += w + 22
         if x > 980:
-            x, y = 152, y + 86
+            x, y = 152, y + 88
+    # brand footer
+    s += ('  <text x="152" y="1060" font-family="' + WORDMARK_FONT + '" '
+          'font-size="30" font-weight="600" fill="#7FB0C4" '
+          'letter-spacing="1">sasystems.solutions</text>\n')
     s += "</svg>\n"
     return s
 

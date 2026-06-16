@@ -3,18 +3,139 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200" role="img" aria-label="SA Systems">
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0B1F2A"/>
-      <stop offset="0.55" stop-color="#123747"/>
+      <stop offset="0" stop-color="#08171F"/>
+      <stop offset="0.52" stop-color="#123747"/>
       <stop offset="1" stop-color="#1B5E7E"/>
     </linearGradient>
     <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#E5232A"/>
       <stop offset="1" stop-color="#21C7A8"/>
     </linearGradient>
+    <radialGradient id="warm" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#E5232A" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#E5232A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="chip" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EDF2F6"/>
+    </linearGradient>
   </defs>
   <rect width="1200" height="1200" fill="url(#sky)"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="2.4" opacity="0.04" stroke-linejoin="round">
+    <path d="M-60.0,-146.0 L14.5,-103.0 L14.5,-17.0 L-60.0,26.0 L-134.5,-17.0 L-134.5,-103.0 Z"/>
+    <path d="M89.0,-146.0 L163.4,-103.0 L163.4,-17.0 L89.0,26.0 L14.5,-17.0 L14.5,-103.0 Z"/>
+    <path d="M237.9,-146.0 L312.4,-103.0 L312.4,-17.0 L237.9,26.0 L163.4,-17.0 L163.4,-103.0 Z"/>
+    <path d="M386.9,-146.0 L461.3,-103.0 L461.3,-17.0 L386.9,26.0 L312.4,-17.0 L312.4,-103.0 Z"/>
+    <path d="M535.8,-146.0 L610.3,-103.0 L610.3,-17.0 L535.8,26.0 L461.3,-17.0 L461.3,-103.0 Z"/>
+    <path d="M684.8,-146.0 L759.3,-103.0 L759.3,-17.0 L684.8,26.0 L610.3,-17.0 L610.3,-103.0 Z"/>
+    <path d="M833.7,-146.0 L908.2,-103.0 L908.2,-17.0 L833.7,26.0 L759.3,-17.0 L759.3,-103.0 Z"/>
+    <path d="M982.7,-146.0 L1057.2,-103.0 L1057.2,-17.0 L982.7,26.0 L908.2,-17.0 L908.2,-103.0 Z"/>
+    <path d="M1131.7,-146.0 L1206.1,-103.0 L1206.1,-17.0 L1131.7,26.0 L1057.2,-17.0 L1057.2,-103.0 Z"/>
+    <path d="M1280.6,-146.0 L1355.1,-103.0 L1355.1,-17.0 L1280.6,26.0 L1206.1,-17.0 L1206.1,-103.0 Z"/>
+    <path d="M14.5,-17.0 L89.0,26.0 L89.0,112.0 L14.5,155.0 L-60.0,112.0 L-60.0,26.0 Z"/>
+    <path d="M163.4,-17.0 L237.9,26.0 L237.9,112.0 L163.4,155.0 L89.0,112.0 L89.0,26.0 Z"/>
+    <path d="M312.4,-17.0 L386.9,26.0 L386.9,112.0 L312.4,155.0 L237.9,112.0 L237.9,26.0 Z"/>
+    <path d="M461.3,-17.0 L535.8,26.0 L535.8,112.0 L461.3,155.0 L386.9,112.0 L386.9,26.0 Z"/>
+    <path d="M610.3,-17.0 L684.8,26.0 L684.8,112.0 L610.3,155.0 L535.8,112.0 L535.8,26.0 Z"/>
+    <path d="M759.3,-17.0 L833.7,26.0 L833.7,112.0 L759.3,155.0 L684.8,112.0 L684.8,26.0 Z"/>
+    <path d="M908.2,-17.0 L982.7,26.0 L982.7,112.0 L908.2,155.0 L833.7,112.0 L833.7,26.0 Z"/>
+    <path d="M1057.2,-17.0 L1131.7,26.0 L1131.7,112.0 L1057.2,155.0 L982.7,112.0 L982.7,26.0 Z"/>
+    <path d="M1206.1,-17.0 L1280.6,26.0 L1280.6,112.0 L1206.1,155.0 L1131.7,112.0 L1131.7,26.0 Z"/>
+    <path d="M1355.1,-17.0 L1429.6,26.0 L1429.6,112.0 L1355.1,155.0 L1280.6,112.0 L1280.6,26.0 Z"/>
+    <path d="M-60.0,112.0 L14.5,155.0 L14.5,241.0 L-60.0,284.0 L-134.5,241.0 L-134.5,155.0 Z"/>
+    <path d="M89.0,112.0 L163.4,155.0 L163.4,241.0 L89.0,284.0 L14.5,241.0 L14.5,155.0 Z"/>
+    <path d="M237.9,112.0 L312.4,155.0 L312.4,241.0 L237.9,284.0 L163.4,241.0 L163.4,155.0 Z"/>
+    <path d="M386.9,112.0 L461.3,155.0 L461.3,241.0 L386.9,284.0 L312.4,241.0 L312.4,155.0 Z"/>
+    <path d="M535.8,112.0 L610.3,155.0 L610.3,241.0 L535.8,284.0 L461.3,241.0 L461.3,155.0 Z"/>
+    <path d="M684.8,112.0 L759.3,155.0 L759.3,241.0 L684.8,284.0 L610.3,241.0 L610.3,155.0 Z"/>
+    <path d="M833.7,112.0 L908.2,155.0 L908.2,241.0 L833.7,284.0 L759.3,241.0 L759.3,155.0 Z"/>
+    <path d="M982.7,112.0 L1057.2,155.0 L1057.2,241.0 L982.7,284.0 L908.2,241.0 L908.2,155.0 Z"/>
+    <path d="M1131.7,112.0 L1206.1,155.0 L1206.1,241.0 L1131.7,284.0 L1057.2,241.0 L1057.2,155.0 Z"/>
+    <path d="M1280.6,112.0 L1355.1,155.0 L1355.1,241.0 L1280.6,284.0 L1206.1,241.0 L1206.1,155.0 Z"/>
+    <path d="M14.5,241.0 L89.0,284.0 L89.0,370.0 L14.5,413.0 L-60.0,370.0 L-60.0,284.0 Z"/>
+    <path d="M163.4,241.0 L237.9,284.0 L237.9,370.0 L163.4,413.0 L89.0,370.0 L89.0,284.0 Z"/>
+    <path d="M312.4,241.0 L386.9,284.0 L386.9,370.0 L312.4,413.0 L237.9,370.0 L237.9,284.0 Z"/>
+    <path d="M461.3,241.0 L535.8,284.0 L535.8,370.0 L461.3,413.0 L386.9,370.0 L386.9,284.0 Z"/>
+    <path d="M610.3,241.0 L684.8,284.0 L684.8,370.0 L610.3,413.0 L535.8,370.0 L535.8,284.0 Z"/>
+    <path d="M759.3,241.0 L833.7,284.0 L833.7,370.0 L759.3,413.0 L684.8,370.0 L684.8,284.0 Z"/>
+    <path d="M908.2,241.0 L982.7,284.0 L982.7,370.0 L908.2,413.0 L833.7,370.0 L833.7,284.0 Z"/>
+    <path d="M1057.2,241.0 L1131.7,284.0 L1131.7,370.0 L1057.2,413.0 L982.7,370.0 L982.7,284.0 Z"/>
+    <path d="M1206.1,241.0 L1280.6,284.0 L1280.6,370.0 L1206.1,413.0 L1131.7,370.0 L1131.7,284.0 Z"/>
+    <path d="M1355.1,241.0 L1429.6,284.0 L1429.6,370.0 L1355.1,413.0 L1280.6,370.0 L1280.6,284.0 Z"/>
+    <path d="M-60.0,370.0 L14.5,413.0 L14.5,499.0 L-60.0,542.0 L-134.5,499.0 L-134.5,413.0 Z"/>
+    <path d="M89.0,370.0 L163.4,413.0 L163.4,499.0 L89.0,542.0 L14.5,499.0 L14.5,413.0 Z"/>
+    <path d="M237.9,370.0 L312.4,413.0 L312.4,499.0 L237.9,542.0 L163.4,499.0 L163.4,413.0 Z"/>
+    <path d="M386.9,370.0 L461.3,413.0 L461.3,499.0 L386.9,542.0 L312.4,499.0 L312.4,413.0 Z"/>
+    <path d="M535.8,370.0 L610.3,413.0 L610.3,499.0 L535.8,542.0 L461.3,499.0 L461.3,413.0 Z"/>
+    <path d="M684.8,370.0 L759.3,413.0 L759.3,499.0 L684.8,542.0 L610.3,499.0 L610.3,413.0 Z"/>
+    <path d="M833.7,370.0 L908.2,413.0 L908.2,499.0 L833.7,542.0 L759.3,499.0 L759.3,413.0 Z"/>
+    <path d="M982.7,370.0 L1057.2,413.0 L1057.2,499.0 L982.7,542.0 L908.2,499.0 L908.2,413.0 Z"/>
+    <path d="M1131.7,370.0 L1206.1,413.0 L1206.1,499.0 L1131.7,542.0 L1057.2,499.0 L1057.2,413.0 Z"/>
+    <path d="M1280.6,370.0 L1355.1,413.0 L1355.1,499.0 L1280.6,542.0 L1206.1,499.0 L1206.1,413.0 Z"/>
+    <path d="M14.5,499.0 L89.0,542.0 L89.0,628.0 L14.5,671.0 L-60.0,628.0 L-60.0,542.0 Z"/>
+    <path d="M163.4,499.0 L237.9,542.0 L237.9,628.0 L163.4,671.0 L89.0,628.0 L89.0,542.0 Z"/>
+    <path d="M312.4,499.0 L386.9,542.0 L386.9,628.0 L312.4,671.0 L237.9,628.0 L237.9,542.0 Z"/>
+    <path d="M461.3,499.0 L535.8,542.0 L535.8,628.0 L461.3,671.0 L386.9,628.0 L386.9,542.0 Z"/>
+    <path d="M610.3,499.0 L684.8,542.0 L684.8,628.0 L610.3,671.0 L535.8,628.0 L535.8,542.0 Z"/>
+    <path d="M759.3,499.0 L833.7,542.0 L833.7,628.0 L759.3,671.0 L684.8,628.0 L684.8,542.0 Z"/>
+    <path d="M908.2,499.0 L982.7,542.0 L982.7,628.0 L908.2,671.0 L833.7,628.0 L833.7,542.0 Z"/>
+    <path d="M1057.2,499.0 L1131.7,542.0 L1131.7,628.0 L1057.2,671.0 L982.7,628.0 L982.7,542.0 Z"/>
+    <path d="M1206.1,499.0 L1280.6,542.0 L1280.6,628.0 L1206.1,671.0 L1131.7,628.0 L1131.7,542.0 Z"/>
+    <path d="M1355.1,499.0 L1429.6,542.0 L1429.6,628.0 L1355.1,671.0 L1280.6,628.0 L1280.6,542.0 Z"/>
+    <path d="M-60.0,628.0 L14.5,671.0 L14.5,757.0 L-60.0,800.0 L-134.5,757.0 L-134.5,671.0 Z"/>
+    <path d="M89.0,628.0 L163.4,671.0 L163.4,757.0 L89.0,800.0 L14.5,757.0 L14.5,671.0 Z"/>
+    <path d="M237.9,628.0 L312.4,671.0 L312.4,757.0 L237.9,800.0 L163.4,757.0 L163.4,671.0 Z"/>
+    <path d="M386.9,628.0 L461.3,671.0 L461.3,757.0 L386.9,800.0 L312.4,757.0 L312.4,671.0 Z"/>
+    <path d="M535.8,628.0 L610.3,671.0 L610.3,757.0 L535.8,800.0 L461.3,757.0 L461.3,671.0 Z"/>
+    <path d="M684.8,628.0 L759.3,671.0 L759.3,757.0 L684.8,800.0 L610.3,757.0 L610.3,671.0 Z"/>
+    <path d="M833.7,628.0 L908.2,671.0 L908.2,757.0 L833.7,800.0 L759.3,757.0 L759.3,671.0 Z"/>
+    <path d="M982.7,628.0 L1057.2,671.0 L1057.2,757.0 L982.7,800.0 L908.2,757.0 L908.2,671.0 Z"/>
+    <path d="M1131.7,628.0 L1206.1,671.0 L1206.1,757.0 L1131.7,800.0 L1057.2,757.0 L1057.2,671.0 Z"/>
+    <path d="M1280.6,628.0 L1355.1,671.0 L1355.1,757.0 L1280.6,800.0 L1206.1,757.0 L1206.1,671.0 Z"/>
+    <path d="M14.5,757.0 L89.0,800.0 L89.0,886.0 L14.5,929.0 L-60.0,886.0 L-60.0,800.0 Z"/>
+    <path d="M163.4,757.0 L237.9,800.0 L237.9,886.0 L163.4,929.0 L89.0,886.0 L89.0,800.0 Z"/>
+    <path d="M312.4,757.0 L386.9,800.0 L386.9,886.0 L312.4,929.0 L237.9,886.0 L237.9,800.0 Z"/>
+    <path d="M461.3,757.0 L535.8,800.0 L535.8,886.0 L461.3,929.0 L386.9,886.0 L386.9,800.0 Z"/>
+    <path d="M610.3,757.0 L684.8,800.0 L684.8,886.0 L610.3,929.0 L535.8,886.0 L535.8,800.0 Z"/>
+    <path d="M759.3,757.0 L833.7,800.0 L833.7,886.0 L759.3,929.0 L684.8,886.0 L684.8,800.0 Z"/>
+    <path d="M908.2,757.0 L982.7,800.0 L982.7,886.0 L908.2,929.0 L833.7,886.0 L833.7,800.0 Z"/>
+    <path d="M1057.2,757.0 L1131.7,800.0 L1131.7,886.0 L1057.2,929.0 L982.7,886.0 L982.7,800.0 Z"/>
+    <path d="M1206.1,757.0 L1280.6,800.0 L1280.6,886.0 L1206.1,929.0 L1131.7,886.0 L1131.7,800.0 Z"/>
+    <path d="M1355.1,757.0 L1429.6,800.0 L1429.6,886.0 L1355.1,929.0 L1280.6,886.0 L1280.6,800.0 Z"/>
+    <path d="M-60.0,886.0 L14.5,929.0 L14.5,1015.0 L-60.0,1058.0 L-134.5,1015.0 L-134.5,929.0 Z"/>
+    <path d="M89.0,886.0 L163.4,929.0 L163.4,1015.0 L89.0,1058.0 L14.5,1015.0 L14.5,929.0 Z"/>
+    <path d="M237.9,886.0 L312.4,929.0 L312.4,1015.0 L237.9,1058.0 L163.4,1015.0 L163.4,929.0 Z"/>
+    <path d="M386.9,886.0 L461.3,929.0 L461.3,1015.0 L386.9,1058.0 L312.4,1015.0 L312.4,929.0 Z"/>
+    <path d="M535.8,886.0 L610.3,929.0 L610.3,1015.0 L535.8,1058.0 L461.3,1015.0 L461.3,929.0 Z"/>
+    <path d="M684.8,886.0 L759.3,929.0 L759.3,1015.0 L684.8,1058.0 L610.3,1015.0 L610.3,929.0 Z"/>
+    <path d="M833.7,886.0 L908.2,929.0 L908.2,1015.0 L833.7,1058.0 L759.3,1015.0 L759.3,929.0 Z"/>
+    <path d="M982.7,886.0 L1057.2,929.0 L1057.2,1015.0 L982.7,1058.0 L908.2,1015.0 L908.2,929.0 Z"/>
+    <path d="M1131.7,886.0 L1206.1,929.0 L1206.1,1015.0 L1131.7,1058.0 L1057.2,1015.0 L1057.2,929.0 Z"/>
+    <path d="M1280.6,886.0 L1355.1,929.0 L1355.1,1015.0 L1280.6,1058.0 L1206.1,1015.0 L1206.1,929.0 Z"/>
+    <path d="M14.5,1015.0 L89.0,1058.0 L89.0,1144.0 L14.5,1187.0 L-60.0,1144.0 L-60.0,1058.0 Z"/>
+    <path d="M163.4,1015.0 L237.9,1058.0 L237.9,1144.0 L163.4,1187.0 L89.0,1144.0 L89.0,1058.0 Z"/>
+    <path d="M312.4,1015.0 L386.9,1058.0 L386.9,1144.0 L312.4,1187.0 L237.9,1144.0 L237.9,1058.0 Z"/>
+    <path d="M461.3,1015.0 L535.8,1058.0 L535.8,1144.0 L461.3,1187.0 L386.9,1144.0 L386.9,1058.0 Z"/>
+    <path d="M610.3,1015.0 L684.8,1058.0 L684.8,1144.0 L610.3,1187.0 L535.8,1144.0 L535.8,1058.0 Z"/>
+    <path d="M759.3,1015.0 L833.7,1058.0 L833.7,1144.0 L759.3,1187.0 L684.8,1144.0 L684.8,1058.0 Z"/>
+    <path d="M908.2,1015.0 L982.7,1058.0 L982.7,1144.0 L908.2,1187.0 L833.7,1144.0 L833.7,1058.0 Z"/>
+    <path d="M1057.2,1015.0 L1131.7,1058.0 L1131.7,1144.0 L1057.2,1187.0 L982.7,1144.0 L982.7,1058.0 Z"/>
+    <path d="M1206.1,1015.0 L1280.6,1058.0 L1280.6,1144.0 L1206.1,1187.0 L1131.7,1144.0 L1131.7,1058.0 Z"/>
+    <path d="M1355.1,1015.0 L1429.6,1058.0 L1429.6,1144.0 L1355.1,1187.0 L1280.6,1144.0 L1280.6,1058.0 Z"/>
+    <path d="M-60.0,1144.0 L14.5,1187.0 L14.5,1273.0 L-60.0,1316.0 L-134.5,1273.0 L-134.5,1187.0 Z"/>
+    <path d="M89.0,1144.0 L163.4,1187.0 L163.4,1273.0 L89.0,1316.0 L14.5,1273.0 L14.5,1187.0 Z"/>
+    <path d="M237.9,1144.0 L312.4,1187.0 L312.4,1273.0 L237.9,1316.0 L163.4,1273.0 L163.4,1187.0 Z"/>
+    <path d="M386.9,1144.0 L461.3,1187.0 L461.3,1273.0 L386.9,1316.0 L312.4,1273.0 L312.4,1187.0 Z"/>
+    <path d="M535.8,1144.0 L610.3,1187.0 L610.3,1273.0 L535.8,1316.0 L461.3,1273.0 L461.3,1187.0 Z"/>
+    <path d="M684.8,1144.0 L759.3,1187.0 L759.3,1273.0 L684.8,1316.0 L610.3,1273.0 L610.3,1187.0 Z"/>
+    <path d="M833.7,1144.0 L908.2,1187.0 L908.2,1273.0 L833.7,1316.0 L759.3,1273.0 L759.3,1187.0 Z"/>
+    <path d="M982.7,1144.0 L1057.2,1187.0 L1057.2,1273.0 L982.7,1316.0 L908.2,1273.0 L908.2,1187.0 Z"/>
+    <path d="M1131.7,1144.0 L1206.1,1187.0 L1206.1,1273.0 L1131.7,1316.0 L1057.2,1273.0 L1057.2,1187.0 Z"/>
+    <path d="M1280.6,1144.0 L1355.1,1187.0 L1355.1,1273.0 L1280.6,1316.0 L1206.1,1273.0 L1206.1,1187.0 Z"/>
+  </g>
+  <circle cx="266" cy="348" r="360" fill="url(#warm)"/>
   <g opacity="0.05">
-  <g transform="translate(470.00 560.00) scale(1.5781)">
+  <g transform="translate(470.00 560.00) scale(1.7321)">
   <g transform="translate(51.96 60.00)" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <line x1="107.56" y1="-57.90" x2="152.25" y2="-32.10" stroke="#FFFFFF" stroke-width="7"/>
     <line x1="155.88" y1="-25.80" x2="155.88" y2="25.80" stroke="#FFFFFF" stroke-width="7"/>
@@ -68,8 +189,8 @@
   </g>
   </g>
   </g>
-  <rect x="150" y="232" width="232" height="232" rx="46" fill="#FFFFFF"/>
-  <g transform="translate(178.00 320.00) scale(0.3387)">
+  <rect x="150" y="232" width="232" height="232" rx="50" fill="url(#chip)" stroke="#FFFFFF" stroke-opacity="0.6" stroke-width="2"/>
+  <g transform="translate(177.00 322.00) scale(0.3426)">
   <g transform="translate(51.96 60.00)" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <line x1="107.56" y1="-57.90" x2="152.25" y2="-32.10" stroke="#D7D9DB" stroke-width="7"/>
     <line x1="155.88" y1="-25.80" x2="155.88" y2="25.80" stroke="#D7D9DB" stroke-width="7"/>
@@ -123,18 +244,19 @@
   </g>
   </g>
   <g font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif">
-    <text x="430" y="330" font-size="120" font-weight="800" fill="#FFFFFF" letter-spacing="1">MEDI<tspan fill="#7FD4EC" font-weight="600">FLOW</tspan></text>
-    <text x="434" y="386" font-size="34" font-weight="700" fill="#9FB4C2" letter-spacing="6">BY SA SYSTEMS</text>
+    <text x="430" y="330" font-size="124" font-weight="800" fill="#FFFFFF" letter-spacing="1">MEDI<tspan fill="#7FD4EC" font-weight="600">FLOW</tspan></text>
+    <text x="434" y="388" font-size="34" font-weight="700" fill="#9FB4C2" letter-spacing="6">BY SA SYSTEMS</text>
   </g>
-  <rect x="152" y="512" width="300" height="8" rx="4" fill="url(#rule)"/>
-  <text x="152" y="602" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="52" font-weight="700" fill="#EAF2F6">Clinic &amp; Diagnostics ERP</text>
-  <text x="152" y="670" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="34" font-weight="400" fill="#C2D2DC">Front desk · Lab bench · Revenue cycle — one Odoo install</text>
-  <rect x="152" y="742" width="304" height="62" rx="31" fill="none" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="2"/>
-  <text x="304" y="782" text-anchor="middle" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="26" font-weight="600" fill="#EAF2F6">Multi-currency</text>
-  <rect x="478" y="742" width="171" height="62" rx="31" fill="none" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="2"/>
-  <text x="564" y="782" text-anchor="middle" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="26" font-weight="600" fill="#EAF2F6">FHIR R4</text>
-  <rect x="671" y="742" width="380" height="62" rx="31" fill="none" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="2"/>
-  <text x="861" y="782" text-anchor="middle" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="26" font-weight="600" fill="#EAF2F6">10 region profiles</text>
-  <rect x="152" y="828" width="266" height="62" rx="31" fill="none" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="2"/>
-  <text x="285" y="868" text-anchor="middle" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="26" font-weight="600" fill="#EAF2F6">Odoo 18 &amp; 19</text>
+  <rect x="152" y="514" width="320" height="8" rx="4" fill="url(#rule)"/>
+  <text x="152" y="606" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="54" font-weight="700" fill="#EAF2F6">Clinic &amp; Diagnostics ERP</text>
+  <text x="152" y="672" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="34" font-weight="400" fill="#C2D2DC">Front desk · Lab bench · Revenue cycle — one Odoo install</text>
+  <rect x="152" y="748" width="304" height="64" rx="32" fill="#FFFFFF" fill-opacity="0.06" stroke="#FFFFFF" stroke-opacity="0.38" stroke-width="2"/>
+  <text x="304" y="789" text-anchor="middle" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="26" font-weight="600" fill="#EAF2F6">Multi-currency</text>
+  <rect x="478" y="748" width="171" height="64" rx="32" fill="#FFFFFF" fill-opacity="0.06" stroke="#FFFFFF" stroke-opacity="0.38" stroke-width="2"/>
+  <text x="564" y="789" text-anchor="middle" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="26" font-weight="600" fill="#EAF2F6">FHIR R4</text>
+  <rect x="671" y="748" width="380" height="64" rx="32" fill="#FFFFFF" fill-opacity="0.06" stroke="#FFFFFF" stroke-opacity="0.38" stroke-width="2"/>
+  <text x="861" y="789" text-anchor="middle" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="26" font-weight="600" fill="#EAF2F6">10 region profiles</text>
+  <rect x="152" y="836" width="266" height="64" rx="32" fill="#FFFFFF" fill-opacity="0.06" stroke="#FFFFFF" stroke-opacity="0.38" stroke-width="2"/>
+  <text x="285" y="877" text-anchor="middle" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="26" font-weight="600" fill="#EAF2F6">Odoo 18 &amp; 19</text>
+  <text x="152" y="1060" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="30" font-weight="600" fill="#7FB0C4" letter-spacing="1">sasystems.solutions</text>
 </svg>
