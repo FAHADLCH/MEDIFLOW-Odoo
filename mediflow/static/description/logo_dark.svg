@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- SA Systems — mark on dark -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" width="360" height="360" role="img" aria-label="SA Systems">
-  <g transform="translate(24.00 107.95) scale(0.6004)">
+<!-- SA Systems — primary logo -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 408 286" width="408" height="286" role="img" aria-label="SA Systems">
+  <g transform="translate(24.00 24.00) scale(0.6928)">
   <g transform="translate(51.96 60.00)" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <line x1="107.56" y1="-57.90" x2="152.25" y2="-32.10" stroke="#3A3A3A" stroke-width="7"/>
     <line x1="155.88" y1="-25.80" x2="155.88" y2="25.80" stroke="#3A3A3A" stroke-width="7"/>
@@ -54,4 +54,5 @@
     <line x1="179.83" y1="60.00" x2="235.86" y2="60.00" stroke="#E5232A" stroke-width="11"/>
   </g>
   </g>
+  <text x="204" y="254" text-anchor="middle" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="74" font-weight="700" fill="#FFFFFF" letter-spacing="-1">sa systems</text>
 </svg>

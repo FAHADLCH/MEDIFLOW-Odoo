@@ -82,7 +82,7 @@ UK and the US. ISO 27001-aligned, GDPR-ready. https://www.sasystems.solutions
     "website": "https://sasystems.solutions/custom-web-app-development",
     "support": "info@sasystems.solutions",
     "license": "OPL-1",
-    "price": 20.00,
+    "price": 199.00,
     "currency": "USD",
     "category": "Healthcare",
     # Series-agnostic: a bare "2.0.0" installs on Odoo 18 and 19 alike.

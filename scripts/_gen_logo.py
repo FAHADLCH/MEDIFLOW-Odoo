@@ -177,7 +177,7 @@ def gen_logo_light(dark: bool = False) -> str:
     """Primary logo: mark + lowercase wordmark."""
     mark_w = 360.0
     pad = 24.0
-    grey = "#3A5563" if dark else GREY
+    grey = "#3A3A3A" if dark else GREY
     ink = "#FFFFFF" if dark else INK
     mark_svg, mh = _placed_mark(mark_w, pad, pad, grey=grey)
     vb_w = mark_w + pad * 2
@@ -194,7 +194,7 @@ def gen_logo_light(dark: bool = False) -> str:
 def gen_mark_square(dark: bool = False) -> str:
     """Just the honeycomb mark, centred in a square."""
     side = 360.0
-    grey = "#3A5563" if dark else GREY
+    grey = "#3A3A3A" if dark else GREY
     mark_w = side - 48
     sc = mark_w / MARK_W
     mh = MARK_H * sc
@@ -213,12 +213,11 @@ def gen_icon() -> str:
         '  <defs>\n'
         '    <linearGradient id="card" x1="0" y1="0" x2="0.35" y2="1">\n'
         '      <stop offset="0" stop-color="#FFFFFF"/>\n'
-        '      <stop offset="1" stop-color="#EEF3F7"/>\n'
+        '      <stop offset="1" stop-color="#F4F4F4"/>\n'
         '    </linearGradient>\n'
         '    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">\n'
         '      <stop offset="0" stop-color="#E5232A"/>\n'
-        '      <stop offset="0.55" stop-color="#E5232A"/>\n'
-        '      <stop offset="1" stop-color="#1B5E7E"/>\n'
+        '      <stop offset="1" stop-color="#C41E24"/>\n'
         '    </linearGradient>\n'
         '    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.55">\n'
         '      <stop offset="0" stop-color="#E5232A" stop-opacity="0.10"/>\n'
@@ -245,13 +244,13 @@ def gen_icon() -> str:
     s += (
         '  <g text-anchor="middle">\n'
         f'    <text x="256" y="446" font-family="{WORDMARK_FONT}" font-size="64" '
-        'font-weight="800" fill="#0B1F2A" letter-spacing="1">MEDI'
-        '<tspan fill="#1B5E7E" font-weight="600">FLOW</tspan></text>\n'
+        'font-weight="800" fill="#0B0B0B" letter-spacing="1">MEDI'
+        '<tspan fill="#E5232A" font-weight="600">FLOW</tspan></text>\n'
         f'    <text x="256" y="480" font-family="{WORDMARK_FONT}" font-size="19" '
-        'font-weight="700" fill="#5B7282" letter-spacing="4.5">BY SA SYSTEMS</text>\n'
+        'font-weight="700" fill="#6B6B6B" letter-spacing="4.5">BY SA SYSTEMS</text>\n'
         '  </g>\n'
         '  <rect x="16" y="16" width="480" height="480" rx="108" fill="none" '
-        'stroke="#E2E8EE" stroke-width="2"/>\n'
+        'stroke="#E6E6E6" stroke-width="2"/>\n'
     )
     s += "</svg>\n"
     return s
@@ -263,13 +262,13 @@ def gen_banner() -> str:
     s += (
         '  <defs>\n'
         '    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">\n'
-        '      <stop offset="0" stop-color="#08171F"/>\n'
-        '      <stop offset="0.52" stop-color="#123747"/>\n'
-        '      <stop offset="1" stop-color="#1B5E7E"/>\n'
+        '      <stop offset="0" stop-color="#0B0B0B"/>\n'
+        '      <stop offset="0.52" stop-color="#161616"/>\n'
+        '      <stop offset="1" stop-color="#2A0A0C"/>\n'
         '    </linearGradient>\n'
         '    <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">\n'
         '      <stop offset="0" stop-color="#E5232A"/>\n'
-        '      <stop offset="1" stop-color="#21C7A8"/>\n'
+        '      <stop offset="1" stop-color="#C41E24"/>\n'
         '    </linearGradient>\n'
         '    <radialGradient id="warm" cx="0.5" cy="0.5" r="0.5">\n'
         '      <stop offset="0" stop-color="#E5232A" stop-opacity="0.30"/>\n'
@@ -277,7 +276,7 @@ def gen_banner() -> str:
         '    </radialGradient>\n'
         '    <linearGradient id="chip" x1="0" y1="0" x2="0" y2="1">\n'
         '      <stop offset="0" stop-color="#FFFFFF"/>\n'
-        '      <stop offset="1" stop-color="#EDF2F6"/>\n'
+        '      <stop offset="1" stop-color="#F2F2F2"/>\n'
         '    </linearGradient>\n'
         '  </defs>\n'
         '  <rect width="1200" height="1200" fill="url(#sky)"/>\n'
@@ -298,15 +297,15 @@ def gen_banner() -> str:
     s += (
         '  <g font-family="' + WORDMARK_FONT + '">\n'
         '    <text x="430" y="330" font-size="124" font-weight="800" fill="#FFFFFF" '
-        'letter-spacing="1">MEDI<tspan fill="#7FD4EC" font-weight="600">FLOW</tspan></text>\n'
-        '    <text x="434" y="388" font-size="34" font-weight="700" fill="#9FB4C2" '
+        'letter-spacing="1">MEDI<tspan fill="#E5232A" font-weight="600">FLOW</tspan></text>\n'
+        '    <text x="434" y="388" font-size="34" font-weight="700" fill="#B0B0B0" '
         'letter-spacing="6">BY SA SYSTEMS</text>\n'
         '  </g>\n'
         '  <rect x="152" y="514" width="320" height="8" rx="4" fill="url(#rule)"/>\n'
         '  <text x="152" y="606" font-family="' + WORDMARK_FONT + '" font-size="54" '
-        'font-weight="700" fill="#EAF2F6">Clinic &amp; Diagnostics ERP</text>\n'
+        'font-weight="700" fill="#FFFFFF">Clinic &amp; Diagnostics ERP</text>\n'
         '  <text x="152" y="672" font-family="' + WORDMARK_FONT + '" font-size="34" '
-        'font-weight="400" fill="#C2D2DC">Front desk · Lab bench · Revenue cycle — one Odoo install</text>\n'
+        'font-weight="400" fill="#CFCFCF">Front desk · Lab bench · Revenue cycle — one Odoo install</text>\n'
     )
     chips = ["Multi-currency", "FHIR R4", "10 region profiles", "Odoo 18 &amp; 19"]
     x, y = 152, 748
@@ -324,7 +323,7 @@ def gen_banner() -> str:
             x, y = 152, y + 88
     # brand footer
     s += ('  <text x="152" y="1060" font-family="' + WORDMARK_FONT + '" '
-          'font-size="30" font-weight="600" fill="#7FB0C4" '
+          'font-size="30" font-weight="700" fill="#E5232A" '
           'letter-spacing="1">sasystems.solutions</text>\n')
     s += "</svg>\n"
     return s
@@ -336,6 +335,7 @@ if __name__ == "__main__":
     write(os.path.join(IMG, "sa_systems_mark_dark.svg"), gen_mark_square(dark=True))
     write(os.path.join(IMG, "mediflow_logo.svg"), gen_icon())
     write(os.path.join(DESC, "logo.svg"), gen_logo_light())
+    write(os.path.join(DESC, "logo_dark.svg"), gen_logo_light(dark=True))
     write(os.path.join(DESC, "mark.svg"), gen_mark_square())
     write(os.path.join(DESC, "icon.svg"), gen_icon())
     write(os.path.join(DESC, "banner.svg"), gen_banner())

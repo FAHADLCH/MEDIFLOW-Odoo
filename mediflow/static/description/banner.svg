@@ -3,13 +3,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200" role="img" aria-label="SA Systems">
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#08171F"/>
-      <stop offset="0.52" stop-color="#123747"/>
-      <stop offset="1" stop-color="#1B5E7E"/>
+      <stop offset="0" stop-color="#0B0B0B"/>
+      <stop offset="0.52" stop-color="#161616"/>
+      <stop offset="1" stop-color="#2A0A0C"/>
     </linearGradient>
     <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#E5232A"/>
-      <stop offset="1" stop-color="#21C7A8"/>
+      <stop offset="1" stop-color="#C41E24"/>
     </linearGradient>
     <radialGradient id="warm" cx="0.5" cy="0.5" r="0.5">
       <stop offset="0" stop-color="#E5232A" stop-opacity="0.30"/>
@@ -17,7 +17,7 @@
     </radialGradient>
     <linearGradient id="chip" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#FFFFFF"/>
-      <stop offset="1" stop-color="#EDF2F6"/>
+      <stop offset="1" stop-color="#F2F2F2"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="1200" fill="url(#sky)"/>
@@ -244,12 +244,12 @@
   </g>
   </g>
   <g font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif">
-    <text x="430" y="330" font-size="124" font-weight="800" fill="#FFFFFF" letter-spacing="1">MEDI<tspan fill="#7FD4EC" font-weight="600">FLOW</tspan></text>
-    <text x="434" y="388" font-size="34" font-weight="700" fill="#9FB4C2" letter-spacing="6">BY SA SYSTEMS</text>
+    <text x="430" y="330" font-size="124" font-weight="800" fill="#FFFFFF" letter-spacing="1">MEDI<tspan fill="#E5232A" font-weight="600">FLOW</tspan></text>
+    <text x="434" y="388" font-size="34" font-weight="700" fill="#B0B0B0" letter-spacing="6">BY SA SYSTEMS</text>
   </g>
   <rect x="152" y="514" width="320" height="8" rx="4" fill="url(#rule)"/>
-  <text x="152" y="606" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="54" font-weight="700" fill="#EAF2F6">Clinic &amp; Diagnostics ERP</text>
-  <text x="152" y="672" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="34" font-weight="400" fill="#C2D2DC">Front desk · Lab bench · Revenue cycle — one Odoo install</text>
+  <text x="152" y="606" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="54" font-weight="700" fill="#FFFFFF">Clinic &amp; Diagnostics ERP</text>
+  <text x="152" y="672" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="34" font-weight="400" fill="#CFCFCF">Front desk · Lab bench · Revenue cycle — one Odoo install</text>
   <rect x="152" y="748" width="304" height="64" rx="32" fill="#FFFFFF" fill-opacity="0.06" stroke="#FFFFFF" stroke-opacity="0.38" stroke-width="2"/>
   <text x="304" y="789" text-anchor="middle" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="26" font-weight="600" fill="#EAF2F6">Multi-currency</text>
   <rect x="478" y="748" width="171" height="64" rx="32" fill="#FFFFFF" fill-opacity="0.06" stroke="#FFFFFF" stroke-opacity="0.38" stroke-width="2"/>
@@ -258,5 +258,5 @@
   <text x="861" y="789" text-anchor="middle" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="26" font-weight="600" fill="#EAF2F6">10 region profiles</text>
   <rect x="152" y="836" width="266" height="64" rx="32" fill="#FFFFFF" fill-opacity="0.06" stroke="#FFFFFF" stroke-opacity="0.38" stroke-width="2"/>
   <text x="285" y="877" text-anchor="middle" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="26" font-weight="600" fill="#EAF2F6">Odoo 18 &amp; 19</text>
-  <text x="152" y="1060" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="30" font-weight="600" fill="#7FB0C4" letter-spacing="1">sasystems.solutions</text>
+  <text x="152" y="1060" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="30" font-weight="700" fill="#E5232A" letter-spacing="1">sasystems.solutions</text>
 </svg>
