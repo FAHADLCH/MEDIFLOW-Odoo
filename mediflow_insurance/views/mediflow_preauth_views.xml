@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mediflow_preauth_list" model="ir.ui.view">
+        <field name="name">mediflow.preauth.list</field>
+        <field name="model">mediflow.preauth</field>
+        <field name="arch" type="xml">
+            <list string="Pre-Authorizations">
+                <field name="name"/>
+                <field name="patient_id"/>
+                <field name="payer_id"/>
+                <field name="requested_amount"/>
+                <field name="approved_amount"/>
+                <field name="valid_until"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'approved'"
+                       decoration-danger="state == 'denied'"
+                       decoration-muted="state == 'expired'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mediflow_preauth_form" model="ir.ui.view">
+        <field name="name">mediflow.preauth.form</field>
+        <field name="model">mediflow.preauth</field>
+        <field name="arch" type="xml">
+            <form string="Pre-Authorization">
+                <header>
+                    <button name="action_approve" type="object" string="Approve"
+                            class="oe_highlight" invisible="state != 'requested'"/>
+                    <button name="action_deny" type="object" string="Deny"
+                            invisible="state != 'requested'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="requested,approved"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="patient_id" readonly="state != 'requested'"/>
+                            <field name="coverage_id" readonly="state != 'requested'"/>
+                            <field name="payer_id"/>
+                            <field name="encounter_id"/>
+                        </group>
+                        <group>
+                            <field name="request_date"/>
+                            <field name="valid_until"/>
+                            <field name="requested_amount"/>
+                            <field name="approved_amount"
+                                   invisible="state != 'approved'"/>
+                            <field name="authorization_number"
+                                   invisible="state != 'approved'"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <group string="Services">
+                        <field name="service_description" nolabel="1"/>
+                    </group>
+                    <group invisible="state != 'denied'">
+                        <field name="denial_reason"/>
+                    </group>
+                    <field name="note" placeholder="Notes..."/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_mediflow_preauth" model="ir.actions.act_window">
+        <field name="name">Pre-Authorizations</field>
+        <field name="res_model">mediflow.preauth</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

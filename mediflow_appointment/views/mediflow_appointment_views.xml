@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mediflow_appointment_tree" model="ir.ui.view">
+        <field name="name">mediflow.appointment.tree</field>
+        <field name="model">mediflow.appointment</field>
+        <field name="arch" type="xml">
+            <list string="Appointments">
+                <field name="name"/>
+                <field name="start"/>
+                <field name="patient_id"/>
+                <field name="practitioner_id"/>
+                <field name="reason_code"/>
+                <field name="walk_in"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="state" decoration-info="state == 'confirmed'" decoration-success="state == 'completed'" decoration-danger="state == 'no_show'" decoration-muted="state == 'cancelled'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mediflow_appointment_form" model="ir.ui.view">
+        <field name="name">mediflow.appointment.form</field>
+        <field name="model">mediflow.appointment</field>
+        <field name="arch" type="xml">
+            <form string="Appointment">
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm / Check-in"
+                            class="btn-primary" invisible="state != 'booked'"/>
+                    <button name="action_start_consult" type="object" string="Start Consultation"
+                            class="btn-primary" invisible="state not in ('confirmed',)"/>
+                    <button name="action_cancel" type="object" string="Cancel"
+                            invisible="state in ('completed','cancelled','no_show')"/>
+                    <button name="action_no_show" type="object" string="No-show"
+                            invisible="state not in ('booked','confirmed')"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="booked,confirmed,in_consult,completed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="patient_id"/>
+                            <field name="practitioner_id"/>
+                            <field name="resource_id"/>
+                            <field name="slot_id"
+                                   domain="[('state', '=', 'free'), ('practitioner_id', '=', practitioner_id)]"/>
+                        </group>
+                        <group>
+                            <field name="start"/>
+                            <field name="duration"/>
+                            <field name="reason_code"/>
+                            <field name="walk_in"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="reason"/>
+                        <field name="cancel_reason" invisible="state != 'cancelled'"/>
+                        <field name="encounter_id" invisible="not encounter_id"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_mediflow_appointment_calendar" model="ir.ui.view">
+        <field name="name">mediflow.appointment.calendar</field>
+        <field name="model">mediflow.appointment</field>
+        <field name="arch" type="xml">
+            <calendar string="Appointments" date_start="start" date_stop="stop"
+                      color="practitioner_id" mode="week">
+                <field name="patient_id"/>
+                <field name="practitioner_id"/>
+                <field name="state"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="view_mediflow_appointment_search" model="ir.ui.view">
+        <field name="name">mediflow.appointment.search</field>
+        <field name="model">mediflow.appointment</field>
+        <field name="arch" type="xml">
+            <search string="Appointments">
+                <field name="name"/>
+                <field name="patient_id"/>
+                <field name="practitioner_id"/>
+                <filter name="today" string="Today" domain="[('start', '&gt;=', datetime.datetime.combine(context_today(), datetime.time(0,0,0))), ('start', '&lt;', datetime.datetime.combine(context_today() + relativedelta(days=1), datetime.time(0,0,0)))]"/>
+                <filter name="booked" string="Booked" domain="[('state', '=', 'booked')]"/>
+                <filter name="confirmed" string="Confirmed" domain="[('state', '=', 'confirmed')]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_practitioner" string="Practitioner" context="{'group_by': 'practitioner_id'}"/>
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_mediflow_appointment" model="ir.actions.act_window">
+        <field name="name">Appointments</field>
+        <field name="res_model">mediflow.appointment</field>
+        <field name="view_mode">calendar,list,form</field>
+        <field name="search_view_id" ref="view_mediflow_appointment_search"/>
+    </record>
+
+</odoo>

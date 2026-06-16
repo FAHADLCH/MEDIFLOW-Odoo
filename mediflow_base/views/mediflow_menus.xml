@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Root MEDIFLOW menu shared by all modules -->
+    <menuitem id="menu_mediflow_root"
+              name="MEDIFLOW"
+              sequence="10"/>
+
+    <!-- Compliance / administration section -->
+    <menuitem id="menu_mediflow_compliance"
+              name="Compliance"
+              parent="menu_mediflow_root"
+              sequence="90"
+              groups="group_mediflow_compliance,group_mediflow_admin"/>
+
+    <menuitem id="menu_mediflow_audit_log"
+              name="Audit Log"
+              parent="menu_mediflow_compliance"
+              action="action_mediflow_audit_log"
+              sequence="10"/>
+
+    <!-- Configuration section anchor for downstream modules -->
+    <menuitem id="menu_mediflow_config"
+              name="Configuration"
+              parent="menu_mediflow_root"
+              sequence="100"
+              groups="group_mediflow_admin"/>
+
+</odoo>

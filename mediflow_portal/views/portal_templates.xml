@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ============================================================= -->
+    <!-- Portal home: counter cards                                    -->
+    <!-- ============================================================= -->
+    <template id="portal_my_home_mediflow" name="MEDIFLOW Portal Cards"
+              inherit_id="portal.portal_my_home" priority="40">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Appointments</t>
+                <t t-set="text">Your upcoming and past visits</t>
+                <t t-set="url" t-value="'/my/appointments'"/>
+                <t t-set="placeholder_count" t-value="'mediflow_appointment_count'"/>
+            </t>
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Lab Results</t>
+                <t t-set="text">Released test results</t>
+                <t t-set="url" t-value="'/my/lab-results'"/>
+                <t t-set="placeholder_count" t-value="'mediflow_result_count'"/>
+            </t>
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Medical Invoices</t>
+                <t t-set="text">Bills and online payment</t>
+                <t t-set="url" t-value="'/my/invoices'"/>
+                <t t-set="placeholder_count" t-value="'mediflow_invoice_count'"/>
+            </t>
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Consents</t>
+                <t t-set="text">Manage data-sharing consent</t>
+                <t t-set="url" t-value="'/my/consents'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <!-- ============================================================= -->
+    <!-- Appointments list                                             -->
+    <!-- ============================================================= -->
+    <template id="portal_my_appointments" name="My Appointments">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <div class="o_portal_my_doc_table">
+                <h3 class="mb-3">My Appointments</h3>
+                <t t-if="not appointments">
+                    <div class="alert alert-info" role="alert">
+                        You have no appointments yet.
+                    </div>
+                </t>
+                <t t-else="">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Reference</th>
+                                <th>Date</th>
+                                <th>Practitioner</th>
+                                <th>Reason</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="appointments" t-as="appt">
+                                <td><span t-field="appt.name"/></td>
+                                <td><span t-field="appt.start"/></td>
+                                <td><span t-field="appt.practitioner_id.name"/></td>
+                                <td><span t-field="appt.reason"/></td>
+                                <td>
+                                    <span t-field="appt.state"
+                                          class="badge rounded-pill text-bg-secondary"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <!-- ============================================================= -->
+    <!-- Lab results (consent-gated)                                   -->
+    <!-- ============================================================= -->
+    <template id="portal_my_lab_results" name="My Lab Results">
+        <t t-call="portal.portal_layout">
+            <div class="o_portal_my_doc_table">
+                <h3 class="mb-3">My Lab Results</h3>
+                <t t-if="not has_consent">
+                    <div class="alert alert-warning" role="alert">
+                        <strong>Results are not visible.</strong>
+                        We can only display your clinical results once an active
+                        data-sharing consent is on file. Please review your
+                        <a href="/my/consents">consents</a> or contact the clinic.
+                    </div>
+                </t>
+                <t t-elif="not results">
+                    <div class="alert alert-info" role="alert">
+                        You have no released results yet.
+                    </div>
+                </t>
+                <t t-else="">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Released</th>
+                                <th>Test</th>
+                                <th>Result</th>
+                                <th>Unit</th>
+                                <th>Reference</th>
+                                <th>Flag</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="results" t-as="res">
+                                <td><span t-field="res.released_at"/></td>
+                                <td><span t-field="res.test_id.name"/></td>
+                                <td>
+                                    <t t-if="res.value_text">
+                                        <span t-field="res.value_text"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="res.value_numeric"/>
+                                    </t>
+                                </td>
+                                <td><span t-field="res.uom_name"/></td>
+                                <td>
+                                    <span t-field="res.ref_low"/> -
+                                    <span t-field="res.ref_high"/>
+                                </td>
+                                <td>
+                                    <t t-if="res.abnormal_flag and res.abnormal_flag != 'normal'">
+                                        <span class="badge text-bg-danger"
+                                              t-field="res.abnormal_flag"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span class="badge text-bg-success">Normal</span>
+                                    </t>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <!-- ============================================================= -->
+    <!-- Invoices                                                      -->
+    <!-- ============================================================= -->
+    <template id="portal_my_invoices" name="My Medical Invoices">
+        <t t-call="portal.portal_layout">
+            <div class="o_portal_my_doc_table">
+                <h3 class="mb-3">My Medical Invoices</h3>
+                <t t-if="not invoices">
+                    <div class="alert alert-info" role="alert">
+                        You have no invoices.
+                    </div>
+                </t>
+                <t t-else="">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Number</th>
+                                <th>Date</th>
+                                <th class="text-end">Total</th>
+                                <th class="text-end">Amount Due</th>
+                                <th>Status</th>
+                                <th/>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="invoices" t-as="inv">
+                                <td><span t-field="inv.name"/></td>
+                                <td><span t-field="inv.invoice_date"/></td>
+                                <td class="text-end">
+                                    <span t-field="inv.amount_total"
+                                          t-options='{"widget": "monetary", "display_currency": inv.currency_id}'/>
+                                </td>
+                                <td class="text-end">
+                                    <span t-field="inv.amount_residual"
+                                          t-options='{"widget": "monetary", "display_currency": inv.currency_id}'/>
+                                </td>
+                                <td>
+                                    <span t-field="inv.payment_state"
+                                          class="badge rounded-pill text-bg-secondary"/>
+                                </td>
+                                <td class="text-end">
+                                    <a t-att-href="'/my/invoices/%s' % inv.id"
+                                       class="btn btn-sm btn-primary"
+                                       t-if="inv.amount_residual &gt; 0">
+                                        Pay
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="text-muted small">
+                        Select an invoice to view details and pay online.
+                    </p>
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <!-- ============================================================= -->
+    <!-- Consents                                                      -->
+    <!-- ============================================================= -->
+    <template id="portal_my_consents" name="My Consents">
+        <t t-call="portal.portal_layout">
+            <div class="o_portal_my_doc_table">
+                <h3 class="mb-3">My Consents</h3>
+                <t t-if="not consents">
+                    <div class="alert alert-info" role="alert">
+                        No consents on file. Please contact the clinic to grant a
+                        data-sharing consent so your results can be shared online.
+                    </div>
+                </t>
+                <t t-else="">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Scope</th>
+                                <th>Granted</th>
+                                <th>Expires</th>
+                                <th>Status</th>
+                                <th/>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="consents" t-as="consent">
+                                <td><span t-field="consent.scope"/></td>
+                                <td><span t-field="consent.granted_date"/></td>
+                                <td><span t-field="consent.expiry_date"/></td>
+                                <td>
+                                    <span t-field="consent.state"
+                                          class="badge rounded-pill text-bg-secondary"/>
+                                </td>
+                                <td class="text-end">
+                                    <form t-if="consent.state == 'active'"
+                                          t-att-action="'/my/consents/%s/revoke' % consent.id"
+                                          method="post">
+                                        <input type="hidden" name="csrf_token"
+                                               t-att-value="request.csrf_token()"/>
+                                        <button type="submit"
+                                                class="btn btn-sm btn-outline-danger">
+                                            Revoke
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </t>
+            </div>
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MEDIFLOW by SA Systems — Odoo store banner (square 1200x1200, renders cleanly via QuickLook) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200" role="img" aria-label="MEDIFLOW by SA Systems">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B1F2A"/>
+      <stop offset="0.55" stop-color="#123747"/>
+      <stop offset="1" stop-color="#1B5E7E"/>
+    </linearGradient>
+    <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#E5232A"/>
+      <stop offset="1" stop-color="#21C7A8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="1200" fill="url(#sky)"/>
+
+  <!-- faint honeycomb watermark -->
+  <g transform="translate(760 540) scale(1.7)" fill="none" stroke="#FFFFFF" stroke-opacity="0.05" stroke-linecap="round" stroke-linejoin="round" stroke-width="10">
+    <polygon points="157,60 205.5,88 205.5,144 157,172 108.5,144 108.5,88"/>
+    <polygon points="157,172 205.5,200 205.5,256 157,284 108.5,256 108.5,200"/>
+    <polygon points="60,4 108.5,32 108.5,88 60,116 11.5,88 11.5,32"/>
+    <polygon points="60,116 108.5,144 108.5,200 60,228 11.5,200 11.5,144"/>
+    <polygon points="254,4 302.5,32 302.5,88 254,116 205.5,88 205.5,32"/>
+    <polygon points="254,116 302.5,144 302.5,200 254,228 205.5,200 205.5,144"/>
+  </g>
+
+  <!-- crisp mark -->
+  <g transform="translate(150 250) scale(0.66)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="14">
+    <polygon points="157,60 205.5,88 205.5,144 157,172 108.5,144 108.5,88" stroke="#FFFFFF" stroke-opacity="0.85"/>
+    <polygon points="157,172 205.5,200 205.5,256 157,284 108.5,256 108.5,200" stroke="#FFFFFF" stroke-opacity="0.85"/>
+    <polygon points="60,4 108.5,32 108.5,88 60,116 11.5,88 11.5,32" stroke="#E5232A"/>
+    <polygon points="60,116 108.5,144 108.5,200 60,228 11.5,200 11.5,144" stroke="#E5232A"/>
+    <polygon points="254,4 302.5,32 302.5,88 254,116 205.5,88 205.5,32" stroke="#E5232A"/>
+    <polygon points="254,116 302.5,144 302.5,200 254,228 205.5,200 205.5,144" stroke="#E5232A"/>
+    <line x1="116" y1="144" x2="198" y2="144" stroke="#E5232A"/>
+  </g>
+
+  <g font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+    <text x="330" y="350" font-size="104" font-weight="700" fill="#FFFFFF" letter-spacing="2">MEDI<tspan fill="#7FD4EC" font-weight="300">FLOW</tspan></text>
+    <text x="334" y="402" font-size="28" font-weight="600" fill="#9FB4C2" letter-spacing="5">by <tspan fill="#FFFFFF" font-weight="700">SA SYSTEMS</tspan></text>
+  </g>
+
+  <rect x="150" y="470" width="900" height="6" rx="3" fill="url(#rule)"/>
+
+  <g font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+    <text x="150" y="585" font-size="58" font-weight="700" fill="#FFFFFF">Clinic &amp; Diagnostics ERP for Odoo</text>
+    <text x="150" y="660" font-size="34" font-weight="400" fill="#C2D2DC">One platform — front desk to lab bench to revenue cycle.</text>
+
+    <text x="150" y="762" font-size="32" font-weight="600" fill="#EAF2F6">EMR · Appointments · Laboratory · Pharmacy</text>
+    <text x="150" y="814" font-size="32" font-weight="600" fill="#EAF2F6">Billing · Insurance Claims · Queue · Patient Portal</text>
+    <text x="150" y="866" font-size="32" font-weight="600" fill="#EAF2F6">FHIR R4 API · AI Assist · Analytics · Integrations</text>
+  </g>
+
+  <!-- badges -->
+  <g font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600">
+    <g transform="translate(150 952)">
+      <rect width="290" height="64" rx="32" fill="#FFFFFF" fill-opacity="0.08" stroke="#E5232A" stroke-opacity="0.7" stroke-width="2"/>
+      <text x="145" y="42" text-anchor="middle" fill="#FFFFFF">Multi-currency</text>
+    </g>
+    <g transform="translate(462 952)">
+      <rect width="250" height="64" rx="32" fill="#FFFFFF" fill-opacity="0.08" stroke="#21C7A8" stroke-opacity="0.7" stroke-width="2"/>
+      <text x="125" y="42" text-anchor="middle" fill="#FFFFFF">Global-ready</text>
+    </g>
+    <g transform="translate(734 952)">
+      <rect width="316" height="64" rx="32" fill="#FFFFFF" fill-opacity="0.08" stroke="#7FD4EC" stroke-opacity="0.7" stroke-width="2"/>
+      <text x="158" y="42" text-anchor="middle" fill="#FFFFFF">Odoo 18 &amp; 19 ready</text>
+    </g>
+  </g>
+</svg>

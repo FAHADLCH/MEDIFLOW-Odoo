@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mediflow_ai_request_list" model="ir.ui.view">
+        <field name="name">mediflow.ai.request.list</field>
+        <field name="model">mediflow.ai.request</field>
+        <field name="arch" type="xml">
+            <list string="AI Requests" create="false" edit="false">
+                <field name="create_date"/>
+                <field name="feature"/>
+                <field name="user_id"/>
+                <field name="patient_id"/>
+                <field name="model_name"/>
+                <field name="status" decoration-success="status == 'ok'"
+                       decoration-warning="status in ('fallback','blocked')"
+                       decoration-danger="status == 'error'" widget="badge"/>
+                <field name="redacted"/>
+                <field name="duration_ms"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mediflow_ai_request_form" model="ir.ui.view">
+        <field name="name">mediflow.ai.request.form</field>
+        <field name="model">mediflow.ai.request</field>
+        <field name="arch" type="xml">
+            <form string="AI Request" create="false" edit="false">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="feature"/>
+                            <field name="status"/>
+                            <field name="user_id"/>
+                            <field name="patient_id"/>
+                        </group>
+                        <group>
+                            <field name="provider_id"/>
+                            <field name="model_name"/>
+                            <field name="redacted"/>
+                            <field name="duration_ms"/>
+                            <field name="error_message"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Prompt (de-identified)">
+                            <field name="prompt_excerpt"/>
+                        </page>
+                        <page string="Response">
+                            <field name="response_excerpt"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_mediflow_ai_request_search" model="ir.ui.view">
+        <field name="name">mediflow.ai.request.search</field>
+        <field name="model">mediflow.ai.request</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="feature"/>
+                <field name="user_id"/>
+                <field name="patient_id"/>
+                <filter name="ok" string="Success" domain="[('status','=','ok')]"/>
+                <filter name="error" string="Errors" domain="[('status','=','error')]"/>
+                <filter name="blocked" string="Blocked" domain="[('status','=','blocked')]"/>
+                <group expand="0" string="Group By">
+                    <filter name="g_feature" string="Feature" context="{'group_by':'feature'}"/>
+                    <filter name="g_status" string="Status" context="{'group_by':'status'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_mediflow_ai_request" model="ir.actions.act_window">
+        <field name="name">AI Request Log</field>
+        <field name="res_model">mediflow.ai.request</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

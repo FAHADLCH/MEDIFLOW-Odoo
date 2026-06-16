@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="rule_charge_master_company" model="ir.rule">
+        <field name="name">Charge Master: company isolation</field>
+        <field name="model_id" ref="model_mediflow_charge_master"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+        <field name="global" eval="True"/>
+    </record>
+
+    <record id="rule_charge_item_company" model="ir.rule">
+        <field name="name">Charge Item: company isolation</field>
+        <field name="model_id" ref="model_mediflow_charge_item"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+        <field name="global" eval="True"/>
+    </record>
+
+</odoo>

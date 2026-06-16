@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_v_claims_pivot" model="ir.ui.view">
+        <field name="name">mediflow.v.claims.pivot</field>
+        <field name="model">mediflow.v.claims</field>
+        <field name="arch" type="xml">
+            <pivot string="Claims" sample="1">
+                <field name="payer_id" type="row"/>
+                <field name="claimed_amount" type="measure"/>
+                <field name="approved_amount" type="measure"/>
+                <field name="is_denied" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_v_claims_graph" model="ir.ui.view">
+        <field name="name">mediflow.v.claims.graph</field>
+        <field name="model">mediflow.v.claims</field>
+        <field name="arch" type="xml">
+            <graph string="Claims" type="bar" sample="1">
+                <field name="payer_id"/>
+                <field name="claimed_amount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_v_claims_list" model="ir.ui.view">
+        <field name="name">mediflow.v.claims.list</field>
+        <field name="model">mediflow.v.claims</field>
+        <field name="arch" type="xml">
+            <list string="Claims">
+                <field name="submission_date"/>
+                <field name="payer_id"/>
+                <field name="state"/>
+                <field name="claimed_amount" sum="Claimed"/>
+                <field name="approved_amount" sum="Approved"/>
+                <field name="is_denied" sum="Denied"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_v_claims_search" model="ir.ui.view">
+        <field name="name">mediflow.v.claims.search</field>
+        <field name="model">mediflow.v.claims</field>
+        <field name="arch" type="xml">
+            <search string="Claims">
+                <field name="payer_id"/>
+                <filter name="denied" string="Denied" domain="[('is_denied', '=', 1)]"/>
+                <filter name="paid" string="Paid" domain="[('is_paid', '=', 1)]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_payer" string="Payer"
+                            context="{'group_by': 'payer_id'}"/>
+                    <filter name="group_state" string="Status"
+                            context="{'group_by': 'state'}"/>
+                    <filter name="group_month" string="Month"
+                            context="{'group_by': 'submission_date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_v_claims" model="ir.actions.act_window">
+        <field name="name">Claims Analytics</field>
+        <field name="res_model">mediflow.v.claims</field>
+        <field name="view_mode">graph,pivot,list</field>
+        <field name="search_view_id" ref="view_v_claims_search"/>
+    </record>
+
+</odoo>

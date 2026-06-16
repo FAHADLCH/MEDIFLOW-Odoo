@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mediflow_queue_entry_tree" model="ir.ui.view">
+        <field name="name">mediflow.queue.entry.tree</field>
+        <field name="model">mediflow.queue.entry</field>
+        <field name="arch" type="xml">
+            <list string="Queue Entries" default_order="sequence, id">
+                <field name="token"/>
+                <field name="queue_id"/>
+                <field name="patient_id"/>
+                <field name="priority" decoration-danger="priority == '2'" decoration-warning="priority == '1'"/>
+                <field name="state" decoration-info="state == 'called'" decoration-warning="state == 'serving'" decoration-success="state == 'done'"/>
+                <field name="counter"/>
+                <field name="wait_minutes"/>
+                <button name="action_call" type="object" string="Call" icon="fa-bullhorn"
+                        invisible="state != 'waiting'"/>
+                <button name="action_start_serving" type="object" string="Serve" icon="fa-play"
+                        invisible="state != 'called'"/>
+                <button name="action_done" type="object" string="Done" icon="fa-check"
+                        invisible="state != 'serving'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mediflow_queue_entry_form" model="ir.ui.view">
+        <field name="name">mediflow.queue.entry.form</field>
+        <field name="model">mediflow.queue.entry</field>
+        <field name="arch" type="xml">
+            <form string="Queue Entry">
+                <header>
+                    <button name="action_call" type="object" string="Call"
+                            class="btn-primary" invisible="state != 'waiting'"/>
+                    <button name="action_start_serving" type="object" string="Start Serving"
+                            class="btn-primary" invisible="state != 'called'"/>
+                    <button name="action_done" type="object" string="Done"
+                            invisible="state != 'serving'"/>
+                    <button name="action_recycle" type="object" string="Recycle"
+                            invisible="state != 'called'"/>
+                    <button name="action_no_show" type="object" string="No-show"
+                            invisible="state not in ('waiting','called')"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="waiting,called,serving,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="token" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="queue_id"/>
+                            <field name="patient_id"/>
+                            <field name="appointment_id"/>
+                            <field name="priority"/>
+                            <field name="counter"/>
+                        </group>
+                        <group>
+                            <field name="created_at"/>
+                            <field name="called_at"/>
+                            <field name="serving_at"/>
+                            <field name="done_at"/>
+                            <field name="wait_minutes"/>
+                            <field name="serve_minutes"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_mediflow_queue_entry" model="ir.actions.act_window">
+        <field name="name">Queue Entries</field>
+        <field name="res_model">mediflow.queue.entry</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

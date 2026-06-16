@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mediflow_lab_result_list" model="ir.ui.view">
+        <field name="name">mediflow.lab.result.list</field>
+        <field name="model">mediflow.lab.result</field>
+        <field name="arch" type="xml">
+            <list string="Results" editable="bottom"
+                  decoration-danger="is_critical"
+                  decoration-warning="abnormal_flag in ('low','high')"
+                  decoration-muted="state in ('cancelled','amended')">
+                <field name="order_id" readonly="1"/>
+                <field name="patient_id" readonly="1"/>
+                <field name="test_id" readonly="state != 'preliminary'"/>
+                <field name="value_numeric" readonly="state != 'preliminary'"/>
+                <field name="value_text" readonly="state != 'preliminary'"/>
+                <field name="uom_name"/>
+                <field name="ref_low"/>
+                <field name="ref_high"/>
+                <field name="abnormal_flag"/>
+                <field name="is_critical" column_invisible="1"/>
+                <field name="version"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'released'"
+                       decoration-info="state == 'verified'"/>
+                <button name="action_enter_result" type="object" string="Re-flag"
+                        icon="fa-flag" invisible="state != 'preliminary'"/>
+                <button name="action_verify" type="object" string="Verify"
+                        icon="fa-check" invisible="state != 'preliminary'"
+                        groups="mediflow_base.group_mediflow_lab_verifier"/>
+                <button name="action_release" type="object" string="Release"
+                        icon="fa-paper-plane" invisible="state != 'verified'"
+                        groups="mediflow_base.group_mediflow_lab_verifier"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mediflow_lab_result_form" model="ir.ui.view">
+        <field name="name">mediflow.lab.result.form</field>
+        <field name="model">mediflow.lab.result</field>
+        <field name="arch" type="xml">
+            <form string="Lab Result">
+                <header>
+                    <button name="action_enter_result" type="object" string="Evaluate Flags"
+                            invisible="state != 'preliminary'"/>
+                    <button name="action_verify" type="object" string="Verify"
+                            class="oe_highlight" invisible="state != 'preliminary'"
+                            groups="mediflow_base.group_mediflow_lab_verifier"/>
+                    <button name="action_release" type="object" string="Release"
+                            class="oe_highlight" invisible="state != 'verified'"
+                            groups="mediflow_base.group_mediflow_lab_verifier"/>
+                    <button name="action_cancel" type="object" string="Cancel"
+                            invisible="state != 'preliminary'"/>
+                    <button name="action_amend" type="object" string="Amend"
+                            invisible="state != 'released'"
+                            groups="mediflow_base.group_mediflow_lab_verifier"
+                            confirm="Create a corrected amendment? The original released result is preserved."/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="preliminary,verified,released"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Critical" bg_color="text-bg-danger"
+                            invisible="not is_critical"/>
+                    <widget name="web_ribbon" title="Amended" bg_color="text-bg-warning"
+                            invisible="state != 'amended'"/>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="order_id" readonly="1"/>
+                            <field name="patient_id" readonly="1"/>
+                            <field name="test_id" readonly="state != 'preliminary'"/>
+                            <field name="loinc_code"/>
+                        </group>
+                        <group>
+                            <field name="value_numeric" readonly="state != 'preliminary'"/>
+                            <field name="value_text" readonly="state != 'preliminary'"/>
+                            <field name="uom_name"/>
+                            <field name="abnormal_flag" readonly="1"/>
+                            <field name="is_critical" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="Reference Range">
+                        <group>
+                            <field name="ref_low"/>
+                            <field name="ref_high"/>
+                        </group>
+                        <group>
+                            <field name="verified_by_id" readonly="1"/>
+                            <field name="released_at" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="Versioning" invisible="version == 1 and not replaces_id">
+                        <field name="version" readonly="1"/>
+                        <field name="replaces_id" readonly="1"/>
+                        <field name="replaced_by_id" readonly="1"/>
+                    </group>
+                    <field name="note" placeholder="Interpretive comments..."/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_mediflow_lab_result_search" model="ir.ui.view">
+        <field name="name">mediflow.lab.result.search</field>
+        <field name="model">mediflow.lab.result</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="patient_id"/>
+                <field name="test_id"/>
+                <field name="order_id"/>
+                <filter name="critical" string="Critical" domain="[('is_critical', '=', True)]"/>
+                <filter name="preliminary" string="Preliminary" domain="[('state', '=', 'preliminary')]"/>
+                <filter name="verified" string="Verified" domain="[('state', '=', 'verified')]"/>
+                <filter name="released" string="Released" domain="[('state', '=', 'released')]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                    <filter name="group_test" string="Test" context="{'group_by': 'test_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_mediflow_lab_result" model="ir.actions.act_window">
+        <field name="name">Results Worklist</field>
+        <field name="res_model">mediflow.lab.result</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_preliminary': 1}</field>
+    </record>
+
+    <record id="action_mediflow_lab_result_critical" model="ir.actions.act_window">
+        <field name="name">Critical Results</field>
+        <field name="res_model">mediflow.lab.result</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('is_critical', '=', True)]</field>
+    </record>
+
+</odoo>

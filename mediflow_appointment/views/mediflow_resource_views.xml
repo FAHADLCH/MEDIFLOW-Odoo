@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mediflow_resource_tree" model="ir.ui.view">
+        <field name="name">mediflow.resource.tree</field>
+        <field name="model">mediflow.resource</field>
+        <field name="arch" type="xml">
+            <list string="Resources" editable="bottom">
+                <field name="name"/>
+                <field name="resource_type"/>
+                <field name="capacity"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_mediflow_resource" model="ir.actions.act_window">
+        <field name="name">Resources</field>
+        <field name="res_model">mediflow.resource</field>
+        <field name="view_mode">list</field>
+    </record>
+
+</odoo>

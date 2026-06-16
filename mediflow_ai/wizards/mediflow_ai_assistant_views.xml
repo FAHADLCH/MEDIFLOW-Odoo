@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mediflow_ai_assistant_form" model="ir.ui.view">
+        <field name="name">mediflow.ai.assistant.form</field>
+        <field name="model">mediflow.ai.assistant</field>
+        <field name="arch" type="xml">
+            <form string="AI Clinical Assistant">
+                <sheet>
+                    <div class="alert alert-info" role="alert">
+                        Advisory only. Output is de-identified, consent-gated and never
+                        written back to the clinical record automatically.
+                    </div>
+                    <group>
+                        <field name="patient_id"/>
+                        <field name="mode"/>
+                        <field name="question" invisible="mode != 'free'"
+                               placeholder="Ask a clinical question about this patient..."/>
+                    </group>
+                    <group string="Answer" invisible="not answer">
+                        <field name="source" readonly="1"/>
+                        <field name="answer" nolabel="1" readonly="1"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_run" type="object" string="Run"
+                            class="btn-primary"/>
+                    <button string="Close" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_mediflow_ai_assistant" model="ir.actions.act_window">
+        <field name="name">AI Clinical Assistant</field>
+        <field name="res_model">mediflow.ai.assistant</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

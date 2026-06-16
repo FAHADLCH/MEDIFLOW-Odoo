@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SA Systems — icon mark (honeycomb "sas", vector / infinite resolution) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="320" height="320" role="img" aria-label="SA Systems mark">
+  <g transform="translate(3 16)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="12">
+    <!-- honeycomb substrate (light grey) -->
+    <polygon points="157,60 205.5,88 205.5,144 157,172 108.5,144 108.5,88" stroke="#DCDDDE"/>
+    <polygon points="157,172 205.5,200 205.5,256 157,284 108.5,256 108.5,200" stroke="#DCDDDE"/>
+    <!-- left cluster (red) -->
+    <polygon points="60,4 108.5,32 108.5,88 60,116 11.5,88 11.5,32" stroke="#E5232A"/>
+    <polygon points="60,116 108.5,144 108.5,200 60,228 11.5,200 11.5,144" stroke="#E5232A"/>
+    <!-- right cluster (red) -->
+    <polygon points="254,4 302.5,32 302.5,88 254,116 205.5,88 205.5,32" stroke="#E5232A"/>
+    <polygon points="254,116 302.5,144 302.5,200 254,228 205.5,200 205.5,144" stroke="#E5232A"/>
+    <!-- centre bar (red) -->
+    <line x1="116" y1="144" x2="198" y2="144" stroke="#E5232A"/>
+  </g>
+</svg>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mediflow_coverage_list" model="ir.ui.view">
+        <field name="name">mediflow.coverage.list</field>
+        <field name="model">mediflow.coverage</field>
+        <field name="arch" type="xml">
+            <list string="Coverages">
+                <field name="patient_id"/>
+                <field name="payer_id"/>
+                <field name="member_id"/>
+                <field name="priority"/>
+                <field name="coverage_percent"/>
+                <field name="copay_percent"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="is_active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mediflow_coverage_form" model="ir.ui.view">
+        <field name="name">mediflow.coverage.form</field>
+        <field name="model">mediflow.coverage</field>
+        <field name="arch" type="xml">
+            <form string="Coverage">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="patient_id"/>
+                            <field name="payer_id"/>
+                            <field name="member_id"/>
+                            <field name="plan_name"/>
+                            <field name="relationship"/>
+                        </group>
+                        <group>
+                            <field name="priority"/>
+                            <field name="coverage_percent"/>
+                            <field name="copay_percent"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="is_active"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_mediflow_coverage_search" model="ir.ui.view">
+        <field name="name">mediflow.coverage.search</field>
+        <field name="model">mediflow.coverage</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="patient_id"/>
+                <field name="payer_id"/>
+                <field name="member_id"/>
+                <filter name="active" string="Active" domain="[('is_active', '=', True)]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_payer" string="Payer" context="{'group_by': 'payer_id'}"/>
+                    <filter name="group_priority" string="Priority" context="{'group_by': 'priority'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_mediflow_coverage" model="ir.actions.act_window">
+        <field name="name">Coverages</field>
+        <field name="res_model">mediflow.coverage</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_v_clinical_quality_pivot" model="ir.ui.view">
+        <field name="name">mediflow.v.clinical.quality.pivot</field>
+        <field name="model">mediflow.v.clinical.quality</field>
+        <field name="arch" type="xml">
+            <pivot string="Clinical Quality" sample="1">
+                <field name="practitioner_id" type="row"/>
+                <field name="encounter_count" type="measure"/>
+                <field name="is_completed" type="measure"/>
+                <field name="is_documented" type="measure"/>
+                <field name="is_amended" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_v_clinical_quality_graph" model="ir.ui.view">
+        <field name="name">mediflow.v.clinical.quality.graph</field>
+        <field name="model">mediflow.v.clinical.quality</field>
+        <field name="arch" type="xml">
+            <graph string="Clinical Quality" type="line" sample="1">
+                <field name="start" interval="day"/>
+                <field name="is_completed" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_v_clinical_quality_list" model="ir.ui.view">
+        <field name="name">mediflow.v.clinical.quality.list</field>
+        <field name="model">mediflow.v.clinical.quality</field>
+        <field name="arch" type="xml">
+            <list string="Clinical Quality">
+                <field name="start"/>
+                <field name="practitioner_id"/>
+                <field name="encounter_type"/>
+                <field name="state"/>
+                <field name="is_documented" sum="Documented"/>
+                <field name="is_amended" sum="Amended"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_v_clinical_quality_search" model="ir.ui.view">
+        <field name="name">mediflow.v.clinical.quality.search</field>
+        <field name="model">mediflow.v.clinical.quality</field>
+        <field name="arch" type="xml">
+            <search string="Clinical Quality">
+                <field name="practitioner_id"/>
+                <filter name="completed" string="Completed"
+                        domain="[('is_completed', '=', 1)]"/>
+                <filter name="amended" string="Amended"
+                        domain="[('is_amended', '=', 1)]"/>
+                <filter name="undocumented" string="Incomplete Documentation"
+                        domain="[('is_documented', '=', 0)]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_practitioner" string="Practitioner"
+                            context="{'group_by': 'practitioner_id'}"/>
+                    <filter name="group_type" string="Encounter Type"
+                            context="{'group_by': 'encounter_type'}"/>
+                    <filter name="group_month" string="Month"
+                            context="{'group_by': 'start:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_v_clinical_quality" model="ir.actions.act_window">
+        <field name="name">Clinical Quality</field>
+        <field name="res_model">mediflow.v.clinical.quality</field>
+        <field name="view_mode">graph,pivot,list</field>
+        <field name="search_view_id" ref="view_v_clinical_quality_search"/>
+    </record>
+
+</odoo>

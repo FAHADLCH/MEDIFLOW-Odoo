@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_mediflow_ai_root"
+              name="AI Assist"
+              parent="mediflow_base.menu_mediflow_root"
+              sequence="55"
+              groups="mediflow_base.group_mediflow_doctor,mediflow_base.group_mediflow_nurse,mediflow_base.group_mediflow_clinic_manager,mediflow_base.group_mediflow_compliance"/>
+
+    <menuitem id="menu_mediflow_ai_assistant"
+              name="Clinical Assistant"
+              parent="menu_mediflow_ai_root"
+              action="action_mediflow_ai_assistant"
+              sequence="10"/>
+
+    <menuitem id="menu_mediflow_ai_request"
+              name="AI Request Log"
+              parent="menu_mediflow_ai_root"
+              action="action_mediflow_ai_request"
+              sequence="20"
+              groups="mediflow_base.group_mediflow_compliance,mediflow_base.group_mediflow_admin"/>
+
+    <menuitem id="menu_mediflow_ai_provider"
+              name="AI Providers"
+              parent="mediflow_base.menu_mediflow_config"
+              action="action_mediflow_ai_provider"
+              sequence="80"
+              groups="mediflow_base.group_mediflow_admin"/>
+
+</odoo>

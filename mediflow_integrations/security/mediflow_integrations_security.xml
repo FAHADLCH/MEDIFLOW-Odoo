@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="rule_mediflow_integration_company" model="ir.rule">
+            <field name="name">Integration: company isolation</field>
+            <field name="model_id" ref="model_mediflow_integration"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','in',company_ids)]</field>
+            <field name="global" eval="True"/>
+        </record>
+
+        <record id="rule_mediflow_integration_log_company" model="ir.rule">
+            <field name="name">Integration Log: company isolation</field>
+            <field name="model_id" ref="model_mediflow_integration_log"/>
+            <field name="domain_force">[('company_id','in',company_ids)]</field>
+            <field name="global" eval="True"/>
+        </record>
+
+        <record id="rule_mediflow_integration_message_company" model="ir.rule">
+            <field name="name">Inbound Message: company isolation</field>
+            <field name="model_id" ref="model_mediflow_integration_message"/>
+            <field name="domain_force">[('company_id','in',company_ids)]</field>
+            <field name="global" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

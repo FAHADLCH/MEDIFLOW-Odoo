@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Company isolation for AI provider configuration -->
+        <record id="rule_mediflow_ai_provider_company" model="ir.rule">
+            <field name="name">AI Provider: company isolation</field>
+            <field name="model_id" ref="model_mediflow_ai_provider"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','in',company_ids)]</field>
+            <field name="global" eval="True"/>
+        </record>
+
+        <!-- Company isolation for AI request audit log -->
+        <record id="rule_mediflow_ai_request_company" model="ir.rule">
+            <field name="name">AI Request Log: company isolation</field>
+            <field name="model_id" ref="model_mediflow_ai_request"/>
+            <field name="domain_force">[('company_id','in',company_ids)]</field>
+            <field name="global" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

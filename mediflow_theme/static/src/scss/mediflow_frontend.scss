@@ -1,0 +1,51 @@
+// MEDIFLOW frontend (portal + login) theme — SA Systems brand system
+
+:root {
+    --mf-ocean: #1B5E7E;
+    --mf-mint: #21C7A8;
+    --mf-ink: #0B1F2A;
+    --mf-cloud: #F5F8FA;
+    --mf-gradient: linear-gradient(135deg, #1B5E7E 0%, #21C7A8 100%);
+}
+
+// Login / signup card
+.oe_login_form,
+.oe_signup_form {
+    .btn-primary {
+        background-color: var(--mf-ocean);
+        border-color: var(--mf-ocean);
+    }
+}
+
+.mf-login-brand {
+    text-align: center;
+    margin-bottom: 1.25rem;
+
+    img {
+        max-width: 260px;
+        height: auto;
+    }
+
+    .mf-login-tagline {
+        margin-top: 0.5rem;
+        color: var(--mf-ink);
+        font-size: 0.85rem;
+        letter-spacing: 0.4px;
+    }
+}
+
+// Portal accent
+.o_portal {
+    .btn-primary {
+        background-color: var(--mf-ocean);
+        border-color: var(--mf-ocean);
+    }
+    .badge.mf-pill--ok { background: rgba(33, 199, 168, 0.16); color: #0d6b59; }
+    .badge.mf-pill--crit { background: rgba(229, 72, 77, 0.16); color: #a3262b; }
+}
+
+.mf-footer-brand {
+    color: var(--mf-ink);
+    opacity: 0.75;
+    font-size: 0.8rem;
+}

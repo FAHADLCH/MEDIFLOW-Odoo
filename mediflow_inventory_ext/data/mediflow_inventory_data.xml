@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="cron_flag_near_expiry" model="ir.cron">
+        <field name="name">MEDIFLOW: Flag Near-Expiry Lots</field>
+        <field name="model_id" ref="model_stock_lot"/>
+        <field name="state">code</field>
+        <field name="code">model.cron_flag_near_expiry(days=90)</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active" eval="True"/>
+    </record>
+
+</odoo>

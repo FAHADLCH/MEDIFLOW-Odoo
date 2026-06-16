@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_mediflow_inventory_root"
+              name="Pharmacy Stock"
+              parent="mediflow_base.menu_mediflow_root"
+              sequence="60"
+              groups="mediflow_base.group_mediflow_inventory,mediflow_base.group_mediflow_pharmacist"/>
+
+    <menuitem id="menu_mediflow_near_expiry"
+              name="Near-Expiry Lots"
+              parent="menu_mediflow_inventory_root"
+              action="action_mediflow_near_expiry_lots"
+              sequence="10"/>
+
+</odoo>

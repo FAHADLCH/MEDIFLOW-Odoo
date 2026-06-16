@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mediflow_claim_list" model="ir.ui.view">
+        <field name="name">mediflow.claim.list</field>
+        <field name="model">mediflow.claim</field>
+        <field name="arch" type="xml">
+            <list string="Claims" decoration-danger="state == 'denied'"
+                  decoration-success="state == 'paid'">
+                <field name="name"/>
+                <field name="patient_id"/>
+                <field name="payer_id"/>
+                <field name="invoice_id"/>
+                <field name="claimed_amount"/>
+                <field name="approved_amount"/>
+                <field name="patient_responsibility"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="submission_date"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'paid'"
+                       decoration-info="state in ('submitted', 'adjudicated')"
+                       decoration-danger="state == 'denied'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mediflow_claim_form" model="ir.ui.view">
+        <field name="name">mediflow.claim.form</field>
+        <field name="model">mediflow.claim</field>
+        <field name="arch" type="xml">
+            <form string="Claim">
+                <header>
+                    <button name="action_pull_invoice_lines" type="object"
+                            string="Pull Invoice Lines" invisible="state != 'draft'"/>
+                    <button name="action_submit" type="object" string="Submit"
+                            class="oe_highlight"
+                            invisible="state not in ('draft', 'appealed')"/>
+                    <button name="action_adjudicate" type="object" string="Record Adjudication"
+                            class="oe_highlight" invisible="state != 'submitted'"/>
+                    <button name="action_mark_paid" type="object" string="Mark Paid"
+                            class="oe_highlight" invisible="state != 'adjudicated'"/>
+                    <button name="action_deny" type="object" string="Record Denial"
+                            invisible="state != 'adjudicated'"/>
+                    <button name="action_appeal" type="object" string="Appeal"
+                            invisible="state != 'denied'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,submitted,adjudicated,paid"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="patient_id" readonly="state != 'draft'"/>
+                            <field name="coverage_id" readonly="state != 'draft'"/>
+                            <field name="payer_id"/>
+                            <field name="preauth_id"/>
+                        </group>
+                        <group>
+                            <field name="invoice_id" readonly="state != 'draft'"/>
+                            <field name="encounter_id"/>
+                            <field name="submission_date" readonly="1"/>
+                            <field name="adjudication_date" readonly="1"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Claim Lines" name="lines">
+                            <field name="line_ids" readonly="state not in ('draft', 'submitted', 'appealed')">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="charged_amount"/>
+                                    <field name="approved_amount"/>
+                                    <field name="denied_amount" readonly="1"/>
+                                    <field name="adjustment_code"/>
+                                </list>
+                            </field>
+                            <group class="oe_subtotal_footer">
+                                <field name="currency_id" invisible="1"/>
+                                <field name="claimed_amount"/>
+                                <field name="approved_amount"/>
+                                <field name="patient_responsibility"/>
+                            </group>
+                        </page>
+                        <page string="Denial" name="denial" invisible="state != 'denied'">
+                            <group>
+                                <field name="denial_code"/>
+                                <field name="denial_reason"/>
+                            </group>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_mediflow_claim_search" model="ir.ui.view">
+        <field name="name">mediflow.claim.search</field>
+        <field name="model">mediflow.claim</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="patient_id"/>
+                <field name="payer_id"/>
+                <field name="invoice_id"/>
+                <filter name="open" string="Open"
+                        domain="[('state', 'not in', ('paid',))]"/>
+                <filter name="denied" string="Denied" domain="[('state', '=', 'denied')]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                    <filter name="group_payer" string="Payer" context="{'group_by': 'payer_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_mediflow_claim" model="ir.actions.act_window">
+        <field name="name">Claims</field>
+        <field name="res_model">mediflow.claim</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_open': 1}</field>
+    </record>
+
+</odoo>

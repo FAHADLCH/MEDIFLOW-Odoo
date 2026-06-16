@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="cron_mediflow_event_deliver" model="ir.cron">
+        <field name="name">MEDIFLOW: Deliver Domain Events</field>
+        <field name="model_id" ref="model_mediflow_event"/>
+        <field name="state">code</field>
+        <field name="code">model.cron_deliver()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">minutes</field>
+        <field name="active" eval="True"/>
+    </record>
+
+</odoo>

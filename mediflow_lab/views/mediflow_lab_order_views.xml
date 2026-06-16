@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mediflow_lab_order_list" model="ir.ui.view">
+        <field name="name">mediflow.lab.order.list</field>
+        <field name="model">mediflow.lab.order</field>
+        <field name="arch" type="xml">
+            <list string="Lab Orders" decoration-danger="priority == 'stat'"
+                  decoration-warning="priority == 'urgent'">
+                <field name="name"/>
+                <field name="order_date"/>
+                <field name="patient_id"/>
+                <field name="practitioner_id"/>
+                <field name="priority"/>
+                <field name="result_count"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'completed'"
+                       decoration-info="state in ('resulted', 'in_process')"
+                       decoration-muted="state == 'cancelled'"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mediflow_lab_order_form" model="ir.ui.view">
+        <field name="name">mediflow.lab.order.form</field>
+        <field name="model">mediflow.lab.order</field>
+        <field name="arch" type="xml">
+            <form string="Lab Order">
+                <header>
+                    <button name="action_collect" type="object" string="Mark Collected"
+                            class="oe_highlight" invisible="state != 'ordered'"/>
+                    <button name="action_receive" type="object" string="Receive"
+                            class="oe_highlight" invisible="state != 'collected'"/>
+                    <button name="action_start_process" type="object" string="Start Processing"
+                            class="oe_highlight" invisible="state != 'received'"/>
+                    <button name="action_mark_resulted" type="object" string="Mark Resulted"
+                            invisible="state != 'in_process'"/>
+                    <button name="action_complete" type="object" string="Complete"
+                            class="oe_highlight" invisible="state != 'resulted'"/>
+                    <button name="action_cancel" type="object" string="Cancel"
+                            invisible="state != 'ordered'"
+                            confirm="Cancel this lab order?"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="ordered,collected,received,in_process,resulted,completed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="patient_id"
+                                   readonly="state != 'ordered'"/>
+                            <field name="encounter_id" readonly="state != 'ordered'"/>
+                            <field name="practitioner_id"/>
+                        </group>
+                        <group>
+                            <field name="priority"/>
+                            <field name="order_date"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <group invisible="state not in ('cancelled',)">
+                        <field name="cancel_reason"/>
+                    </group>
+                    <notebook>
+                        <page string="Tests &amp; Panels" name="tests">
+                            <field name="panel_ids" widget="many2many_tags"
+                                   readonly="state != 'ordered'"/>
+                            <field name="test_ids" widget="many2many_tags"
+                                   readonly="state != 'ordered'"/>
+                        </page>
+                        <page string="Specimens" name="specimens">
+                            <field name="specimen_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="specimen_type"/>
+                                    <field name="container"/>
+                                    <field name="collected_at"/>
+                                    <field name="collected_by_id"/>
+                                    <field name="received_at"/>
+                                    <field name="state"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Results" name="results">
+                            <field name="result_ids">
+                                <list decoration-danger="is_critical"
+                                      decoration-warning="abnormal_flag in ('low','high')">
+                                    <field name="test_id"/>
+                                    <field name="value_numeric"/>
+                                    <field name="value_text"/>
+                                    <field name="uom_name"/>
+                                    <field name="ref_low"/>
+                                    <field name="ref_high"/>
+                                    <field name="abnormal_flag"/>
+                                    <field name="is_critical" column_invisible="1"/>
+                                    <field name="version"/>
+                                    <field name="state" widget="badge"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Clinical Notes" name="notes">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_mediflow_lab_order_search" model="ir.ui.view">
+        <field name="name">mediflow.lab.order.search</field>
+        <field name="model">mediflow.lab.order</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="patient_id"/>
+                <field name="practitioner_id"/>
+                <filter name="stat" string="STAT" domain="[('priority', '=', 'stat')]"/>
+                <filter name="open" string="Open"
+                        domain="[('state', 'not in', ('completed', 'cancelled'))]"/>
+                <separator/>
+                <filter name="ordered" string="Ordered" domain="[('state', '=', 'ordered')]"/>
+                <filter name="in_process" string="In Process" domain="[('state', '=', 'in_process')]"/>
+                <filter name="resulted" string="Resulted" domain="[('state', '=', 'resulted')]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                    <filter name="group_priority" string="Priority" context="{'group_by': 'priority'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_mediflow_lab_order" model="ir.actions.act_window">
+        <field name="name">Lab Orders</field>
+        <field name="res_model">mediflow.lab.order</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_open': 1}</field>
+    </record>
+
+</odoo>

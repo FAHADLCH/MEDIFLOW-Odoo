@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mediflow_region_profile_list" model="ir.ui.view">
+        <field name="name">mediflow.region.profile.list</field>
+        <field name="model">mediflow.region.profile</field>
+        <field name="arch" type="xml">
+            <list string="Region Profiles">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="country_id"/>
+                <field name="currency_id"/>
+                <field name="regulatory_framework"/>
+                <field name="retention_years"/>
+                <field name="is_applied" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mediflow_region_profile_form" model="ir.ui.view">
+        <field name="name">mediflow.region.profile.form</field>
+        <field name="model">mediflow.region.profile</field>
+        <field name="arch" type="xml">
+            <form string="Region Profile">
+                <header>
+                    <button name="action_apply" type="object" string="Apply to Company"
+                            class="btn-primary"/>
+                    <field name="is_applied" widget="boolean_toggle" readonly="1"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Region name"/></h1>
+                        <h3><field name="code" placeholder="Code"/></h3>
+                    </div>
+                    <group>
+                        <group string="Localization">
+                            <field name="country_id"/>
+                            <field name="lang"/>
+                            <field name="currency_id"/>
+                            <field name="timezone"/>
+                            <field name="phone_country_code"/>
+                            <field name="emergency_number"/>
+                        </group>
+                        <group string="Compliance">
+                            <field name="regulatory_framework"/>
+                            <field name="patient_id_label"/>
+                            <field name="retention_years"/>
+                            <field name="consent_required"/>
+                            <field name="breach_notification_hours"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="notes" placeholder="Region-specific deployment notes..."/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_mediflow_region_profile" model="ir.actions.act_window">
+        <field name="name">Region Profiles</field>
+        <field name="res_model">mediflow.region.profile</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

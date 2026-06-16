@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_v_queue_metrics_pivot" model="ir.ui.view">
+        <field name="name">mediflow.v.queue.metrics.pivot</field>
+        <field name="model">mediflow.v.queue.metrics</field>
+        <field name="arch" type="xml">
+            <pivot string="Queue Metrics" sample="1">
+                <field name="queue_id" type="row"/>
+                <field name="wait_minutes" type="measure"/>
+                <field name="service_minutes" type="measure"/>
+                <field name="entry_count" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_v_queue_metrics_graph" model="ir.ui.view">
+        <field name="name">mediflow.v.queue.metrics.graph</field>
+        <field name="model">mediflow.v.queue.metrics</field>
+        <field name="arch" type="xml">
+            <graph string="Queue Metrics" type="bar" sample="1">
+                <field name="queue_id"/>
+                <field name="wait_minutes" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_v_queue_metrics_list" model="ir.ui.view">
+        <field name="name">mediflow.v.queue.metrics.list</field>
+        <field name="model">mediflow.v.queue.metrics</field>
+        <field name="arch" type="xml">
+            <list string="Queue Metrics">
+                <field name="created_at"/>
+                <field name="queue_id"/>
+                <field name="state"/>
+                <field name="wait_minutes" sum="Total"/>
+                <field name="service_minutes" sum="Total"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_v_queue_metrics_search" model="ir.ui.view">
+        <field name="name">mediflow.v.queue.metrics.search</field>
+        <field name="model">mediflow.v.queue.metrics</field>
+        <field name="arch" type="xml">
+            <search string="Queue Metrics">
+                <field name="queue_id"/>
+                <filter name="done" string="Completed" domain="[('state', '=', 'done')]"/>
+                <filter name="no_show" string="No-show" domain="[('state', '=', 'no_show')]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_queue" string="Service Point"
+                            context="{'group_by': 'queue_id'}"/>
+                    <filter name="group_state" string="Status"
+                            context="{'group_by': 'state'}"/>
+                    <filter name="group_day" string="Day"
+                            context="{'group_by': 'created_at:day'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_v_queue_metrics" model="ir.actions.act_window">
+        <field name="name">Operational Throughput</field>
+        <field name="res_model">mediflow.v.queue.metrics</field>
+        <field name="view_mode">graph,pivot,list</field>
+        <field name="search_view_id" ref="view_v_queue_metrics_search"/>
+    </record>
+
+</odoo>

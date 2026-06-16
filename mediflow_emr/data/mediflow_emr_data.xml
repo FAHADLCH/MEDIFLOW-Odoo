@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="seq_mediflow_patient_mrn" model="ir.sequence">
+        <field name="name">MEDIFLOW Patient MRN</field>
+        <field name="code">mediflow.patient.mrn</field>
+        <field name="prefix">MRN</field>
+        <field name="padding">7</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="seq_mediflow_encounter" model="ir.sequence">
+        <field name="name">MEDIFLOW Encounter</field>
+        <field name="code">mediflow.encounter</field>
+        <field name="prefix">ENC/%(year)s/</field>
+        <field name="padding">6</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+</odoo>

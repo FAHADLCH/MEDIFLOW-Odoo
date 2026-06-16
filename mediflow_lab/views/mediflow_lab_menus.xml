@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_mediflow_lab_root"
+              name="Laboratory"
+              parent="mediflow_base.menu_mediflow_root"
+              sequence="40"
+              groups="mediflow_base.group_mediflow_lab_tech,mediflow_base.group_mediflow_doctor"/>
+
+    <menuitem id="menu_mediflow_lab_orders"
+              name="Lab Orders"
+              parent="menu_mediflow_lab_root"
+              action="action_mediflow_lab_order"
+              sequence="10"/>
+
+    <menuitem id="menu_mediflow_lab_results"
+              name="Results Worklist"
+              parent="menu_mediflow_lab_root"
+              action="action_mediflow_lab_result"
+              sequence="20"/>
+
+    <menuitem id="menu_mediflow_lab_critical"
+              name="Critical Results"
+              parent="menu_mediflow_lab_root"
+              action="action_mediflow_lab_result_critical"
+              sequence="30"/>
+
+    <menuitem id="menu_mediflow_specimens"
+              name="Specimens"
+              parent="menu_mediflow_lab_root"
+              action="action_mediflow_specimen"
+              sequence="40"/>
+
+    <menuitem id="menu_mediflow_lab_catalog"
+              name="Catalog"
+              parent="menu_mediflow_lab_root"
+              sequence="90"/>
+
+    <menuitem id="menu_mediflow_lab_tests"
+              name="Tests"
+              parent="menu_mediflow_lab_catalog"
+              action="action_mediflow_lab_test"
+              sequence="10"/>
+
+    <menuitem id="menu_mediflow_lab_panels"
+              name="Panels"
+              parent="menu_mediflow_lab_catalog"
+              action="action_mediflow_lab_panel"
+              sequence="20"/>
+
+</odoo>

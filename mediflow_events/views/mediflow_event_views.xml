@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mediflow_event_tree" model="ir.ui.view">
+        <field name="name">mediflow.event.tree</field>
+        <field name="model">mediflow.event</field>
+        <field name="arch" type="xml">
+            <list string="Domain Events" create="false">
+                <field name="create_date"/>
+                <field name="name"/>
+                <field name="source_model"/>
+                <field name="source_res_id"/>
+                <field name="company_id"/>
+                <field name="state" decoration-success="state == 'done'" decoration-danger="state == 'failed'"/>
+                <field name="attempts"/>
+                <field name="delivered_at"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mediflow_event_form" model="ir.ui.view">
+        <field name="name">mediflow.event.form</field>
+        <field name="model">mediflow.event</field>
+        <field name="arch" type="xml">
+            <form string="Domain Event" create="false">
+                <header>
+                    <button name="action_replay" type="object" string="Replay"
+                            class="btn-primary" invisible="state == 'done'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="version"/>
+                            <field name="source_model"/>
+                            <field name="source_res_id"/>
+                        </group>
+                        <group>
+                            <field name="company_id"/>
+                            <field name="attempts"/>
+                            <field name="delivered_at"/>
+                        </group>
+                    </group>
+                    <group string="Payload">
+                        <field name="payload" nolabel="1"/>
+                    </group>
+                    <group string="Last Error" invisible="not last_error">
+                        <field name="last_error" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_mediflow_event" model="ir.actions.act_window">
+        <field name="name">Domain Events</field>
+        <field name="res_model">mediflow.event</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

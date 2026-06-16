@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mediflow_integration_list" model="ir.ui.view">
+        <field name="name">mediflow.integration.list</field>
+        <field name="model">mediflow.integration</field>
+        <field name="arch" type="xml">
+            <list string="Integrations">
+                <field name="name"/>
+                <field name="integration_type"/>
+                <field name="from_identifier"/>
+                <field name="is_active" widget="boolean_toggle"/>
+                <field name="last_used"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mediflow_integration_form" model="ir.ui.view">
+        <field name="name">mediflow.integration.form</field>
+        <field name="model">mediflow.integration</field>
+        <field name="arch" type="xml">
+            <form string="Integration">
+                <header>
+                    <button name="action_test_connection" type="object"
+                            string="Test" class="btn-primary"/>
+                    <button name="action_regenerate_inbound_token" type="object"
+                            string="Regenerate Inbound Token"
+                            invisible="integration_type != 'hl7_lab'"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="e.g. Clinic SMS"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="integration_type"/>
+                            <field name="is_active"/>
+                            <field name="from_identifier"/>
+                            <field name="base_url"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group string="Credentials">
+                            <field name="auth_token" password="True"/>
+                            <field name="auth_secret" password="True"/>
+                            <field name="inbound_token" readonly="1"
+                                   invisible="integration_type != 'hl7_lab'"/>
+                        </group>
+                    </group>
+                    <div class="alert alert-info" role="alert"
+                         invisible="integration_type != 'hl7_lab'">
+                        External systems POST to <code>/mediflow/integration/hl7</code>
+                        with header <code>Authorization: Bearer &lt;Inbound Token&gt;</code>.
+                    </div>
+                    <group>
+                        <field name="notes" placeholder="Connection notes..."/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_mediflow_integration" model="ir.actions.act_window">
+        <field name="name">Integrations</field>
+        <field name="res_model">mediflow.integration</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

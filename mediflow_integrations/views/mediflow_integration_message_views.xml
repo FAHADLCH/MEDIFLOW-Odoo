@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mediflow_integration_message_list" model="ir.ui.view">
+        <field name="name">mediflow.integration.message.list</field>
+        <field name="model">mediflow.integration.message</field>
+        <field name="arch" type="xml">
+            <list string="Inbound Messages">
+                <field name="create_date"/>
+                <field name="integration_id"/>
+                <field name="message_type"/>
+                <field name="source_ip"/>
+                <field name="state" decoration-info="state == 'received'"
+                       decoration-success="state == 'processed'"
+                       decoration-danger="state == 'error'" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mediflow_integration_message_form" model="ir.ui.view">
+        <field name="name">mediflow.integration.message.form</field>
+        <field name="model">mediflow.integration.message</field>
+        <field name="arch" type="xml">
+            <form string="Inbound Message">
+                <header>
+                    <button name="action_mark_processed" type="object"
+                            string="Mark Processed" class="btn-primary"
+                            invisible="state == 'processed'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="integration_id"/>
+                            <field name="message_type"/>
+                            <field name="source_ip"/>
+                        </group>
+                        <group>
+                            <field name="processed_on"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <field name="payload" readonly="1"/>
+                    <field name="note" placeholder="Processing notes..."/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_mediflow_integration_message" model="ir.actions.act_window">
+        <field name="name">Inbound Messages</field>
+        <field name="res_model">mediflow.integration.message</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

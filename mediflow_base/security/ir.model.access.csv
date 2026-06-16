@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_audit_log_compliance,mediflow.audit.log.compliance,model_mediflow_audit_log,group_mediflow_compliance,1,0,0,0
+access_audit_log_manager,mediflow.audit.log.manager,model_mediflow_audit_log,group_mediflow_clinic_manager,1,0,0,0
+access_audit_log_admin,mediflow.audit.log.admin,model_mediflow_audit_log,group_mediflow_admin,1,0,1,0

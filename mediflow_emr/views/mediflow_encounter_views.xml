@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mediflow_encounter_tree" model="ir.ui.view">
+        <field name="name">mediflow.encounter.tree</field>
+        <field name="model">mediflow.encounter</field>
+        <field name="arch" type="xml">
+            <list string="Encounters">
+                <field name="name"/>
+                <field name="start"/>
+                <field name="patient_id"/>
+                <field name="practitioner_id"/>
+                <field name="encounter_type"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="state" decoration-info="state == 'in_progress'" decoration-success="state == 'completed'" decoration-muted="state == 'cancelled'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mediflow_encounter_form" model="ir.ui.view">
+        <field name="name">mediflow.encounter.form</field>
+        <field name="model">mediflow.encounter</field>
+        <field name="arch" type="xml">
+            <form string="Encounter">
+                <header>
+                    <button name="action_start" type="object" string="Start"
+                            class="btn-primary" invisible="state != 'planned'"/>
+                    <button name="action_complete" type="object" string="Complete"
+                            class="btn-primary" invisible="state != 'in_progress'"/>
+                    <button name="action_cancel" type="object" string="Cancel"
+                            invisible="state not in ('planned','in_progress')"/>
+                    <button name="action_amend" type="object" string="Amend"
+                            invisible="state != 'completed'"
+                            confirm="Create an addendum? The original encounter becomes read-only."/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="planned,in_progress,completed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="patient_id"
+                                   readonly="state not in ('planned',)"/>
+                            <field name="practitioner_id"/>
+                            <field name="encounter_type"/>
+                            <field name="appointment_id" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="start"/>
+                            <field name="stop"/>
+                            <field name="reason"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="parent_encounter_id" readonly="1"
+                                   invisible="not parent_encounter_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Vitals" name="vitals">
+                            <field name="vital_ids" context="{'default_patient_id': patient_id}">
+                                <list editable="bottom">
+                                    <field name="patient_id" column_invisible="1"/>
+                                    <field name="measured_at"/>
+                                    <field name="temperature"/>
+                                    <field name="pulse"/>
+                                    <field name="systolic"/>
+                                    <field name="diastolic"/>
+                                    <field name="spo2"/>
+                                    <field name="weight"/>
+                                    <field name="height"/>
+                                    <field name="bmi" readonly="1"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Diagnosis &amp; Plan" name="assessment">
+                            <field name="problem_ids" context="{'default_patient_id': patient_id}">
+                                <list editable="bottom">
+                                    <field name="patient_id" column_invisible="1"/>
+                                    <field name="name"/>
+                                    <field name="icd_code"/>
+                                    <field name="clinical_status"/>
+                                    <field name="severity"/>
+                                </list>
+                            </field>
+                            <group>
+                                <field name="assessment"/>
+                                <field name="plan"/>
+                            </group>
+                        </page>
+                        <page string="Documents" name="documents">
+                            <field name="document_ids" context="{'default_patient_id': patient_id}">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="doc_type"/>
+                                    <field name="portal_visible"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_mediflow_encounter_search" model="ir.ui.view">
+        <field name="name">mediflow.encounter.search</field>
+        <field name="model">mediflow.encounter</field>
+        <field name="arch" type="xml">
+            <search string="Encounters">
+                <field name="name"/>
+                <field name="patient_id"/>
+                <field name="practitioner_id"/>
+                <filter name="in_progress" string="In Progress" domain="[('state', '=', 'in_progress')]"/>
+                <filter name="today" string="Today" domain="[('start', '&gt;=', datetime.datetime.combine(context_today(), datetime.time(0,0,0)))]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_practitioner" string="Practitioner" context="{'group_by': 'practitioner_id'}"/>
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_mediflow_encounter" model="ir.actions.act_window">
+        <field name="name">Encounters</field>
+        <field name="res_model">mediflow.encounter</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_mediflow_encounter_search"/>
+        <field name="context">{'phi_audit_read': True}</field>
+    </record>
+
+</odoo>

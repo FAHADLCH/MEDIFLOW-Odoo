@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- Scheduled cleanup / cold-storage rollover placeholder for audit log.
+         Retention period is configurable; disabled by default until a retention
+         policy is set by the compliance officer. -->
+    <record id="cron_audit_log_rollover" model="ir.cron">
+        <field name="name">MEDIFLOW: Audit Log Rollover</field>
+        <field name="model_id" ref="model_mediflow_audit_log"/>
+        <field name="state">code</field>
+        <field name="code"># Configure retention then enable. No-op until policy is set.
+pass</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active" eval="False"/>
+    </record>
+
+</odoo>

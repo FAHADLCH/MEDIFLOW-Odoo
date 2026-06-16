@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_v_revenue_pivot" model="ir.ui.view">
+        <field name="name">mediflow.v.revenue.pivot</field>
+        <field name="model">mediflow.v.revenue</field>
+        <field name="arch" type="xml">
+            <pivot string="Revenue Cycle" sample="1">
+                <field name="aging_bucket" type="col"/>
+                <field name="amount_total" type="measure"/>
+                <field name="amount_residual" type="measure"/>
+                <field name="amount_paid" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_v_revenue_graph" model="ir.ui.view">
+        <field name="name">mediflow.v.revenue.graph</field>
+        <field name="model">mediflow.v.revenue</field>
+        <field name="arch" type="xml">
+            <graph string="Revenue Cycle" type="line" sample="1">
+                <field name="invoice_date" interval="day"/>
+                <field name="amount_paid" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_v_revenue_list" model="ir.ui.view">
+        <field name="name">mediflow.v.revenue.list</field>
+        <field name="model">mediflow.v.revenue</field>
+        <field name="arch" type="xml">
+            <list string="Revenue Cycle">
+                <field name="invoice_date"/>
+                <field name="patient_id"/>
+                <field name="aging_bucket"/>
+                <field name="amount_total" sum="Invoiced"/>
+                <field name="amount_residual" sum="Open"/>
+                <field name="amount_paid" sum="Collected"/>
+                <field name="patient_responsibility" sum="Patient Resp."/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_v_revenue_search" model="ir.ui.view">
+        <field name="name">mediflow.v.revenue.search</field>
+        <field name="model">mediflow.v.revenue</field>
+        <field name="arch" type="xml">
+            <search string="Revenue Cycle">
+                <field name="patient_id"/>
+                <filter name="open" string="Open Balance"
+                        domain="[('amount_residual', '&gt;', 0)]"/>
+                <filter name="overdue" string="90+ Overdue"
+                        domain="[('aging_bucket', '=', 'b90_plus')]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_aging" string="AR Aging"
+                            context="{'group_by': 'aging_bucket'}"/>
+                    <filter name="group_payment" string="Payment Status"
+                            context="{'group_by': 'payment_state'}"/>
+                    <filter name="group_month" string="Month"
+                            context="{'group_by': 'invoice_date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_v_revenue" model="ir.actions.act_window">
+        <field name="name">Revenue Cycle</field>
+        <field name="res_model">mediflow.v.revenue</field>
+        <field name="view_mode">graph,pivot,list</field>
+        <field name="search_view_id" ref="view_v_revenue_search"/>
+    </record>
+
+</odoo>

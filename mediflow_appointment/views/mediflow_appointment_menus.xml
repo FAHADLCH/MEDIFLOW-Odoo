@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_mediflow_scheduling_root"
+              name="Scheduling"
+              parent="mediflow_base.menu_mediflow_root"
+              sequence="20"
+              groups="mediflow_base.group_mediflow_reception"/>
+
+    <menuitem id="menu_mediflow_appointments"
+              name="Appointments"
+              parent="menu_mediflow_scheduling_root"
+              action="action_mediflow_appointment"
+              sequence="10"/>
+
+    <menuitem id="menu_mediflow_slots"
+              name="Slots"
+              parent="menu_mediflow_scheduling_root"
+              action="action_mediflow_slot"
+              sequence="20"/>
+
+    <menuitem id="menu_mediflow_schedules"
+              name="Schedules"
+              parent="menu_mediflow_scheduling_root"
+              action="action_mediflow_schedule"
+              sequence="30"
+              groups="mediflow_base.group_mediflow_clinic_manager"/>
+
+    <menuitem id="menu_mediflow_resources"
+              name="Resources"
+              parent="mediflow_base.menu_mediflow_config"
+              action="action_mediflow_resource"
+              sequence="30"/>
+
+</odoo>

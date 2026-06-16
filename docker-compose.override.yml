@@ -1,0 +1,8 @@
+# MEDIFLOW local override — keeps the default compose ports (8069/8072) free for
+# any other Odoo you run, and exposes MEDIFLOW on 8090 (web) + 8074 (live bus).
+# Docker Compose auto-merges this file with docker-compose.yml.
+services:
+  odoo:
+    ports: !override
+      - "8090:8069"
+      - "8074:8072"

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MEDIFLOW by SA Systems — product lockup (vector / infinite resolution) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 110" width="440" height="110" role="img" aria-label="MEDIFLOW by SA Systems">
+  <!-- SA Systems honeycomb mark (padded, no clipping) -->
+  <g transform="translate(12 18) scale(0.26)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16">
+    <polygon points="157,60 205.5,88 205.5,144 157,172 108.5,144 108.5,88" stroke="#DCDDDE"/>
+    <polygon points="157,172 205.5,200 205.5,256 157,284 108.5,256 108.5,200" stroke="#DCDDDE"/>
+    <polygon points="60,4 108.5,32 108.5,88 60,116 11.5,88 11.5,32" stroke="#E5232A"/>
+    <polygon points="60,116 108.5,144 108.5,200 60,228 11.5,200 11.5,144" stroke="#E5232A"/>
+    <polygon points="254,4 302.5,32 302.5,88 254,116 205.5,88 205.5,32" stroke="#E5232A"/>
+    <polygon points="254,116 302.5,144 302.5,200 254,228 205.5,200 205.5,144" stroke="#E5232A"/>
+    <line x1="116" y1="144" x2="198" y2="144" stroke="#E5232A"/>
+  </g>
+  <g font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+    <text x="108" y="58" font-size="40" font-weight="700" fill="#0B1F2A" letter-spacing="1">MEDI</text>
+    <text x="214" y="58" font-size="40" font-weight="300" fill="#1B5E7E" letter-spacing="1">FLOW</text>
+    <text x="110" y="84" font-size="15" font-weight="600" fill="#5B7282" letter-spacing="1.5">by <tspan fill="#0B0B0B" font-weight="700">SA Systems</tspan></text>
+  </g>
+</svg>

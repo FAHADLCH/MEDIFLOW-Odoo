@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mediflow_patient_tree" model="ir.ui.view">
+        <field name="name">mediflow.patient.tree</field>
+        <field name="model">mediflow.patient</field>
+        <field name="arch" type="xml">
+            <list string="Patients">
+                <field name="mrn"/>
+                <field name="name"/>
+                <field name="gender"/>
+                <field name="age"/>
+                <field name="phone"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="has_active_consent" widget="boolean_toggle" readonly="1"/>
+                <field name="state" decoration-success="state == 'active'" decoration-muted="state in ('inactive','merged')"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mediflow_patient_form" model="ir.ui.view">
+        <field name="name">mediflow.patient.form</field>
+        <field name="model">mediflow.patient</field>
+        <field name="arch" type="xml">
+            <form string="Patient">
+                <header>
+                    <button name="action_activate" type="object" string="Activate"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_set_inactive" type="object" string="Set Inactive"
+                            invisible="state != 'active'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,active,inactive"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_encounters" type="object"
+                                class="oe_stat_button" icon="fa-stethoscope">
+                            <field name="encounter_count" widget="statinfo" string="Encounters"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="mrn"/>
+                        <h1><field name="mrn" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Identity">
+                            <field name="first_name"/>
+                            <field name="last_name"/>
+                            <field name="national_id"/>
+                            <field name="birthdate"/>
+                            <field name="age"/>
+                            <field name="gender"/>
+                            <field name="blood_group"/>
+                        </group>
+                        <group string="Contact">
+                            <field name="phone"/>
+                            <field name="email"/>
+                            <field name="partner_id"/>
+                            <field name="portal_user_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Allergies" name="allergies">
+                            <field name="allergy_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="category"/>
+                                    <field name="criticality"/>
+                                    <field name="reaction"/>
+                                    <field name="clinical_status"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Problems" name="problems">
+                            <field name="problem_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="icd_code"/>
+                                    <field name="clinical_status"/>
+                                    <field name="onset_date"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Emergency Contacts" name="emergency">
+                            <field name="emergency_contact_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="phone"/>
+                                    <field name="function"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Consent" name="consent">
+                            <field name="consent_ids">
+                                <list>
+                                    <field name="scope"/>
+                                    <field name="state"/>
+                                    <field name="granted_date"/>
+                                    <field name="expiry_date"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_mediflow_patient_search" model="ir.ui.view">
+        <field name="name">mediflow.patient.search</field>
+        <field name="model">mediflow.patient</field>
+        <field name="arch" type="xml">
+            <search string="Patients">
+                <field name="name" string="Name/MRN" filter_domain="['|', ('name', 'ilike', self), ('mrn', 'ilike', self)]"/>
+                <field name="phone"/>
+                <field name="national_id"/>
+                <filter name="active_patients" string="Active" domain="[('state', '=', 'active')]"/>
+                <filter name="no_consent" string="Missing Consent" domain="[('has_active_consent', '=', False)]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_gender" string="Gender" context="{'group_by': 'gender'}"/>
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_mediflow_patient" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="res_model">mediflow.patient</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_mediflow_patient_search"/>
+        <field name="context">{'phi_audit_read': True}</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mediflow_schedule_tree" model="ir.ui.view">
+        <field name="name">mediflow.schedule.tree</field>
+        <field name="model">mediflow.schedule</field>
+        <field name="arch" type="xml">
+            <list string="Schedules">
+                <field name="practitioner_id"/>
+                <field name="weekday"/>
+                <field name="start_hour" widget="float_time"/>
+                <field name="end_hour" widget="float_time"/>
+                <field name="slot_duration"/>
+                <field name="allow_overbook"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mediflow_schedule_form" model="ir.ui.view">
+        <field name="name">mediflow.schedule.form</field>
+        <field name="model">mediflow.schedule</field>
+        <field name="arch" type="xml">
+            <form string="Schedule">
+                <header>
+                    <button name="action_generate_slots" type="object"
+                            string="Generate Slots" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="practitioner_id"/>
+                            <field name="resource_id"/>
+                            <field name="weekday"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="start_hour" widget="float_time"/>
+                            <field name="end_hour" widget="float_time"/>
+                            <field name="slot_duration"/>
+                            <field name="allow_overbook"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_mediflow_schedule" model="ir.actions.act_window">
+        <field name="name">Schedules</field>
+        <field name="res_model">mediflow.schedule</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Slots -->
+    <record id="view_mediflow_slot_tree" model="ir.ui.view">
+        <field name="name">mediflow.appointment.slot.tree</field>
+        <field name="model">mediflow.appointment.slot</field>
+        <field name="arch" type="xml">
+            <list string="Slots">
+                <field name="start"/>
+                <field name="stop"/>
+                <field name="practitioner_id"/>
+                <field name="resource_id"/>
+                <field name="state" decoration-success="state == 'free'" decoration-warning="state == 'busy'" decoration-muted="state == 'blocked'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_mediflow_slot" model="ir.actions.act_window">
+        <field name="name">Slots</field>
+        <field name="res_model">mediflow.appointment.slot</field>
+        <field name="view_mode">list</field>
+        <field name="context">{'search_default_free': 1}</field>
+    </record>
+
+    <record id="view_mediflow_slot_search" model="ir.ui.view">
+        <field name="name">mediflow.appointment.slot.search</field>
+        <field name="model">mediflow.appointment.slot</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="practitioner_id"/>
+                <filter name="free" string="Free" domain="[('state', '=', 'free')]"/>
+                <filter name="upcoming" string="Upcoming" domain="[('start', '&gt;=', context_today().strftime('%Y-%m-%d'))]"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- ============================================================
+         Global multi-company isolation floor for all EMR PHI models.
+         No row leaks across clinics regardless of role.
+         ============================================================ -->
+    <record id="rule_patient_company" model="ir.rule">
+        <field name="name">Patient: multi-clinic isolation</field>
+        <field name="model_id" ref="model_mediflow_patient"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_encounter_company" model="ir.rule">
+        <field name="name">Encounter: multi-clinic isolation</field>
+        <field name="model_id" ref="model_mediflow_encounter"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_problem_company" model="ir.rule">
+        <field name="name">Problem: multi-clinic isolation</field>
+        <field name="model_id" ref="model_mediflow_problem"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_allergy_company" model="ir.rule">
+        <field name="name">Allergy: multi-clinic isolation</field>
+        <field name="model_id" ref="model_mediflow_allergy"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_vital_company" model="ir.rule">
+        <field name="name">Vital: multi-clinic isolation</field>
+        <field name="model_id" ref="model_mediflow_vital_sign"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_immunization_company" model="ir.rule">
+        <field name="name">Immunization: multi-clinic isolation</field>
+        <field name="model_id" ref="model_mediflow_immunization"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_consent_company" model="ir.rule">
+        <field name="name">Consent: multi-clinic isolation</field>
+        <field name="model_id" ref="model_mediflow_consent"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_document_company" model="ir.rule">
+        <field name="name">Clinical Document: multi-clinic isolation</field>
+        <field name="model_id" ref="model_mediflow_clinical_document"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_practitioner_company" model="ir.rule">
+        <field name="name">Practitioner: multi-clinic isolation</field>
+        <field name="model_id" ref="model_mediflow_practitioner"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+
+</odoo>

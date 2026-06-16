@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_v_appointment_util_pivot" model="ir.ui.view">
+        <field name="name">mediflow.v.appointment.util.pivot</field>
+        <field name="model">mediflow.v.appointment.util</field>
+        <field name="arch" type="xml">
+            <pivot string="Appointment Utilization" sample="1">
+                <field name="practitioner_id" type="row"/>
+                <field name="appt_count" type="measure"/>
+                <field name="is_cancelled" type="measure"/>
+                <field name="is_no_show" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_v_appointment_util_graph" model="ir.ui.view">
+        <field name="name">mediflow.v.appointment.util.graph</field>
+        <field name="model">mediflow.v.appointment.util</field>
+        <field name="arch" type="xml">
+            <graph string="Appointment Utilization" type="bar" sample="1">
+                <field name="practitioner_id"/>
+                <field name="appt_count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_v_appointment_util_list" model="ir.ui.view">
+        <field name="name">mediflow.v.appointment.util.list</field>
+        <field name="model">mediflow.v.appointment.util</field>
+        <field name="arch" type="xml">
+            <list string="Appointment Utilization">
+                <field name="start"/>
+                <field name="practitioner_id"/>
+                <field name="state"/>
+                <field name="lead_time_hours"/>
+                <field name="is_walk_in" sum="Walk-ins"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_v_appointment_util_search" model="ir.ui.view">
+        <field name="name">mediflow.v.appointment.util.search</field>
+        <field name="model">mediflow.v.appointment.util</field>
+        <field name="arch" type="xml">
+            <search string="Appointment Utilization">
+                <field name="practitioner_id"/>
+                <filter name="cancelled" string="Cancelled"
+                        domain="[('state', '=', 'cancelled')]"/>
+                <filter name="no_show" string="No-show"
+                        domain="[('state', '=', 'no_show')]"/>
+                <filter name="walk_in" string="Walk-in" domain="[('is_walk_in', '=', 1)]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_practitioner" string="Practitioner"
+                            context="{'group_by': 'practitioner_id'}"/>
+                    <filter name="group_state" string="Status"
+                            context="{'group_by': 'state'}"/>
+                    <filter name="group_month" string="Month"
+                            context="{'group_by': 'start:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_v_appointment_util" model="ir.actions.act_window">
+        <field name="name">Appointment &amp; Utilization</field>
+        <field name="res_model">mediflow.v.appointment.util</field>
+        <field name="view_mode">graph,pivot,list</field>
+        <field name="search_view_id" ref="view_v_appointment_util_search"/>
+    </record>
+
+</odoo>

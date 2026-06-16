@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_stock_lot_form_mediflow" model="ir.ui.view">
+        <field name="name">stock.lot.form.mediflow</field>
+        <field name="model">stock.lot</field>
+        <field name="inherit_id" ref="stock.view_production_lot_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="mediflow_expiry_date"/>
+                <field name="is_expired" readonly="1"/>
+                <field name="near_expiry" readonly="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_stock_lot_tree_mediflow" model="ir.ui.view">
+        <field name="name">stock.lot.tree.mediflow</field>
+        <field name="model">stock.lot</field>
+        <field name="inherit_id" ref="stock.view_production_lot_tree"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="mediflow_expiry_date"/>
+                <field name="near_expiry"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="action_mediflow_near_expiry_lots" model="ir.actions.act_window">
+        <field name="name">Near-Expiry Lots</field>
+        <field name="res_model">stock.lot</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('near_expiry', '=', True)]</field>
+    </record>
+
+</odoo>

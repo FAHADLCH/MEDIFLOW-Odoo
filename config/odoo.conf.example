@@ -1,0 +1,24 @@
+[options]
+; MEDIFLOW by SA Systems — example Odoo configuration.
+; Copy this file to config/odoo.conf and adjust for your environment.
+; The live config/odoo.conf is git-ignored because it holds credentials.
+
+addons_path = /usr/lib/python3/dist-packages/odoo/addons,/mnt/extra-addons
+data_dir = /var/lib/odoo
+
+; Master password for database-management operations. CHANGE THIS.
+admin_passwd = CHANGE_ME
+
+; Database connection. Update to match your environment / docker-compose.
+db_host = db
+db_port = 5432
+db_user = odoo
+db_password = CHANGE_ME
+db_name = mediflow
+
+list_db = True
+without_demo = False
+log_level = info
+
+; Live waiting-room boards / chatter bus need the proxy + longpolling port.
+proxy_mode = True

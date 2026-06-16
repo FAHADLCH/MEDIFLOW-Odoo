@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_v_lab_tat_pivot" model="ir.ui.view">
+        <field name="name">mediflow.v.lab.tat.pivot</field>
+        <field name="model">mediflow.v.lab.tat</field>
+        <field name="arch" type="xml">
+            <pivot string="Lab Turnaround" sample="1">
+                <field name="test_id" type="row"/>
+                <field name="tat_hours" type="measure"/>
+                <field name="is_abnormal" type="measure"/>
+                <field name="is_critical" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_v_lab_tat_graph" model="ir.ui.view">
+        <field name="name">mediflow.v.lab.tat.graph</field>
+        <field name="model">mediflow.v.lab.tat</field>
+        <field name="arch" type="xml">
+            <graph string="Lab Turnaround" type="bar" sample="1">
+                <field name="test_id"/>
+                <field name="tat_hours" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_v_lab_tat_list" model="ir.ui.view">
+        <field name="name">mediflow.v.lab.tat.list</field>
+        <field name="model">mediflow.v.lab.tat</field>
+        <field name="arch" type="xml">
+            <list string="Lab Turnaround">
+                <field name="released_at"/>
+                <field name="test_id"/>
+                <field name="order_id"/>
+                <field name="state"/>
+                <field name="tat_hours"/>
+                <field name="is_critical" sum="Critical"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_v_lab_tat_search" model="ir.ui.view">
+        <field name="name">mediflow.v.lab.tat.search</field>
+        <field name="model">mediflow.v.lab.tat</field>
+        <field name="arch" type="xml">
+            <search string="Lab Turnaround">
+                <field name="test_id"/>
+                <filter name="abnormal" string="Abnormal"
+                        domain="[('is_abnormal', '=', 1)]"/>
+                <filter name="critical" string="Critical"
+                        domain="[('is_critical', '=', 1)]"/>
+                <filter name="pending" string="Pending Verification"
+                        domain="[('is_pending', '=', 1)]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_test" string="Test"
+                            context="{'group_by': 'test_id'}"/>
+                    <filter name="group_state" string="Status"
+                            context="{'group_by': 'state'}"/>
+                    <filter name="group_day" string="Released Day"
+                            context="{'group_by': 'released_at:day'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_v_lab_tat" model="ir.actions.act_window">
+        <field name="name">Lab Diagnostics</field>
+        <field name="res_model">mediflow.v.lab.tat</field>
+        <field name="view_mode">graph,pivot,list</field>
+        <field name="search_view_id" ref="view_v_lab_tat_search"/>
+    </record>
+
+</odoo>

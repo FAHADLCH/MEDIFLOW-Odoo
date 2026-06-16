@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- MEDIFLOW / SA Systems branding on the login & signup screens -->
+    <template id="mediflow_login_brand" inherit_id="web.login" name="MEDIFLOW Login Brand">
+        <xpath expr="//form" position="before">
+            <div class="mf-login-brand">
+                <img src="/mediflow_theme/static/src/img/mediflow_logo.svg"
+                     alt="MEDIFLOW by SA Systems"/>
+                <div class="mf-login-tagline">Healthcare that flows — clinic, lab &amp; claims in one secure platform.</div>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

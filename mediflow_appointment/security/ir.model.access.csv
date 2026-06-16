@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_resource_user,resource.user,model_mediflow_resource,base.group_user,1,0,0,0
+access_resource_admin,resource.admin,model_mediflow_resource,mediflow_base.group_mediflow_admin,1,1,1,1
+access_schedule_reception,schedule.reception,model_mediflow_schedule,mediflow_base.group_mediflow_reception,1,0,0,0
+access_schedule_manager,schedule.manager,model_mediflow_schedule,mediflow_base.group_mediflow_clinic_manager,1,1,1,1
+access_schedule_admin,schedule.admin,model_mediflow_schedule,mediflow_base.group_mediflow_admin,1,1,1,1
+access_slot_reception,slot.reception,model_mediflow_appointment_slot,mediflow_base.group_mediflow_reception,1,1,1,0
+access_slot_doctor,slot.doctor,model_mediflow_appointment_slot,mediflow_base.group_mediflow_doctor,1,1,0,0
+access_slot_admin,slot.admin,model_mediflow_appointment_slot,mediflow_base.group_mediflow_admin,1,1,1,1
+access_appointment_reception,appointment.reception,model_mediflow_appointment,mediflow_base.group_mediflow_reception,1,1,1,0
+access_appointment_nurse,appointment.nurse,model_mediflow_appointment,mediflow_base.group_mediflow_nurse,1,1,1,0
+access_appointment_doctor,appointment.doctor,model_mediflow_appointment,mediflow_base.group_mediflow_doctor,1,1,1,0
+access_appointment_cashier,appointment.cashier,model_mediflow_appointment,mediflow_base.group_mediflow_cashier,1,0,0,0
+access_appointment_compliance,appointment.compliance,model_mediflow_appointment,mediflow_base.group_mediflow_compliance,1,0,0,0
+access_appointment_admin,appointment.admin,model_mediflow_appointment,mediflow_base.group_mediflow_admin,1,1,1,1

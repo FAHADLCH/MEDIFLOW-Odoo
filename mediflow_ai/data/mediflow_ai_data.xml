@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Keep no-show risk fresh for upcoming appointments -->
+        <record id="cron_mf_ai_no_show" model="ir.cron">
+            <field name="name">MEDIFLOW AI: refresh no-show risk</field>
+            <field name="model_id" ref="mediflow_appointment.model_mediflow_appointment"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_score_upcoming_no_show()</field>
+            <field name="interval_number">6</field>
+            <field name="interval_type">hours</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <!-- Disabled example provider so admins see the shape of a config -->
+        <record id="ai_provider_example" model="mediflow.ai.provider">
+            <field name="name">Example (configure me)</field>
+            <field name="provider_type">openai</field>
+            <field name="model_name">gpt-4o-mini</field>
+            <field name="is_active" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

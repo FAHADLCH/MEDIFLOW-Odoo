@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="region_us" model="mediflow.region.profile">
+            <field name="name">United States (HIPAA)</field>
+            <field name="code">US</field>
+            <field name="country_id" ref="base.us"/>
+            <field name="lang">en_US</field>
+            <field name="currency_id" ref="base.USD"/>
+            <field name="timezone">America/New_York</field>
+            <field name="regulatory_framework">hipaa</field>
+            <field name="patient_id_label">SSN</field>
+            <field name="retention_years">6</field>
+            <field name="consent_required" eval="True"/>
+            <field name="breach_notification_hours">1440</field>
+            <field name="emergency_number">911</field>
+            <field name="phone_country_code">+1</field>
+        </record>
+
+        <record id="region_eu" model="mediflow.region.profile">
+            <field name="name">European Union (GDPR)</field>
+            <field name="code">EU</field>
+            <field name="lang">en_US</field>
+            <field name="currency_id" ref="base.EUR"/>
+            <field name="timezone">Europe/Brussels</field>
+            <field name="regulatory_framework">gdpr</field>
+            <field name="patient_id_label">National ID</field>
+            <field name="retention_years">10</field>
+            <field name="consent_required" eval="True"/>
+            <field name="breach_notification_hours">72</field>
+            <field name="emergency_number">112</field>
+            <field name="phone_country_code">+3x</field>
+        </record>
+
+        <record id="region_uk" model="mediflow.region.profile">
+            <field name="name">United Kingdom (UK GDPR)</field>
+            <field name="code">UK</field>
+            <field name="country_id" ref="base.uk"/>
+            <field name="lang">en_GB</field>
+            <field name="currency_id" ref="base.GBP"/>
+            <field name="timezone">Europe/London</field>
+            <field name="regulatory_framework">uk_gdpr</field>
+            <field name="patient_id_label">NHS Number</field>
+            <field name="retention_years">8</field>
+            <field name="consent_required" eval="True"/>
+            <field name="breach_notification_hours">72</field>
+            <field name="emergency_number">999</field>
+            <field name="phone_country_code">+44</field>
+        </record>
+
+        <record id="region_ksa" model="mediflow.region.profile">
+            <field name="name">Saudi Arabia (PDPL)</field>
+            <field name="code">KSA</field>
+            <field name="country_id" ref="base.sa"/>
+            <field name="lang">ar_001</field>
+            <field name="currency_id" ref="base.SAR"/>
+            <field name="timezone">Asia/Riyadh</field>
+            <field name="regulatory_framework">pdpl</field>
+            <field name="patient_id_label">National ID / Iqama</field>
+            <field name="retention_years">10</field>
+            <field name="consent_required" eval="True"/>
+            <field name="breach_notification_hours">72</field>
+            <field name="emergency_number">997</field>
+            <field name="phone_country_code">+966</field>
+        </record>
+
+        <record id="region_uae" model="mediflow.region.profile">
+            <field name="name">United Arab Emirates (PDPL)</field>
+            <field name="code">UAE</field>
+            <field name="country_id" ref="base.ae"/>
+            <field name="lang">ar_001</field>
+            <field name="currency_id" ref="base.AED"/>
+            <field name="timezone">Asia/Dubai</field>
+            <field name="regulatory_framework">pdpl</field>
+            <field name="patient_id_label">Emirates ID</field>
+            <field name="retention_years">10</field>
+            <field name="consent_required" eval="True"/>
+            <field name="breach_notification_hours">72</field>
+            <field name="emergency_number">999</field>
+            <field name="phone_country_code">+971</field>
+        </record>
+
+        <record id="region_india" model="mediflow.region.profile">
+            <field name="name">India (DPDP Act)</field>
+            <field name="code">IN</field>
+            <field name="country_id" ref="base.in"/>
+            <field name="lang">en_US</field>
+            <field name="currency_id" ref="base.INR"/>
+            <field name="timezone">Asia/Kolkata</field>
+            <field name="regulatory_framework">dpdp</field>
+            <field name="patient_id_label">Aadhaar</field>
+            <field name="retention_years">3</field>
+            <field name="consent_required" eval="True"/>
+            <field name="breach_notification_hours">72</field>
+            <field name="emergency_number">112</field>
+            <field name="phone_country_code">+91</field>
+        </record>
+
+        <record id="region_singapore" model="mediflow.region.profile">
+            <field name="name">Singapore (PDPA)</field>
+            <field name="code">SG</field>
+            <field name="country_id" ref="base.sg"/>
+            <field name="lang">en_US</field>
+            <field name="currency_id" ref="base.SGD"/>
+            <field name="timezone">Asia/Singapore</field>
+            <field name="regulatory_framework">pdpa</field>
+            <field name="patient_id_label">NRIC / FIN</field>
+            <field name="retention_years">6</field>
+            <field name="consent_required" eval="True"/>
+            <field name="breach_notification_hours">72</field>
+            <field name="emergency_number">995</field>
+            <field name="phone_country_code">+65</field>
+        </record>
+
+        <record id="region_australia" model="mediflow.region.profile">
+            <field name="name">Australia (Privacy Act)</field>
+            <field name="code">AU</field>
+            <field name="country_id" ref="base.au"/>
+            <field name="lang">en_US</field>
+            <field name="currency_id" ref="base.AUD"/>
+            <field name="timezone">Australia/Sydney</field>
+            <field name="regulatory_framework">generic</field>
+            <field name="patient_id_label">Medicare Number</field>
+            <field name="retention_years">7</field>
+            <field name="consent_required" eval="True"/>
+            <field name="breach_notification_hours">72</field>
+            <field name="emergency_number">000</field>
+            <field name="phone_country_code">+61</field>
+        </record>
+
+        <record id="region_canada" model="mediflow.region.profile">
+            <field name="name">Canada (PIPEDA)</field>
+            <field name="code">CA</field>
+            <field name="country_id" ref="base.ca"/>
+            <field name="lang">en_US</field>
+            <field name="currency_id" ref="base.CAD"/>
+            <field name="timezone">America/Toronto</field>
+            <field name="regulatory_framework">pipeda</field>
+            <field name="patient_id_label">Health Card Number</field>
+            <field name="retention_years">10</field>
+            <field name="consent_required" eval="True"/>
+            <field name="breach_notification_hours">72</field>
+            <field name="emergency_number">911</field>
+            <field name="phone_country_code">+1</field>
+        </record>
+
+        <record id="region_brazil" model="mediflow.region.profile">
+            <field name="name">Brazil (LGPD)</field>
+            <field name="code">BR</field>
+            <field name="country_id" ref="base.br"/>
+            <field name="lang">pt_BR</field>
+            <field name="currency_id" ref="base.BRL"/>
+            <field name="timezone">America/Sao_Paulo</field>
+            <field name="regulatory_framework">lgpd</field>
+            <field name="patient_id_label">CPF</field>
+            <field name="retention_years">20</field>
+            <field name="consent_required" eval="True"/>
+            <field name="breach_notification_hours">72</field>
+            <field name="emergency_number">192</field>
+            <field name="phone_country_code">+55</field>
+        </record>
+
+    </data>
+</odoo>

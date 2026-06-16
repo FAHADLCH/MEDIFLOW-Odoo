@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="rule_prescription_company" model="ir.rule">
+        <field name="name">Prescription: company isolation</field>
+        <field name="model_id" ref="model_mediflow_prescription"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+        <field name="global" eval="True"/>
+    </record>
+
+    <record id="rule_prescription_line_company" model="ir.rule">
+        <field name="name">Prescription Line: company isolation</field>
+        <field name="model_id" ref="model_mediflow_prescription_line"/>
+        <field name="domain_force">['|', ('prescription_id.company_id', '=', False), ('prescription_id.company_id', 'in', company_ids)]</field>
+        <field name="global" eval="True"/>
+    </record>
+
+    <record id="rule_dispense_company" model="ir.rule">
+        <field name="name">Dispense: company isolation</field>
+        <field name="model_id" ref="model_mediflow_dispense"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+        <field name="global" eval="True"/>
+    </record>
+
+</odoo>

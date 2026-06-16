@@ -1,0 +1,40 @@
+# MEDIFLOW — local test stack (SA Systems)
+# Brings up Odoo 18 + PostgreSQL with the MEDIFLOW addons mounted.
+# Usage:  docker compose up -d   then open http://localhost:8069
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+    volumes:
+      - mediflow-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "odoo"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  odoo:
+    image: odoo:18.0
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8069:8069"
+      - "8072:8072"   # longpolling / live bus
+    volumes:
+      # Odoo store layout: one module folder per app at the repo root.
+      - ./:/mnt/extra-addons:ro
+      - ./config/odoo.conf:/etc/odoo/odoo.conf:ro
+      - mediflow-web:/var/lib/odoo
+    environment:
+      HOST: db
+      USER: odoo
+      PASSWORD: odoo
+    command: odoo
+
+volumes:
+  mediflow-db:
+  mediflow-web:

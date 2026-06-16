@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mediflow_payer_list" model="ir.ui.view">
+        <field name="name">mediflow.payer.list</field>
+        <field name="model">mediflow.payer</field>
+        <field name="arch" type="xml">
+            <list string="Payers">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="payer_type"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mediflow_payer_form" model="ir.ui.view">
+        <field name="name">mediflow.payer.form</field>
+        <field name="model">mediflow.payer</field>
+        <field name="arch" type="xml">
+            <form string="Payer">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Payer name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="payer_type"/>
+                            <field name="partner_id"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="phone"/>
+                            <field name="email"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <group string="Claims Address">
+                        <field name="claim_address" nolabel="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Coverages" name="coverages">
+                            <field name="coverage_ids">
+                                <list>
+                                    <field name="patient_id"/>
+                                    <field name="member_id"/>
+                                    <field name="priority"/>
+                                    <field name="coverage_percent"/>
+                                    <field name="is_active"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_mediflow_payer" model="ir.actions.act_window">
+        <field name="name">Payers</field>
+        <field name="res_model">mediflow.payer</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>
