@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- MEDIFLOW by SA Systems — Odoo store banner (square 1200x1200, renders cleanly via QuickLook) -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200" role="img" aria-label="MEDIFLOW by SA Systems">
+<!-- SA Systems — MEDIFLOW store banner -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200" role="img" aria-label="SA Systems">
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#0B1F2A"/>
@@ -12,59 +12,129 @@
       <stop offset="1" stop-color="#21C7A8"/>
     </linearGradient>
   </defs>
-
   <rect width="1200" height="1200" fill="url(#sky)"/>
-
-  <!-- faint honeycomb watermark -->
-  <g transform="translate(760 540) scale(1.7)" fill="none" stroke="#FFFFFF" stroke-opacity="0.05" stroke-linecap="round" stroke-linejoin="round" stroke-width="10">
-    <polygon points="157,60 205.5,88 205.5,144 157,172 108.5,144 108.5,88"/>
-    <polygon points="157,172 205.5,200 205.5,256 157,284 108.5,256 108.5,200"/>
-    <polygon points="60,4 108.5,32 108.5,88 60,116 11.5,88 11.5,32"/>
-    <polygon points="60,116 108.5,144 108.5,200 60,228 11.5,200 11.5,144"/>
-    <polygon points="254,4 302.5,32 302.5,88 254,116 205.5,88 205.5,32"/>
-    <polygon points="254,116 302.5,144 302.5,200 254,228 205.5,200 205.5,144"/>
+  <g opacity="0.05">
+  <g transform="translate(470.00 560.00) scale(1.5781)">
+  <g transform="translate(51.96 60.00)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="107.56" y1="-57.90" x2="152.25" y2="-32.10" stroke="#FFFFFF" stroke-width="7"/>
+    <line x1="155.88" y1="-25.80" x2="155.88" y2="25.80" stroke="#FFFFFF" stroke-width="7"/>
+    <line x1="152.25" y1="32.10" x2="107.56" y2="57.90" stroke="#FFFFFF" stroke-width="7"/>
+    <line x1="100.29" y1="57.90" x2="55.60" y2="32.10" stroke="#FFFFFF" stroke-width="7"/>
+    <line x1="51.96" y1="25.80" x2="51.96" y2="-25.80" stroke="#FFFFFF" stroke-width="7"/>
+    <line x1="55.60" y1="-32.10" x2="100.29" y2="-57.90" stroke="#FFFFFF" stroke-width="7"/>
+    <line x1="107.56" y1="62.10" x2="152.25" y2="87.90" stroke="#FFFFFF" stroke-width="7"/>
+    <line x1="155.88" y1="94.20" x2="155.88" y2="145.80" stroke="#FFFFFF" stroke-width="7"/>
+    <line x1="152.25" y1="152.10" x2="107.56" y2="177.90" stroke="#FFFFFF" stroke-width="7"/>
+    <line x1="100.29" y1="177.90" x2="55.60" y2="152.10" stroke="#FFFFFF" stroke-width="7"/>
+    <line x1="51.96" y1="145.80" x2="51.96" y2="94.20" stroke="#FFFFFF" stroke-width="7"/>
+    <line x1="55.60" y1="87.90" x2="100.29" y2="62.10" stroke="#FFFFFF" stroke-width="7"/>
+    <line x1="315.41" y1="-57.90" x2="360.09" y2="-32.10" stroke="#FFFFFF" stroke-width="7"/>
+    <line x1="363.73" y1="-25.80" x2="363.73" y2="25.80" stroke="#FFFFFF" stroke-width="7"/>
+    <line x1="360.09" y1="32.10" x2="315.41" y2="57.90" stroke="#FFFFFF" stroke-width="7"/>
+    <line x1="308.13" y1="57.90" x2="263.44" y2="32.10" stroke="#FFFFFF" stroke-width="7"/>
+    <line x1="259.81" y1="25.80" x2="259.81" y2="-25.80" stroke="#FFFFFF" stroke-width="7"/>
+    <line x1="263.44" y1="-32.10" x2="308.13" y2="-57.90" stroke="#FFFFFF" stroke-width="7"/>
+    <line x1="315.41" y1="62.10" x2="360.09" y2="87.90" stroke="#FFFFFF" stroke-width="7"/>
+    <line x1="363.73" y1="94.20" x2="363.73" y2="145.80" stroke="#FFFFFF" stroke-width="7"/>
+    <line x1="360.09" y1="152.10" x2="315.41" y2="177.90" stroke="#FFFFFF" stroke-width="7"/>
+    <line x1="308.13" y1="177.90" x2="263.44" y2="152.10" stroke="#FFFFFF" stroke-width="7"/>
+    <line x1="259.81" y1="145.80" x2="259.81" y2="94.20" stroke="#FFFFFF" stroke-width="7"/>
+    <line x1="263.44" y1="87.90" x2="308.13" y2="62.10" stroke="#FFFFFF" stroke-width="7"/>
+    <line x1="3.64" y1="-57.90" x2="48.32" y2="-32.10" stroke="#FFFFFF" stroke-width="11"/>
+    <line x1="48.32" y1="32.10" x2="3.64" y2="57.90" stroke="#FFFFFF" stroke-width="11"/>
+    <line x1="-3.64" y1="57.90" x2="-48.32" y2="32.10" stroke="#FFFFFF" stroke-width="11"/>
+    <line x1="-51.96" y1="25.80" x2="-51.96" y2="-25.80" stroke="#FFFFFF" stroke-width="11"/>
+    <line x1="-48.32" y1="-32.10" x2="-3.64" y2="-57.90" stroke="#FFFFFF" stroke-width="11"/>
+    <line x1="3.64" y1="62.10" x2="48.32" y2="87.90" stroke="#FFFFFF" stroke-width="11"/>
+    <line x1="48.32" y1="152.10" x2="3.64" y2="177.90" stroke="#FFFFFF" stroke-width="11"/>
+    <line x1="-3.64" y1="177.90" x2="-48.32" y2="152.10" stroke="#FFFFFF" stroke-width="11"/>
+    <line x1="-51.96" y1="145.80" x2="-51.96" y2="94.20" stroke="#FFFFFF" stroke-width="11"/>
+    <line x1="-48.32" y1="87.90" x2="-3.64" y2="62.10" stroke="#FFFFFF" stroke-width="11"/>
+    <line x1="211.48" y1="-57.90" x2="256.17" y2="-32.10" stroke="#FFFFFF" stroke-width="11"/>
+    <line x1="159.52" y1="-32.10" x2="204.21" y2="-57.90" stroke="#FFFFFF" stroke-width="11"/>
+    <line x1="256.17" y1="152.10" x2="211.48" y2="177.90" stroke="#FFFFFF" stroke-width="11"/>
+    <line x1="204.21" y1="177.90" x2="159.52" y2="152.10" stroke="#FFFFFF" stroke-width="11"/>
+    <line x1="419.33" y1="-57.90" x2="464.02" y2="-32.10" stroke="#FFFFFF" stroke-width="11"/>
+    <line x1="467.65" y1="-25.80" x2="467.65" y2="25.80" stroke="#FFFFFF" stroke-width="11"/>
+    <line x1="464.02" y1="32.10" x2="419.33" y2="57.90" stroke="#FFFFFF" stroke-width="11"/>
+    <line x1="412.05" y1="57.90" x2="367.37" y2="32.10" stroke="#FFFFFF" stroke-width="11"/>
+    <line x1="367.37" y1="-32.10" x2="412.05" y2="-57.90" stroke="#FFFFFF" stroke-width="11"/>
+    <line x1="419.33" y1="62.10" x2="464.02" y2="87.90" stroke="#FFFFFF" stroke-width="11"/>
+    <line x1="467.65" y1="94.20" x2="467.65" y2="145.80" stroke="#FFFFFF" stroke-width="11"/>
+    <line x1="464.02" y1="152.10" x2="419.33" y2="177.90" stroke="#FFFFFF" stroke-width="11"/>
+    <line x1="412.05" y1="177.90" x2="367.37" y2="152.10" stroke="#FFFFFF" stroke-width="11"/>
+    <line x1="367.37" y1="87.90" x2="412.05" y2="62.10" stroke="#FFFFFF" stroke-width="11"/>
+    <line x1="179.83" y1="60.00" x2="235.86" y2="60.00" stroke="#FFFFFF" stroke-width="11"/>
   </g>
-
-  <!-- crisp mark -->
-  <g transform="translate(150 250) scale(0.66)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="14">
-    <polygon points="157,60 205.5,88 205.5,144 157,172 108.5,144 108.5,88" stroke="#FFFFFF" stroke-opacity="0.85"/>
-    <polygon points="157,172 205.5,200 205.5,256 157,284 108.5,256 108.5,200" stroke="#FFFFFF" stroke-opacity="0.85"/>
-    <polygon points="60,4 108.5,32 108.5,88 60,116 11.5,88 11.5,32" stroke="#E5232A"/>
-    <polygon points="60,116 108.5,144 108.5,200 60,228 11.5,200 11.5,144" stroke="#E5232A"/>
-    <polygon points="254,4 302.5,32 302.5,88 254,116 205.5,88 205.5,32" stroke="#E5232A"/>
-    <polygon points="254,116 302.5,144 302.5,200 254,228 205.5,200 205.5,144" stroke="#E5232A"/>
-    <line x1="116" y1="144" x2="198" y2="144" stroke="#E5232A"/>
   </g>
-
-  <g font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
-    <text x="330" y="350" font-size="104" font-weight="700" fill="#FFFFFF" letter-spacing="2">MEDI<tspan fill="#7FD4EC" font-weight="300">FLOW</tspan></text>
-    <text x="334" y="402" font-size="28" font-weight="600" fill="#9FB4C2" letter-spacing="5">by <tspan fill="#FFFFFF" font-weight="700">SA SYSTEMS</tspan></text>
   </g>
-
-  <rect x="150" y="470" width="900" height="6" rx="3" fill="url(#rule)"/>
-
-  <g font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
-    <text x="150" y="585" font-size="58" font-weight="700" fill="#FFFFFF">Clinic &amp; Diagnostics ERP for Odoo</text>
-    <text x="150" y="660" font-size="34" font-weight="400" fill="#C2D2DC">One platform — front desk to lab bench to revenue cycle.</text>
-
-    <text x="150" y="762" font-size="32" font-weight="600" fill="#EAF2F6">EMR · Appointments · Laboratory · Pharmacy</text>
-    <text x="150" y="814" font-size="32" font-weight="600" fill="#EAF2F6">Billing · Insurance Claims · Queue · Patient Portal</text>
-    <text x="150" y="866" font-size="32" font-weight="600" fill="#EAF2F6">FHIR R4 API · AI Assist · Analytics · Integrations</text>
+  <rect x="150" y="232" width="232" height="232" rx="46" fill="#FFFFFF"/>
+  <g transform="translate(178.00 320.00) scale(0.3387)">
+  <g transform="translate(51.96 60.00)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="107.56" y1="-57.90" x2="152.25" y2="-32.10" stroke="#D7D9DB" stroke-width="7"/>
+    <line x1="155.88" y1="-25.80" x2="155.88" y2="25.80" stroke="#D7D9DB" stroke-width="7"/>
+    <line x1="152.25" y1="32.10" x2="107.56" y2="57.90" stroke="#D7D9DB" stroke-width="7"/>
+    <line x1="100.29" y1="57.90" x2="55.60" y2="32.10" stroke="#D7D9DB" stroke-width="7"/>
+    <line x1="51.96" y1="25.80" x2="51.96" y2="-25.80" stroke="#D7D9DB" stroke-width="7"/>
+    <line x1="55.60" y1="-32.10" x2="100.29" y2="-57.90" stroke="#D7D9DB" stroke-width="7"/>
+    <line x1="107.56" y1="62.10" x2="152.25" y2="87.90" stroke="#D7D9DB" stroke-width="7"/>
+    <line x1="155.88" y1="94.20" x2="155.88" y2="145.80" stroke="#D7D9DB" stroke-width="7"/>
+    <line x1="152.25" y1="152.10" x2="107.56" y2="177.90" stroke="#D7D9DB" stroke-width="7"/>
+    <line x1="100.29" y1="177.90" x2="55.60" y2="152.10" stroke="#D7D9DB" stroke-width="7"/>
+    <line x1="51.96" y1="145.80" x2="51.96" y2="94.20" stroke="#D7D9DB" stroke-width="7"/>
+    <line x1="55.60" y1="87.90" x2="100.29" y2="62.10" stroke="#D7D9DB" stroke-width="7"/>
+    <line x1="315.41" y1="-57.90" x2="360.09" y2="-32.10" stroke="#D7D9DB" stroke-width="7"/>
+    <line x1="363.73" y1="-25.80" x2="363.73" y2="25.80" stroke="#D7D9DB" stroke-width="7"/>
+    <line x1="360.09" y1="32.10" x2="315.41" y2="57.90" stroke="#D7D9DB" stroke-width="7"/>
+    <line x1="308.13" y1="57.90" x2="263.44" y2="32.10" stroke="#D7D9DB" stroke-width="7"/>
+    <line x1="259.81" y1="25.80" x2="259.81" y2="-25.80" stroke="#D7D9DB" stroke-width="7"/>
+    <line x1="263.44" y1="-32.10" x2="308.13" y2="-57.90" stroke="#D7D9DB" stroke-width="7"/>
+    <line x1="315.41" y1="62.10" x2="360.09" y2="87.90" stroke="#D7D9DB" stroke-width="7"/>
+    <line x1="363.73" y1="94.20" x2="363.73" y2="145.80" stroke="#D7D9DB" stroke-width="7"/>
+    <line x1="360.09" y1="152.10" x2="315.41" y2="177.90" stroke="#D7D9DB" stroke-width="7"/>
+    <line x1="308.13" y1="177.90" x2="263.44" y2="152.10" stroke="#D7D9DB" stroke-width="7"/>
+    <line x1="259.81" y1="145.80" x2="259.81" y2="94.20" stroke="#D7D9DB" stroke-width="7"/>
+    <line x1="263.44" y1="87.90" x2="308.13" y2="62.10" stroke="#D7D9DB" stroke-width="7"/>
+    <line x1="3.64" y1="-57.90" x2="48.32" y2="-32.10" stroke="#E5232A" stroke-width="11"/>
+    <line x1="48.32" y1="32.10" x2="3.64" y2="57.90" stroke="#E5232A" stroke-width="11"/>
+    <line x1="-3.64" y1="57.90" x2="-48.32" y2="32.10" stroke="#E5232A" stroke-width="11"/>
+    <line x1="-51.96" y1="25.80" x2="-51.96" y2="-25.80" stroke="#E5232A" stroke-width="11"/>
+    <line x1="-48.32" y1="-32.10" x2="-3.64" y2="-57.90" stroke="#E5232A" stroke-width="11"/>
+    <line x1="3.64" y1="62.10" x2="48.32" y2="87.90" stroke="#E5232A" stroke-width="11"/>
+    <line x1="48.32" y1="152.10" x2="3.64" y2="177.90" stroke="#E5232A" stroke-width="11"/>
+    <line x1="-3.64" y1="177.90" x2="-48.32" y2="152.10" stroke="#E5232A" stroke-width="11"/>
+    <line x1="-51.96" y1="145.80" x2="-51.96" y2="94.20" stroke="#E5232A" stroke-width="11"/>
+    <line x1="-48.32" y1="87.90" x2="-3.64" y2="62.10" stroke="#E5232A" stroke-width="11"/>
+    <line x1="211.48" y1="-57.90" x2="256.17" y2="-32.10" stroke="#E5232A" stroke-width="11"/>
+    <line x1="159.52" y1="-32.10" x2="204.21" y2="-57.90" stroke="#E5232A" stroke-width="11"/>
+    <line x1="256.17" y1="152.10" x2="211.48" y2="177.90" stroke="#E5232A" stroke-width="11"/>
+    <line x1="204.21" y1="177.90" x2="159.52" y2="152.10" stroke="#E5232A" stroke-width="11"/>
+    <line x1="419.33" y1="-57.90" x2="464.02" y2="-32.10" stroke="#E5232A" stroke-width="11"/>
+    <line x1="467.65" y1="-25.80" x2="467.65" y2="25.80" stroke="#E5232A" stroke-width="11"/>
+    <line x1="464.02" y1="32.10" x2="419.33" y2="57.90" stroke="#E5232A" stroke-width="11"/>
+    <line x1="412.05" y1="57.90" x2="367.37" y2="32.10" stroke="#E5232A" stroke-width="11"/>
+    <line x1="367.37" y1="-32.10" x2="412.05" y2="-57.90" stroke="#E5232A" stroke-width="11"/>
+    <line x1="419.33" y1="62.10" x2="464.02" y2="87.90" stroke="#E5232A" stroke-width="11"/>
+    <line x1="467.65" y1="94.20" x2="467.65" y2="145.80" stroke="#E5232A" stroke-width="11"/>
+    <line x1="464.02" y1="152.10" x2="419.33" y2="177.90" stroke="#E5232A" stroke-width="11"/>
+    <line x1="412.05" y1="177.90" x2="367.37" y2="152.10" stroke="#E5232A" stroke-width="11"/>
+    <line x1="367.37" y1="87.90" x2="412.05" y2="62.10" stroke="#E5232A" stroke-width="11"/>
+    <line x1="179.83" y1="60.00" x2="235.86" y2="60.00" stroke="#E5232A" stroke-width="11"/>
   </g>
-
-  <!-- badges -->
-  <g font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600">
-    <g transform="translate(150 952)">
-      <rect width="290" height="64" rx="32" fill="#FFFFFF" fill-opacity="0.08" stroke="#E5232A" stroke-opacity="0.7" stroke-width="2"/>
-      <text x="145" y="42" text-anchor="middle" fill="#FFFFFF">Multi-currency</text>
-    </g>
-    <g transform="translate(462 952)">
-      <rect width="250" height="64" rx="32" fill="#FFFFFF" fill-opacity="0.08" stroke="#21C7A8" stroke-opacity="0.7" stroke-width="2"/>
-      <text x="125" y="42" text-anchor="middle" fill="#FFFFFF">Global-ready</text>
-    </g>
-    <g transform="translate(734 952)">
-      <rect width="316" height="64" rx="32" fill="#FFFFFF" fill-opacity="0.08" stroke="#7FD4EC" stroke-opacity="0.7" stroke-width="2"/>
-      <text x="158" y="42" text-anchor="middle" fill="#FFFFFF">Odoo 18 &amp; 19 ready</text>
-    </g>
   </g>
+  <g font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif">
+    <text x="430" y="330" font-size="120" font-weight="800" fill="#FFFFFF" letter-spacing="1">MEDI<tspan fill="#7FD4EC" font-weight="600">FLOW</tspan></text>
+    <text x="434" y="386" font-size="34" font-weight="700" fill="#9FB4C2" letter-spacing="6">BY SA SYSTEMS</text>
+  </g>
+  <rect x="152" y="512" width="300" height="8" rx="4" fill="url(#rule)"/>
+  <text x="152" y="602" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="52" font-weight="700" fill="#EAF2F6">Clinic &amp; Diagnostics ERP</text>
+  <text x="152" y="670" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="34" font-weight="400" fill="#C2D2DC">Front desk · Lab bench · Revenue cycle — one Odoo install</text>
+  <rect x="152" y="742" width="304" height="62" rx="31" fill="none" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="2"/>
+  <text x="304" y="782" text-anchor="middle" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="26" font-weight="600" fill="#EAF2F6">Multi-currency</text>
+  <rect x="478" y="742" width="171" height="62" rx="31" fill="none" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="2"/>
+  <text x="564" y="782" text-anchor="middle" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="26" font-weight="600" fill="#EAF2F6">FHIR R4</text>
+  <rect x="671" y="742" width="380" height="62" rx="31" fill="none" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="2"/>
+  <text x="861" y="782" text-anchor="middle" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="26" font-weight="600" fill="#EAF2F6">10 region profiles</text>
+  <rect x="152" y="828" width="266" height="62" rx="31" fill="none" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="2"/>
+  <text x="285" y="868" text-anchor="middle" font-family="'Poppins','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="26" font-weight="600" fill="#EAF2F6">Odoo 18 &amp; 19</text>
 </svg>
