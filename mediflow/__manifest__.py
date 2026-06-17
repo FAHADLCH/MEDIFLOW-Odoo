@@ -105,8 +105,8 @@
     "price": 199.00,
     "currency": "USD",
     "category": "Healthcare",
-    # Series-agnostic: a bare "2.0.0" installs on Odoo 18 and 19 alike.
-    "version": "2.0.0",
+    # Series-agnostic: a bare "2.0.1" installs on Odoo 18 and 19 alike.
+    "version": "2.0.1",
     "depends": ['base', 'mail', 'contacts', 'calendar', 'account', 'stock', 'portal', 'website', 'bus', 'web'],
     "data": [
         'security/base/mediflow_security.xml',
