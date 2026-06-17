@@ -91,9 +91,9 @@
       </div>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;margin-top:24px;">
-      <div style="box-sizing:border-box;background-color:#F6F6F6;border:1px solid #E6E6E6;border-radius:14px;padding:26px;"><h3 style="margin:0 0 10px;color:#0B0B0B;font-size:19px;font-weight:700;">Security &amp; compliance</h3><p style="margin:0;color:#6B6B6B;font-size:15px;line-height:1.6;overflow-wrap:break-word;">Every clinical record is company-scoped, PHI-audited with an append-only access &amp; change log, and governed by a guard-protected state machine. National identifiers and clinical exports are consent-gated. Role-based access spans reception, nursing, physicians, lab tech/verifier, pharmacist, cashier, insurance, inventory, compliance and clinic manager.</p></div>
-      <div style="box-sizing:border-box;background-color:#F6F6F6;border:1px solid #E6E6E6;border-radius:14px;padding:26px;"><h3 style="margin:0 0 10px;color:#0B0B0B;font-size:19px;font-weight:700;">Built on pure Odoo core</h3><p style="margin:0;color:#6B6B6B;font-size:15px;line-height:1.6;overflow-wrap:break-word;">Extends <code style="color:#E5232A;">base</code>, <code style="color:#E5232A;">mail</code>, <code style="color:#E5232A;">contacts</code>, <code style="color:#E5232A;">calendar</code>, <code style="color:#E5232A;">account</code>, <code style="color:#E5232A;">stock</code>, <code style="color:#E5232A;">portal</code>, <code style="color:#E5232A;">website</code> and <code style="color:#E5232A;">bus</code>. No mandatory external Python dependencies &mdash; deploys on Odoo.sh and on-premise alike. Optional Stripe and Twilio connectors activate only when configured.</p></div>
+    <div style="display:block;margin-top:24px;font-size:0;">
+      <div style="display:inline-block;vertical-align:top;width:48%;margin:0 1% 16px;min-height:220px;box-sizing:border-box;background-color:#F6F6F6;border:1px solid #E6E6E6;border-radius:14px;padding:26px;"><h3 style="margin:0 0 10px;color:#0B0B0B;font-size:19px;font-weight:700;">Security &amp; compliance</h3><p style="margin:0;color:#6B6B6B;font-size:15px;line-height:1.6;overflow-wrap:break-word;">Every clinical record is company-scoped, PHI-audited with an append-only access &amp; change log, and governed by a guard-protected state machine. National identifiers and clinical exports are consent-gated. Role-based access spans reception, nursing, physicians, lab tech/verifier, pharmacist, cashier, insurance, inventory, compliance and clinic manager.</p></div>
+      <div style="display:inline-block;vertical-align:top;width:48%;margin:0 1% 16px;min-height:220px;box-sizing:border-box;background-color:#F6F6F6;border:1px solid #E6E6E6;border-radius:14px;padding:26px;"><h3 style="margin:0 0 10px;color:#0B0B0B;font-size:19px;font-weight:700;">Built on pure Odoo core</h3><p style="margin:0;color:#6B6B6B;font-size:15px;line-height:1.6;overflow-wrap:break-word;">Extends <code style="color:#E5232A;">base</code>, <code style="color:#E5232A;">mail</code>, <code style="color:#E5232A;">contacts</code>, <code style="color:#E5232A;">calendar</code>, <code style="color:#E5232A;">account</code>, <code style="color:#E5232A;">stock</code>, <code style="color:#E5232A;">portal</code>, <code style="color:#E5232A;">website</code> and <code style="color:#E5232A;">bus</code>. No mandatory external Python dependencies &mdash; deploys on Odoo.sh and on-premise alike. Optional Stripe and Twilio connectors activate only when configured.</p></div>
     </div>
 
     <div style="box-sizing:border-box;width:100%;margin-top:40px;border:2px solid #E5232A;border-radius:18px;padding:clamp(26px,4vw,40px);background-color:#FFFFFF;">
@@ -127,8 +127,8 @@
     "price": 199.00,
     "currency": "USD",
     "category": "Healthcare",
-    # Series-agnostic: a bare "2.0.4" installs on Odoo 18 and 19 alike.
-    "version": "2.0.4",
+    # Series-agnostic: a bare "2.0.5" installs on Odoo 18 and 19 alike.
+    "version": "2.0.5",
     "data": [
         'security/base/mediflow_security.xml',
         'security/base/ir.model.access.csv',
