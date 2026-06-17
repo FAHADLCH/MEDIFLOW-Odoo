@@ -234,10 +234,8 @@ def gen_icon() -> str:
     s += _hex_field(40, 40, 472, 472, 46, "#E5232A", 2.2, 0.05)
     s += '    <rect x="16" y="16" width="480" height="480" fill="url(#glow)"/>\n'
     s += '  </g>\n'
-    # the logo mark, centred in the upper area
-    mark_w = 380.0
-    mark_svg, _ = _placed_mark(mark_w, (512 - mark_w) / 2, 128, grey=GREY)
-    s += mark_svg
+    # the MEDIFLOW product mark (hexagon + DNA helix), centred upper area
+    s += build_product_mark(256, 222, 150)
     # elegant centred underline
     s += ('  <rect x="196" y="372" width="120" height="6" rx="3" '
           'fill="url(#accent)"/>\n')
@@ -291,8 +289,7 @@ def gen_banner() -> str:
     # white brand chip holding the mark
     s += ('  <rect x="150" y="232" width="232" height="232" rx="50" '
           'fill="url(#chip)" stroke="#FFFFFF" stroke-opacity="0.6" stroke-width="2"/>\n')
-    chip, _ = _placed_mark(178, 177, 322, grey=GREY)
-    s += chip
+    s += build_product_mark(266, 348, 84)
     # product wordmark
     s += (
         '  <g font-family="' + WORDMARK_FONT + '">\n'
@@ -329,14 +326,81 @@ def gen_banner() -> str:
     return s
 
 
+# ---- MEDIFLOW product mark: SA Systems hexagon + medical DNA helix -------
+def _hex_pts(cx: float, cy: float, r: float):
+    """Pointy-top hexagon (matches the SA Systems hexagonal element)."""
+    w = r * math.sqrt(3) / 2.0
+    return [(cx, cy - r), (cx + w, cy - r / 2), (cx + w, cy + r / 2),
+            (cx, cy + r), (cx - w, cy + r / 2), (cx - w, cy - r / 2)]
+
+
+def _dna_strand(cx, top, h, amp, turns, phase, n=72):
+    return [(cx + amp * math.sin(2 * math.pi * turns * (i / n) + phase),
+             top + h * (i / n)) for i in range(n + 1)]
+
+
+def _path_of(pts):
+    return "M" + " L".join(f"{x:.2f},{y:.2f}" for x, y in pts)
+
+
+def build_dna(cx, cy, h, amp, turns=1.6, strand_a=RED, strand_b=INK,
+              rung=GREY, sw=9.0, rungs=6):
+    """A medical DNA double-helix: two sine strands + base-pair rungs."""
+    top = cy - h / 2.0
+    a = _dna_strand(cx, top, h, amp, turns, 0.0)
+    b = _dna_strand(cx, top, h, amp, turns, math.pi)
+    out = ['  <g fill="none" stroke-linecap="round" stroke-linejoin="round">\n']
+    for i in range(1, rungs + 1):
+        t = i / (rungs + 1)
+        y = top + t * h
+        xa = cx + amp * math.sin(2 * math.pi * turns * t)
+        xb = cx + amp * math.sin(2 * math.pi * turns * t + math.pi)
+        out.append(f'    <line x1="{xa:.2f}" y1="{y:.2f}" x2="{xb:.2f}" '
+                   f'y2="{y:.2f}" stroke="{rung}" stroke-width="{sw*0.6:.1f}"/>\n')
+    out.append(f'    <path d="{_path_of(a)}" stroke="{strand_a}" '
+               f'stroke-width="{sw:.1f}"/>\n')
+    out.append(f'    <path d="{_path_of(b)}" stroke="{strand_b}" '
+               f'stroke-width="{sw:.1f}"/>\n')
+    out.append('  </g>\n')
+    return "".join(out)
+
+
+def build_product_mark(cx, cy, r, dark=False, sw=None):
+    """MEDIFLOW product mark = SA Systems hexagon + medical DNA helix."""
+    sw = sw if sw is not None else r * 0.135
+    pts = _hex_pts(cx, cy, r)
+    d = "M" + " L".join(f"{x:.2f},{y:.2f}" for x, y in pts) + " Z"
+    strand_b = "#FFFFFF" if dark else INK
+    rung = "#A2A7AD" if dark else GREY
+    out = [f'  <path d="{d}" fill="none" stroke="{RED}" '
+           f'stroke-width="{sw:.1f}" stroke-linejoin="round"/>\n']
+    out.append(build_dna(cx, cy, r * 1.40, r * 0.40, turns=1.6,
+                         strand_a=RED, strand_b=strand_b, rung=rung,
+                         sw=sw * 0.80, rungs=6))
+    return "".join(out)
+
+
+def gen_product_mark(dark: bool = False) -> str:
+    """Square MEDIFLOW product mark on a transparent background."""
+    side = 360.0
+    s = header(side, side, side, side,
+               "MEDIFLOW product mark" + (" on dark" if dark else ""))
+    s += build_product_mark(side / 2, side / 2, side * 0.40, dark=dark)
+    s += "</svg>\n"
+    return s
+
+
 if __name__ == "__main__":
     write(os.path.join(IMG, "sa_systems_logo.svg"), gen_logo_light())
     write(os.path.join(IMG, "sa_systems_mark.svg"), gen_mark_square())
     write(os.path.join(IMG, "sa_systems_mark_dark.svg"), gen_mark_square(dark=True))
     write(os.path.join(IMG, "mediflow_logo.svg"), gen_icon())
+    write(os.path.join(IMG, "mediflow_mark.svg"), gen_product_mark())
     write(os.path.join(DESC, "logo.svg"), gen_logo_light())
     write(os.path.join(DESC, "logo_dark.svg"), gen_logo_light(dark=True))
     write(os.path.join(DESC, "mark.svg"), gen_mark_square())
+    write(os.path.join(DESC, "product_mark.svg"), gen_product_mark())
+    write(os.path.join(DESC, "product_mark_dark.svg"), gen_product_mark(dark=True))
     write(os.path.join(DESC, "icon.svg"), gen_icon())
     write(os.path.join(DESC, "banner.svg"), gen_banner())
     print("done")
