@@ -2,81 +2,101 @@
 {
     "name": 'MEDIFLOW by SA Systems — Clinic & Diagnostics ERP',
     "summary": 'All-in-one healthcare ERP: EMR, appointments, lab, pharmacy, billing, insurance claims, patient portal, FHIR API, AI assist, analytics — multi-currency & global-ready.',
-    "description": """
-MEDIFLOW by SA Systems
-======================
+    "description": """<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 1200px; margin: 0 auto; background: #fff;">
 
-The complete, **country-agnostic** Clinic + Diagnostics ERP for Odoo. One install
-gives a multi-specialty clinic, hospital outpatient department or reference
-laboratory everything it needs — from the front desk to the lab bench to the
-revenue cycle — on a secure, audited, FHIR-ready foundation.
+<div style="padding: 52px 26px; text-align: center; background: linear-gradient(135deg, #0B0B0B 0%, #161616 100%); border-radius: 16px; margin-bottom: 52px;">
+  <h1 style="font-size: clamp(34px, 8.5vw, 54px); margin: 0 0 20px 0; color: #fff; font-weight: 700;">
+    MEDI<span style="color: #E5232A;">FLOW</span>
+  </h1>
+  <p style="font-size: 16px; color: #CFCFCF; margin: 0; max-width: 600px; line-height: 1.6;">
+    Complete Clinic & Diagnostics ERP: EMR, appointments, lab, pharmacy, billing, insurance claims, patient portal, FHIR API & AI assist.
+  </p>
+  <div style="display: inline-block; background: #E5232A; color: #fff; padding: 12px 20px; border-radius: 8px; margin-top: 20px; font-weight: 700; font-size: 18px;">
+    $199 USD
+  </div>
+</div>
 
-Runs from a **single codebase on Odoo 18.0 and 19.0** (Community or Enterprise).
-**Multi-currency and multi-company are standard**, and a one-click **Region
-Profile** localizes language, currency, timezone and the governing privacy
-framework (HIPAA, GDPR, UK GDPR, PDPA, LGPD, PIPEDA, PDPL, DPDP) for any market.
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-bottom: 52px;">
+  <div style="border: 1px solid #E6E6E6; padding: 20px; border-radius: 14px; text-align: center; background: #fff;">
+    <div style="font-size: 24px; color: #E5232A; font-weight: 700; margin-bottom: 8px;">12</div>
+    <div style="color: #6B6B6B; font-size: 14px;">Clinical Modules</div>
+  </div>
+  <div style="border: 1px solid #E6E6E6; padding: 20px; border-radius: 14px; text-align: center; background: #fff;">
+    <div style="font-size: 24px; color: #E5232A; font-weight: 700; margin-bottom: 8px;">Multi-Currency</div>
+    <div style="color: #6B6B6B; font-size: 14px;">Global Ready</div>
+  </div>
+  <div style="border: 1px solid #E6E6E6; padding: 20px; border-radius: 14px; text-align: center; background: #fff;">
+    <div style="font-size: 24px; color: #E5232A; font-weight: 700; margin-bottom: 8px;">FHIR R4</div>
+    <div style="color: #6B6B6B; font-size: 14px;">API Ready</div>
+  </div>
+  <div style="border: 1px solid #E6E6E6; padding: 20px; border-radius: 14px; text-align: center; background: #fff;">
+    <div style="font-size: 24px; color: #E5232A; font-weight: 700; margin-bottom: 8px;">18 & 19</div>
+    <div style="color: #6B6B6B; font-size: 14px;">Odoo Versions</div>
+  </div>
+</div>
 
-What you get
-------------
+<div style="background: #F6F6F6; padding: 40px 26px; border-radius: 16px; margin-bottom: 52px;">
+  <h2 style="font-size: 28px; color: #0B0B0B; text-align: center; margin: 0 0 30px 0; font-weight: 700;">What You Get</h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+    <div style="background: #fff; border: 3px solid #E5232A; border-radius: 13px; padding: 24px;">
+      <h3 style="font-size: 18px; font-weight: 700; color: #0B0B0B; margin: 0 0 12px 0;">EMR-lite</h3>
+      <p style="color: #6B6B6B; font-size: 15px; margin: 0; line-height: 1.55;">Patients, practitioners, encounters, problems, allergies, vitals & clinical documents.</p>
+    </div>
+    <div style="background: #fff; border: 3px solid #E5232A; border-radius: 13px; padding: 24px;">
+      <h3 style="font-size: 18px; font-weight: 700; color: #0B0B0B; margin: 0 0 12px 0;">Scheduling</h3>
+      <p style="color: #6B6B6B; font-size: 15px; margin: 0; line-height: 1.55;">Resource-based, conflict-free appointments with database-level double-booking guard.</p>
+    </div>
+    <div style="background: #fff; border: 3px solid #E5232A; border-radius: 13px; padding: 24px;">
+      <h3 style="font-size: 18px; font-weight: 700; color: #0B0B0B; margin: 0 0 12px 0;">Lab & Diagnostics</h3>
+      <p style="color: #6B6B6B; font-size: 15px; margin: 0; line-height: 1.55;">LOINC catalog, panels, orders, specimen accessioning & critical value alerts.</p>
+    </div>
+    <div style="background: #fff; border: 3px solid #E5232A; border-radius: 13px; padding: 24px;">
+      <h3 style="font-size: 18px; font-weight: 700; color: #0B0B0B; margin: 0 0 12px 0;">Pharmacy</h3>
+      <p style="color: #6B6B6B; font-size: 15px; margin: 0; line-height: 1.55;">Prescriptions, allergy/interaction checks, FEFO & expiry-aware dispensing.</p>
+    </div>
+    <div style="background: #fff; border: 3px solid #E5232A; border-radius: 13px; padding: 24px;">
+      <h3 style="font-size: 18px; font-weight: 700; color: #0B0B0B; margin: 0 0 12px 0;">Billing & Claims</h3>
+      <p style="color: #6B6B6B; font-size: 15px; margin: 0; line-height: 1.55;">Charge capture, multi-currency invoicing, payers & full claim lifecycle.</p>
+    </div>
+    <div style="background: #fff; border: 3px solid #E5232A; border-radius: 13px; padding: 24px;">
+      <h3 style="font-size: 18px; font-weight: 700; color: #0B0B0B; margin: 0 0 12px 0;">Patient Portal</h3>
+      <p style="color: #6B6B6B; font-size: 15px; margin: 0; line-height: 1.55;">Self-service appointments, consent-gated results & online payment.</p>
+    </div>
+  </div>
+</div>
 
-* **EMR-lite** — patients, practitioners, encounters, problems, allergies,
-  vitals, immunizations, consent and clinical documents.
-* **Scheduling** — resource-based, conflict-free appointment booking with a
-  database-level double-booking guard and a live calendar.
-* **Laboratory / Diagnostics** — LOINC test catalog, panels, orders, specimen
-  accessioning, verified & released results with hard immutability and critical
-  value alerting.
-* **Pharmacy** — prescriptions with allergy/interaction checks and FEFO,
-  expiry-aware dispensing on real Odoo Inventory stock moves.
-* **Billing** — charge capture from clinical events into Odoo Accounting
-  invoices, fully multi-currency.
-* **Insurance & Claims** — payers, coverage, pre-authorization and the full
-  claim lifecycle with patient-responsibility recomputation.
-* **Patient Portal** — self-service appointments, consent-gated lab results and
-  online invoice payment.
-* **Queue Management** — per-service-point tokens with a live waiting board.
-* **AI Assist (safety-first)** — explainable no-show prediction, triage acuity
-  suggestion and human-reviewed clinical summaries. Predictive features run
-  fully offline; narrative features fall back to deterministic templates.
-* **FHIR R4 API** — read-oriented, consent-gated Patient, Encounter,
-  Observation, DiagnosticReport, MedicationRequest and Coverage resources.
-* **Analytics** — operational, clinical and revenue dashboards computed in
-  PostgreSQL views, isolated per company.
-* **Event-driven integrations** — HMAC-signed webhooks, durable domain events,
-  Stripe payment links, Twilio SMS/WhatsApp reminders, telehealth video rooms
-  and an authenticated HL7/lab inbound endpoint.
-* **SA Systems theme** — branded login, refined backend chrome and high-res
-  vector logos.
+<div style="background: #0B0B0B; padding: 40px 26px; border-radius: 16px; margin-bottom: 52px; color: #fff; text-align: center;">
+  <h2 style="font-size: 26px; margin: 0 0 24px 0; font-weight: 700;">Compliance & Security</h2>
+  <p style="color: #CFCFCF; margin: 0 0 28px 0; font-size: 15px; line-height: 1.6; max-width: 600px; margin-left: auto; margin-right: auto;">
+    Company-scoped, PHI-audited clinical records with consent-gated exports. Role-based access for all clinic operations.
+  </p>
+  <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+    <span style="background: #E5232A; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 700;">HIPAA</span>
+    <span style="background: #E5232A; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 700;">GDPR</span>
+    <span style="background: #E5232A; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 700;">UK GDPR</span>
+    <span style="background: #E5232A; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 700;">PDPA</span>
+    <span style="background: #E5232A; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 700;">LGPD</span>
+    <span style="background: #E5232A; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 700;">PIPEDA</span>
+  </div>
+</div>
 
-Security & compliance
----------------------
+<div style="background: #F6F6F6; padding: 32px 26px; border-radius: 16px; margin-bottom: 52px;">
+  <h3 style="font-size: 19px; font-weight: 700; color: #0B0B0B; margin: 0 0 16px 0;">Built On</h3>
+  <p style="color: #6B6B6B; font-size: 15px; margin: 0; line-height: 1.6;">
+    Pure Odoo core: base, mail, contacts, calendar, account, stock, portal, website & bus. No mandatory external dependencies. Stripe & Twilio integration optional.
+  </p>
+</div>
 
-Every clinical record is company-scoped, PHI-audited (append-only access &
-change log) and governed by a guard-protected state machine. National
-identifiers and clinical exports are consent-gated. Role-based access spans
-reception, nursing, physicians, lab tech/verifier, pharmacist, cashier,
-insurance, inventory, compliance and clinic manager.
+<div style="border: 2px solid #E5232A; padding: 32px 26px; border-radius: 16px; text-align: center;">
+  <h2 style="font-size: 24px; color: #E5232A; margin: 0 0 8px 0; font-weight: 700;">$199 USD</h2>
+  <p style="color: #6B6B6B; font-size: 15px; margin: 0 0 20px 0;">One-time license. Use on unlimited clinics. Verified on Odoo 18.0 & 19.0.</p>
+  <p style="color: #6B6B6B; font-size: 14px; margin: 0;">
+    <strong style="color: #0B0B0B;">SA Systems</strong> · ISO 27001-aligned · GDPR-ready<br/>
+    <a href="https://sasystems.solutions" style="color: #E5232A; text-decoration: none; font-weight: 700;">sasystems.solutions</a>
+  </p>
+</div>
 
-Built On
---------
-
-Pure Odoo core: ``base``, ``mail``, ``contacts``, ``calendar``, ``account``,
-``stock``, ``portal``, ``website`` and ``bus``. No mandatory external Python
-dependencies — deploys on Odoo.sh and on-premise alike. Optional connectors
-(Stripe, Twilio) activate only when configured.
-
-Compatibility
--------------
-
-Verified on **Odoo 18.0 and 19.0** (Community & Enterprise) from one
-series-agnostic codebase.
-
-About SA Systems
-----------------
-
-SA Systems builds business software that grows smarter. Offices in Lahore, the
-UK and the US. ISO 27001-aligned, GDPR-ready. https://www.sasystems.solutions
-""",
+</div>""",
     "author": "SA Systems",
     "maintainer": "SA Systems",
     "website": "https://sasystems.solutions/custom-web-app-development",
