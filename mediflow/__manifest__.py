@@ -31,14 +31,14 @@
       </div>
 
       <div style="display:block;">
-        <span style="border:1px solid rgba(229,35,42,0.7);border-radius:30px;padding:8px 15px;font-size:clamp(12px,3vw,13.5px);font-weight:600;color:#FFFFFF;">Multi-currency standard</span>
-        <span style="border:1px solid rgba(255,255,255,0.28);border-radius:30px;padding:8px 15px;font-size:clamp(12px,3vw,13.5px);font-weight:600;color:#FFFFFF;">10 region profiles</span>
-        <span style="border:1px solid rgba(255,255,255,0.28);border-radius:30px;padding:8px 15px;font-size:clamp(12px,3vw,13.5px);font-weight:600;color:#FFFFFF;">FHIR&nbsp;R4 API</span>
-        <span style="border:1px solid rgba(255,255,255,0.28);border-radius:30px;padding:8px 15px;font-size:clamp(12px,3vw,13.5px);font-weight:600;color:#FFFFFF;">Odoo&nbsp;18 &amp; 19 ready</span>
+        <span style="display:inline-block;margin:0 8px 8px 0;border:1px solid rgba(229,35,42,0.7);border-radius:30px;padding:8px 15px;font-size:clamp(12px,3vw,13.5px);font-weight:600;color:#FFFFFF;">Multi-currency standard</span>
+        <span style="display:inline-block;margin:0 8px 8px 0;border:1px solid rgba(255,255,255,0.28);border-radius:30px;padding:8px 15px;font-size:clamp(12px,3vw,13.5px);font-weight:600;color:#FFFFFF;">10 region profiles</span>
+        <span style="display:inline-block;margin:0 8px 8px 0;border:1px solid rgba(255,255,255,0.28);border-radius:30px;padding:8px 15px;font-size:clamp(12px,3vw,13.5px);font-weight:600;color:#FFFFFF;">FHIR&nbsp;R4 API</span>
+        <span style="display:inline-block;margin:0 8px 8px 0;border:1px solid rgba(255,255,255,0.28);border-radius:30px;padding:8px 15px;font-size:clamp(12px,3vw,13.5px);font-weight:600;color:#FFFFFF;">Odoo&nbsp;18 &amp; 19 ready</span>
       </div>
     </div>
 
-    <div style="display:block;margin-top:18px;">
+    <div style="margin-top:18px;">
       <div style="display:block;width:100%;box-sizing:border-box;background-color:#FFFFFF;border:1px solid #E6E6E6;border-radius:14px;padding:22px;text-align:center;margin-bottom:12px;">
         <div style="font-size:clamp(24px,5vw,30px);font-weight:800;color:#E5232A;line-height:1;">12-in-1</div>
         <div style="margin-top:6px;font-size:14px;color:#6B6B6B;font-weight:600;">clinical modules, one app</div>
@@ -68,7 +68,7 @@
       </p>
     </div>
 
-    <div style="display:block;margin-top:22px;">
+    <div style="margin-top:22px;">
       <div style="display:block;width:100%;min-height:240px;box-sizing:border-box;background-color:#FFFFFF;border:1px solid #E6E6E6;border-top:3px solid #E5232A;border-radius:13px;padding:24px;margin-bottom:12px;"><h3 style="margin:0 0 8px;color:#0B0B0B;font-size:18px;font-weight:700;">EMR-lite</h3><p style="margin:0;color:#6B6B6B;font-size:15px;line-height:1.55;overflow-wrap:break-word;">Patients, practitioners, encounters, problems, allergies, vitals, immunizations, consent and clinical documents &mdash; company-scoped and PHI-audited.</p></div>
       <div style="display:block;width:100%;min-height:240px;box-sizing:border-box;background-color:#FFFFFF;border:1px solid #E6E6E6;border-top:3px solid #E5232A;border-radius:13px;padding:24px;margin-bottom:12px;"><h3 style="margin:0 0 8px;color:#0B0B0B;font-size:18px;font-weight:700;">Scheduling</h3><p style="margin:0;color:#6B6B6B;font-size:15px;line-height:1.55;overflow-wrap:break-word;">Resource-based, conflict-free booking with a database-level double-booking guard and a live calendar for every practitioner and room.</p></div>
       <div style="display:block;width:100%;min-height:240px;box-sizing:border-box;background-color:#FFFFFF;border:1px solid #E6E6E6;border-top:3px solid #E5232A;border-radius:13px;padding:24px;margin-bottom:12px;"><h3 style="margin:0 0 8px;color:#0B0B0B;font-size:18px;font-weight:700;">Laboratory &amp; Diagnostics</h3><p style="margin:0;color:#6B6B6B;font-size:15px;line-height:1.55;overflow-wrap:break-word;">LOINC catalog, panels, orders, specimen accessioning and verified, released results with hard immutability and critical-value alerting.</p></div>
@@ -87,11 +87,11 @@
       <h2 style="margin:0 0 12px;color:#FFFFFF;font-weight:800;font-size:clamp(21px,4.4vw,26px);">Multi-currency &amp; global by design</h2>
       <p style="margin:0 auto 26px;max-width:760px;color:#CFCFCF;font-size:clamp(14px,3.2vw,16px);line-height:1.6;overflow-wrap:break-word;">Every monetary field is currency-aware and multi-currency is switched on out of the box. One click applies a <strong style="color:#FFFFFF;">Region Profile</strong> that localizes language, currency, timezone and the governing privacy framework.</p>
       <div style="display:block;text-align:center;">
-        <span style="background-color:#E5232A;border-radius:10px;padding:9px 15px;font-size:14px;font-weight:700;color:#FFFFFF;">HIPAA</span><span style="background-color:#E5232A;border-radius:10px;padding:9px 15px;font-size:14px;font-weight:700;color:#FFFFFF;">GDPR</span><span style="background-color:#E5232A;border-radius:10px;padding:9px 15px;font-size:14px;font-weight:700;color:#FFFFFF;">UK&nbsp;GDPR</span><span style="background-color:#E5232A;border-radius:10px;padding:9px 15px;font-size:14px;font-weight:700;color:#FFFFFF;">PDPA</span><span style="background-color:#E5232A;border-radius:10px;padding:9px 15px;font-size:14px;font-weight:700;color:#FFFFFF;">LGPD</span><span style="background-color:#E5232A;border-radius:10px;padding:9px 15px;font-size:14px;font-weight:700;color:#FFFFFF;">PIPEDA</span><span style="background-color:#E5232A;border-radius:10px;padding:9px 15px;font-size:14px;font-weight:700;color:#FFFFFF;">PDPL</span><span style="background-color:#E5232A;border-radius:10px;padding:9px 15px;font-size:14px;font-weight:700;color:#FFFFFF;">DPDP</span>
+        <span style="display:inline-block;margin:0 8px 8px 0;background-color:#E5232A;border-radius:10px;padding:9px 15px;font-size:14px;font-weight:700;color:#FFFFFF;">HIPAA</span><span style="display:inline-block;margin:0 8px 8px 0;background-color:#E5232A;border-radius:10px;padding:9px 15px;font-size:14px;font-weight:700;color:#FFFFFF;">GDPR</span><span style="display:inline-block;margin:0 8px 8px 0;background-color:#E5232A;border-radius:10px;padding:9px 15px;font-size:14px;font-weight:700;color:#FFFFFF;">UK&nbsp;GDPR</span><span style="display:inline-block;margin:0 8px 8px 0;background-color:#E5232A;border-radius:10px;padding:9px 15px;font-size:14px;font-weight:700;color:#FFFFFF;">PDPA</span><span style="display:inline-block;margin:0 8px 8px 0;background-color:#E5232A;border-radius:10px;padding:9px 15px;font-size:14px;font-weight:700;color:#FFFFFF;">LGPD</span><span style="display:inline-block;margin:0 8px 8px 0;background-color:#E5232A;border-radius:10px;padding:9px 15px;font-size:14px;font-weight:700;color:#FFFFFF;">PIPEDA</span><span style="display:inline-block;margin:0 8px 8px 0;background-color:#E5232A;border-radius:10px;padding:9px 15px;font-size:14px;font-weight:700;color:#FFFFFF;">PDPL</span><span style="display:inline-block;margin:0 8px 8px 0;background-color:#E5232A;border-radius:10px;padding:9px 15px;font-size:14px;font-weight:700;color:#FFFFFF;">DPDP</span>
       </div>
     </div>
 
-    <div style="display:block;margin-top:24px;">
+    <div style="margin-top:24px;">
       <div style="display:block;width:100%;min-height:220px;box-sizing:border-box;background-color:#F6F6F6;border:1px solid #E6E6E6;border-radius:14px;padding:26px;margin-bottom:12px;"><h3 style="margin:0 0 10px;color:#0B0B0B;font-size:19px;font-weight:700;">Security &amp; compliance</h3><p style="margin:0;color:#6B6B6B;font-size:15px;line-height:1.6;overflow-wrap:break-word;">Every clinical record is company-scoped, PHI-audited with an append-only access &amp; change log, and governed by a guard-protected state machine. National identifiers and clinical exports are consent-gated. Role-based access spans reception, nursing, physicians, lab tech/verifier, pharmacist, cashier, insurance, inventory, compliance and clinic manager.</p></div>
       <div style="display:block;width:100%;min-height:220px;box-sizing:border-box;background-color:#F6F6F6;border:1px solid #E6E6E6;border-radius:14px;padding:26px;"><h3 style="margin:0 0 10px;color:#0B0B0B;font-size:19px;font-weight:700;">Built on pure Odoo core</h3><p style="margin:0;color:#6B6B6B;font-size:15px;line-height:1.6;overflow-wrap:break-word;">Extends <code style="color:#E5232A;">base</code>, <code style="color:#E5232A;">mail</code>, <code style="color:#E5232A;">contacts</code>, <code style="color:#E5232A;">calendar</code>, <code style="color:#E5232A;">account</code>, <code style="color:#E5232A;">stock</code>, <code style="color:#E5232A;">portal</code>, <code style="color:#E5232A;">website</code> and <code style="color:#E5232A;">bus</code>. No mandatory external Python dependencies &mdash; deploys on Odoo.sh and on-premise alike. Optional Stripe and Twilio connectors activate only when configured.</p></div>
     </div>
@@ -99,7 +99,7 @@
     <div style="box-sizing:border-box;width:100%;margin-top:40px;border:2px solid #E5232A;border-radius:18px;padding:clamp(26px,4vw,40px);background-color:#FFFFFF;">
       <div style="display:block;">
         <div style="flex:0 0 auto;text-align:center;min-width:120px;"><div style="font-size:clamp(42px,9vw,54px);font-weight:800;color:#E5232A;line-height:1;">$199</div><div style="margin-top:6px;font-size:14px;color:#6B6B6B;font-weight:600;">one-time license</div></div>
-        <div style="flex:1 1 320px;min-width:260px;"><h2 style="margin:0 0 10px;color:#0B0B0B;font-weight:800;font-size:clamp(20px,4.2vw,24px);">One price. The whole clinical suite.</h2><p style="margin:0 0 14px;color:#6B6B6B;font-size:clamp(14px,3vw,15.5px);line-height:1.6;overflow-wrap:break-word;">MEDIFLOW replaces twelve point solutions &mdash; EMR, scheduling, lab, pharmacy, billing, insurance/claims, patient portal, queue, AI assist, FHIR API, analytics and integrations &mdash; for a single, one-time license. No per-module fees, no add-on tiers.</p><div style="display:block;"><span style="background-color:#0B0B0B;color:#FFFFFF;border-radius:8px;padding:7px 13px;font-size:13px;font-weight:600;">All 12 modules included</span><span style="background-color:#0B0B0B;color:#FFFFFF;border-radius:8px;padding:7px 13px;font-size:13px;font-weight:600;">Odoo 18 &amp; 19</span><span style="background-color:#0B0B0B;color:#FFFFFF;border-radius:8px;padding:7px 13px;font-size:13px;font-weight:600;">Community &amp; Enterprise</span><span style="background-color:#0B0B0B;color:#FFFFFF;border-radius:8px;padding:7px 13px;font-size:13px;font-weight:600;">Vendor support included</span></div></div>
+        <div style="flex:1 1 320px;min-width:260px;"><h2 style="margin:0 0 10px;color:#0B0B0B;font-weight:800;font-size:clamp(20px,4.2vw,24px);">One price. The whole clinical suite.</h2><p style="margin:0 0 14px;color:#6B6B6B;font-size:clamp(14px,3vw,15.5px);line-height:1.6;overflow-wrap:break-word;">MEDIFLOW replaces twelve point solutions &mdash; EMR, scheduling, lab, pharmacy, billing, insurance/claims, patient portal, queue, AI assist, FHIR API, analytics and integrations &mdash; for a single, one-time license. No per-module fees, no add-on tiers.</p><div style="display:block;"><span style="display:inline-block;margin:0 8px 8px 0;background-color:#0B0B0B;color:#FFFFFF;border-radius:8px;padding:7px 13px;font-size:13px;font-weight:600;">All 12 modules included</span><span style="display:inline-block;margin:0 8px 8px 0;background-color:#0B0B0B;color:#FFFFFF;border-radius:8px;padding:7px 13px;font-size:13px;font-weight:600;">Odoo 18 &amp; 19</span><span style="display:inline-block;margin:0 8px 8px 0;background-color:#0B0B0B;color:#FFFFFF;border-radius:8px;padding:7px 13px;font-size:13px;font-weight:600;">Community &amp; Enterprise</span><span style="display:inline-block;margin:0 8px 8px 0;background-color:#0B0B0B;color:#FFFFFF;border-radius:8px;padding:7px 13px;font-size:13px;font-weight:600;">Vendor support included</span></div></div>
       </div>
     </div>
 
@@ -127,8 +127,8 @@
     "price": 199.00,
     "currency": "USD",
     "category": "Healthcare",
-    # Series-agnostic: a bare "2.0.9" installs on Odoo 18 and 19 alike.
-    "version": "2.0.9",
+    # Series-agnostic: a bare "2.0.10" installs on Odoo 18 and 19 alike.
+    "version": "2.0.10",
     "data": [
         'security/base/mediflow_security.xml',
         'security/base/ir.model.access.csv',
