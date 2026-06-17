@@ -110,7 +110,7 @@
 
     <div style="box-sizing:border-box;width:100%;margin:24px 0 8px;border-radius:18px;padding:clamp(28px,5vw,42px) clamp(20px,4vw,42px);background-color:#0B0B0B;text-align:center;">
       <div style="display:inline-block;background-color:#FFFFFF;border-radius:18px;padding:16px 22px;max-width:100%;box-sizing:border-box;">
-        <img src="sa_systems_logo.png?v=2.0.12" alt="SA Systems" style="display:block;width:clamp(160px,45vw,340px);height:auto;"/>
+        <img src="3.png?v=2.0.13" alt="SA Systems" style="display:block;width:clamp(160px,45vw,340px);height:auto;"/>
       </div>
       <h2 style="margin:18px 0 8px;color:#FFFFFF;font-weight:800;font-size:clamp(19px,4vw,22px);">About SA Systems</h2>
       <p style="margin:0 auto;max-width:720px;font-size:clamp(14px,3.2vw,16px);line-height:1.6;color:#CFCFCF;overflow-wrap:break-word;">SA Systems builds business software that grows smarter. Offices in Lahore, the UK and the US. ISO&nbsp;27001-aligned and GDPR-ready.</p>
@@ -127,8 +127,8 @@
     "price": 199.00,
     "currency": "USD",
     "category": "Healthcare",
-    # Series-agnostic: a bare "2.0.12" installs on Odoo 18 and 19 alike.
-    "version": "2.0.12",
+    # Series-agnostic: a bare "2.0.13" installs on Odoo 18 and 19 alike.
+    "version": "2.0.13",
     "data": [
         'security/base/mediflow_security.xml',
         'security/base/ir.model.access.csv',
