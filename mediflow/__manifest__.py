@@ -129,6 +129,7 @@
     "category": "Healthcare",
     # Series-agnostic: a bare "2.0.16" installs on Odoo 18 and 19 alike.
     "version": "2.0.16",
+    'depends': ['base', 'mail'],
     "data": [
         'security/base/mediflow_security.xml',
         'security/base/ir.model.access.csv',
