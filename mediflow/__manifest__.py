@@ -129,7 +129,14 @@
     "category": "Healthcare",
     # Series-agnostic: a bare "2.0.16" installs on Odoo 18 and 19 alike.
     "version": "2.0.16",
-    'depends': ['base', 'mail'],
+    'depends': [
+        'base',
+        'mail',            # mail.thread, bus.bus (bus viene con mail)
+        'portal',          # CustomerPortal, portal.portal_layout, base.group_portal
+        'account',         # account.move, account.payment.register, account.view_move_form
+        'stock',           # stock.lot/picking/quant/move, product.template (vía product)
+        'product_expiry',  # campo use_expiration_date en product.template
+    ],
     "data": [
         'security/base/mediflow_security.xml',
         'security/base/ir.model.access.csv',
