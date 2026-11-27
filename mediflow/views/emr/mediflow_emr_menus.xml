@@ -14,7 +14,7 @@
               sequence="10"/>
 
     <menuitem id="menu_mediflow_encounters"
-              name="Encounters"
+              name="Medical Appointments"
               parent="menu_mediflow_emr_root"
               action="action_mediflow_encounter"
               sequence="20"

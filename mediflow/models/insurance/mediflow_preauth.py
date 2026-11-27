@@ -28,7 +28,7 @@ class MediflowPreauth(models.Model):
                                   index=True)
     payer_id = fields.Many2one("mediflow.payer", related="coverage_id.payer_id",
                                store=True, index=True)
-    encounter_id = fields.Many2one("mediflow.encounter", string="Encounter", index=True)
+    encounter_id = fields.Many2one("mediflow.encounter", string="Medical Appointment", index=True)
     service_description = fields.Text(string="Requested Services")
     requested_amount = fields.Float(string="Requested Amount")
     approved_amount = fields.Float(string="Approved Amount")

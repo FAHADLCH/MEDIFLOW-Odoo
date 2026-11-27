@@ -33,7 +33,7 @@ class MediflowPrescription(models.Model):
                        default="New", index=True, tracking=True)
     patient_id = fields.Many2one("mediflow.patient", string="Patient", required=True,
                                  index=True, tracking=True)
-    encounter_id = fields.Many2one("mediflow.encounter", string="Encounter", index=True)
+    encounter_id = fields.Many2one("mediflow.encounter", string="Medical Appointment", index=True)
     practitioner_id = fields.Many2one("mediflow.practitioner", string="Prescriber",
                                       tracking=True)
     prescribed_date = fields.Datetime(string="Prescribed On", default=fields.Datetime.now)

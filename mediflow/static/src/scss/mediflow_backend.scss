@@ -11,34 +11,42 @@
     --mf-red: #E5484D;
     --mf-gradient: linear-gradient(135deg, #1B5E7E 0%, #21C7A8 100%);
 }
-
+//COMENTE EL CSS DEL DISEÑO VERDE QUE PONE MEDIFLOW
 // Top navbar — brand gradient
-.o_main_navbar {
-    background: var(--mf-gradient) !important;
-    border-bottom: none;
-
-    .o_menu_brand,
-    .o_nav_entry,
-    .dropdown-toggle {
-        color: #ffffff !important;
-    }
-
-    .o_menu_brand {
-        font-weight: 700;
-        letter-spacing: 0.3px;
-    }
-}
+// DESACTIVADO: se respeta el diseño por defecto de Odoo (navbar y botones del menú).
+// .o_main_navbar {
+//     background: var(--mf-gradient) !important;
+//     border-bottom: none;
+//
+//     // Enterprise paints each menu entry white; keep entries transparent so the
+//     // white text stays readable over the brand gradient.
+//     --NavBar-entry-backgroundColor: transparent;
+//     --NavBar-entry-backgroundColor--hover: rgba(255, 255, 255, 0.18);
+//     --NavBar-entry-backgroundColor--focus: rgba(255, 255, 255, 0.18);
+//     --NavBar-entry-backgroundColor--active: rgba(255, 255, 255, 0.28);
+//
+//     .o_menu_brand,
+//     .o_nav_entry,
+//     .dropdown-toggle {
+//         color: #ffffff !important;
+//     }
+//
+//     .o_menu_brand {
+//         font-weight: 700;
+//         letter-spacing: 0.3px;
+//     }
+// }
 
 // Primary buttons adopt the ocean brand color
 .btn-primary {
     background-color: var(--mf-ocean);
     border-color: var(--mf-ocean);
 
-    &:hover,
+    /*&:hover,
     &:focus {
         background-color: darken(#1B5E7E, 6%);
         border-color: darken(#1B5E7E, 8%);
-    }
+    }*/
 }
 
 // Accent for AI / smart features
@@ -50,9 +58,9 @@
     border-radius: 999px;
     font-size: 11px;
     font-weight: 600;
-    color: #0B1F2A;
-    background: rgba(33, 199, 168, 0.16);
-    border: 1px solid rgba(33, 199, 168, 0.45);
+    //color: #0B1F2A;
+    //background: rgba(33, 199, 168, 0.16);
+    //border: 1px solid rgba(33, 199, 168, 0.45);
 }
 
 // Status pills used across MEDIFLOW dashboards
@@ -64,14 +72,14 @@
     font-weight: 600;
     line-height: 1.4;
 }
-.mf-pill--ok { background: rgba(33, 199, 168, 0.16); color: #0d6b59; }
+/*.mf-pill--ok { background: rgba(33, 199, 168, 0.16); color: #0d6b59; }
 .mf-pill--warn { background: rgba(242, 169, 0, 0.18); color: #8a6300; }
-.mf-pill--crit { background: rgba(229, 72, 77, 0.16); color: #a3262b; }
+.mf-pill--crit { background: rgba(229, 72, 77, 0.16); color: #a3262b; }*/
 
 // Softer card chrome on kanban / dashboards
 .o_kanban_view .o_kanban_record {
     border-radius: 12px;
-    box-shadow: 0 1px 2px rgba(11, 31, 42, 0.06), 0 1px 8px rgba(11, 31, 42, 0.04);
+    //box-shadow: 0 1px 2px rgba(11, 31, 42, 0.06), 0 1px 8px rgba(11, 31, 42, 0.04);
 }
 
 // Clearer keyboard focus for accessibility (WCAG 2.2)

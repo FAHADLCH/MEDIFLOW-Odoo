@@ -36,7 +36,7 @@ class MediflowClaim(models.Model):
                                store=True, index=True)
     invoice_id = fields.Many2one("account.move", string="Invoice", index=True,
                                  domain="[('is_mediflow_invoice', '=', True)]")
-    encounter_id = fields.Many2one("mediflow.encounter", string="Encounter", index=True)
+    encounter_id = fields.Many2one("mediflow.encounter", string="Medical Appointment", index=True)
     preauth_id = fields.Many2one("mediflow.preauth", string="Pre-Authorization")
 
     state = fields.Selection([

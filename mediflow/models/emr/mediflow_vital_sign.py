@@ -15,7 +15,7 @@ class MediflowVitalSign(models.Model):
 
     patient_id = fields.Many2one("mediflow.patient", string="Patient", required=True,
                                  index=True, ondelete="cascade")
-    encounter_id = fields.Many2one("mediflow.encounter", string="Encounter",
+    encounter_id = fields.Many2one("mediflow.encounter", string="Medical Appointment",
                                    index=True, ondelete="set null")
     measured_at = fields.Datetime(string="Measured At", default=fields.Datetime.now,
                                   required=True, index=True)

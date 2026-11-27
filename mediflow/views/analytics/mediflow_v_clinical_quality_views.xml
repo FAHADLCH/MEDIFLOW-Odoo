@@ -57,7 +57,7 @@
                 <group expand="0" string="Group By">
                     <filter name="group_practitioner" string="Practitioner"
                             context="{'group_by': 'practitioner_id'}"/>
-                    <filter name="group_type" string="Encounter Type"
+                    <filter name="group_type" string="Medical Appointment Type"
                             context="{'group_by': 'encounter_type'}"/>
                     <filter name="group_month" string="Month"
                             context="{'group_by': 'start:month'}"/>

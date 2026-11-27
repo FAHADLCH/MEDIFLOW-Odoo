@@ -13,7 +13,7 @@ class MediflowProblem(models.Model):
     name = fields.Char(string="Problem", required=True)
     patient_id = fields.Many2one("mediflow.patient", string="Patient", required=True,
                                  index=True, ondelete="cascade")
-    encounter_id = fields.Many2one("mediflow.encounter", string="Encounter",
+    encounter_id = fields.Many2one("mediflow.encounter", string="Medical Appointment",
                                    index=True, ondelete="set null")
     icd_code = fields.Char(string="ICD-10 Code", index=True,
                            help="Diagnosis code for FHIR CodeableConcept output.")

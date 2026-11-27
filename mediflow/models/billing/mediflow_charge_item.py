@@ -23,7 +23,7 @@ class MediflowChargeItem(models.Model):
     name = fields.Char(string="Description", required=True, index=True)
     patient_id = fields.Many2one("mediflow.patient", string="Patient", required=True,
                                  index=True)
-    encounter_id = fields.Many2one("mediflow.encounter", string="Encounter", index=True)
+    encounter_id = fields.Many2one("mediflow.encounter", string="Medical Appointment", index=True)
     charge_master_id = fields.Many2one("mediflow.charge.master", string="Service")
     category = fields.Selection([
         ("consultation", "Consultation"),

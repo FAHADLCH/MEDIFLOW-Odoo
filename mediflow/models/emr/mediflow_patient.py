@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from datetime import date
-
+from stdnum.ec import ci
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
 
@@ -31,14 +31,21 @@ class MediflowPatient(models.Model):
     _sm_terminal = {"deceased", "merged"}
 
     name = fields.Char(string="Full Name", compute="_compute_name", store=True, index=True)
-    first_name = fields.Char(required=True, tracking=True)
-    last_name = fields.Char(required=True, tracking=True)
+    first_name = fields.Char(string="First Names", required=True, tracking=True)
+    last_name = fields.Char(string="Last Names", required=True, tracking=True)
     mrn = fields.Char(string="MRN", required=True, copy=False, index=True,
                       default=lambda self: _("New"),
                       help="Medical Record Number, unique per clinic.")
-    national_id = fields.Char(string="National ID", index=True, copy=False, groups="mediflow.group_mediflow_reception,mediflow.group_mediflow_admin")
+    #agg el selector de tipo de documento de identificacion
+    id_type = fields.Selection([
+        ("cedula", "Cédula"),
+        ("passport", "Pasaporte"),
+        ("other", "Otro"),
+    ], string="Document Type", default="cedula", required=True, tracking=True)
+    national_id = fields.Char(string="Document Number", index=True, copy=False, groups="mediflow.group_mediflow_reception,mediflow.group_mediflow_admin")
     birthdate = fields.Date(string="Date of Birth", index=True, tracking=True)
-    age = fields.Integer(string="Age", compute="_compute_age")
+    age = fields.Char(string="Age", compute="_compute_age")
+    #Cambiamos de tipo interger a char para poder mostrar la edad en meses
     gender = fields.Selection([
         ("male", "Male"), ("female", "Female"),
         ("other", "Other"), ("unknown", "Unknown"),
@@ -54,7 +61,7 @@ class MediflowPatient(models.Model):
     portal_user_id = fields.Many2one("res.users", string="Portal User", ondelete="set null")
     emergency_contact_ids = fields.One2many("res.partner", "mediflow_emergency_for_id",
                                             string="Emergency Contacts")
-    encounter_ids = fields.One2many("mediflow.encounter", "patient_id", string="Encounters")
+    encounter_ids = fields.One2many("mediflow.encounter", "patient_id", string="Medical Appointments")
     encounter_count = fields.Integer(compute="_compute_encounter_count")
     allergy_ids = fields.One2many("mediflow.allergy", "patient_id", string="Allergies")
     problem_ids = fields.One2many("mediflow.problem", "patient_id", string="Problems")
@@ -88,10 +95,18 @@ class MediflowPatient(models.Model):
         for patient in self:
             if patient.birthdate:
                 bd = patient.birthdate
-                patient.age = today.year - bd.year - (
+                years=today.year - bd.year - (
                     (today.month, today.day) < (bd.month, bd.day))
+                months = (today.year - bd.year) * 12 + today.month - bd.month - (
+                    today.day < bd.day)
+                if years >= 1:
+                    patient.age = _("%s years") % years
+                elif months >= 1:
+                    patient.age = _("%s months") % months
+                else:
+                    patient.age = _("%s days") % (today - bd).days
             else:
-                patient.age = 0
+                patient.age = ""
 
     def _compute_encounter_count(self):
         data = self.env["mediflow.encounter"].read_group(
@@ -114,6 +129,15 @@ class MediflowPatient(models.Model):
         positive = (operator == "=" and value) or (operator == "!=" and not value)
         return [("id", "in" if positive else "not in", with_consent)]
 
+#AGREGAMOS UNA VALIDACION EN LA CEDULA CON LA LIBERIA IMPORTADA
+    @api.constrains("national_id", "id_type")
+    def _check_national_id(self):
+        for patient in self:
+            nid = patient.national_id
+            if patient.id_type == "cedula" and nid and not ci.is_valid(nid):
+                raise ValidationError(_("La cédula no es válida."))
+
+#AGREGAMOS UNA VALIDACION PARA QUE NO SE ADMITA FECHAS DE NACIMIENTO FUTURAS
     @api.constrains("birthdate")
     def _check_birthdate(self):
         for patient in self:
@@ -127,6 +151,18 @@ class MediflowPatient(models.Model):
                 company_id = vals.get("company_id") or self.env.company.id
                 seq = self.env["ir.sequence"].with_company(company_id)
                 vals["mrn"] = seq.next_by_code("mediflow.patient.mrn") or _("New")
+
+                #SI EL CONTACTO NO O PACIENTE NO EXISTE LO CREAMOS Y LO GAURDAMOS
+                if not vals.get("partner_id"):
+                    full_name=" ".join(filter(None, [
+                        vals.get("first_name"), vals.get("last_name")]))
+                    partner= self.env["res.partner"].create({
+                        "name": full_name,
+                        "phone": vals.get("phone"),
+                        "email": vals.get("email"),
+                        "vat": vals.get("national_id"),
+                        })
+                    vals["partner_id"] = partner.id
         return super().create(vals_list)
 
     # ----- Actions -----
@@ -140,7 +176,7 @@ class MediflowPatient(models.Model):
         self.ensure_one()
         return {
             "type": "ir.actions.act_window",
-            "name": _("Encounters"),
+            "name": _("Medical Appointments"),
             "res_model": "mediflow.encounter",
             "view_mode": "list,form",
             "domain": [("patient_id", "=", self.id)],

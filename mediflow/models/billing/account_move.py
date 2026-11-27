@@ -7,7 +7,7 @@ class AccountMove(models.Model):
     _inherit = "account.move"
 
     mediflow_patient_id = fields.Many2one("mediflow.patient", string="Patient", index=True)
-    mediflow_encounter_id = fields.Many2one("mediflow.encounter", string="Encounter",
+    mediflow_encounter_id = fields.Many2one("mediflow.encounter", string="Medical Appointment",
                                             index=True)
     mediflow_charge_item_ids = fields.One2many(
         "mediflow.charge.item", "invoice_id", string="Charge Items")

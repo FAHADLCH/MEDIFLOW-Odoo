@@ -5,7 +5,7 @@
         <field name="name">mediflow.encounter.tree</field>
         <field name="model">mediflow.encounter</field>
         <field name="arch" type="xml">
-            <list string="Encounters">
+            <list string="Medical Appointments">
                 <field name="name"/>
                 <field name="start"/>
                 <field name="patient_id"/>
@@ -21,7 +21,7 @@
         <field name="name">mediflow.encounter.form</field>
         <field name="model">mediflow.encounter</field>
         <field name="arch" type="xml">
-            <form string="Encounter">
+            <form string="Medical Appointment">
                 <header>
                     <button name="action_start" type="object" string="Start"
                             class="btn-primary" invisible="state != 'planned'"/>
@@ -108,7 +108,7 @@
         <field name="name">mediflow.encounter.search</field>
         <field name="model">mediflow.encounter</field>
         <field name="arch" type="xml">
-            <search string="Encounters">
+            <search string="Medical Appointments">
                 <field name="name"/>
                 <field name="patient_id"/>
                 <field name="practitioner_id"/>
@@ -123,7 +123,7 @@
     </record>
 
     <record id="action_mediflow_encounter" model="ir.actions.act_window">
-        <field name="name">Encounters</field>
+        <field name="name">Medical Appointments</field>
         <field name="res_model">mediflow.encounter</field>
         <field name="view_mode">list,form</field>
         <field name="search_view_id" ref="view_mediflow_encounter_search"/>

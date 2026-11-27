@@ -5,7 +5,7 @@ from odoo.exceptions import UserError
 
 class MediflowEncounter(models.Model):
     """Visit / clinical episode. Anchors documentation, orders, results and
-    charges. Projects to FHIR ``Encounter``."""
+    charges. Projects to FHIR ``Medical Apoinmets``."""
 
     _name = "mediflow.encounter"
     _description = "Encounter"
@@ -31,7 +31,7 @@ class MediflowEncounter(models.Model):
     }
     _sm_terminal = {"cancelled"}
 
-    name = fields.Char(string="Encounter", required=True, copy=False, index=True,
+    name = fields.Char(string="Medical Appointment", required=True, copy=False, index=True,
                        default=lambda self: _("New"))
     patient_id = fields.Many2one("mediflow.patient", string="Patient", required=True,
                                  index=True, ondelete="restrict", tracking=True)

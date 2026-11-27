@@ -33,7 +33,7 @@ class MediflowVClinicalQuality(models.Model):
     is_completed = fields.Integer(string="Completed", readonly=True, aggregator="sum")
     is_amended = fields.Integer(string="Amended", readonly=True, aggregator="sum")
     is_documented = fields.Integer(string="Documented", readonly=True, aggregator="sum")
-    encounter_count = fields.Integer(string="Encounters", readonly=True, aggregator="sum")
+    encounter_count = fields.Integer(string="Medical Appointments", readonly=True, aggregator="sum")
 
     def init(self):
         tools.drop_view_if_exists(self.env.cr, self._table)

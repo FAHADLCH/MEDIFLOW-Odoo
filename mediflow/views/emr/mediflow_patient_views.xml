@@ -35,7 +35,7 @@
                     <div class="oe_button_box" name="button_box">
                         <button name="action_view_encounters" type="object"
                                 class="oe_stat_button" icon="fa-stethoscope">
-                            <field name="encounter_count" widget="statinfo" string="Encounters"/>
+                            <field name="encounter_count" widget="statinfo" string="Medical Appointments"/>
                         </button>
                     </div>
                     <div class="oe_title">
@@ -46,6 +46,7 @@
                         <group string="Identity">
                             <field name="first_name"/>
                             <field name="last_name"/>
+                            <field name="id_type"/>
                             <field name="national_id"/>
                             <field name="birthdate"/>
                             <field name="age"/>

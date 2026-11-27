@@ -51,7 +51,7 @@ class MediflowAppointment(models.Model):
         ("lab", "Lab Only"),
     ], default="consult")
     cancel_reason = fields.Char(string="Cancellation Reason")
-    encounter_id = fields.Many2one("mediflow.encounter", string="Encounter", readonly=True)
+    encounter_id = fields.Many2one("mediflow.encounter", string="Medical Appointment", readonly=True)
     state = fields.Selection([
         ("booked", "Booked"),
         ("confirmed", "Confirmed"),
